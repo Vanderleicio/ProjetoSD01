@@ -1,6 +1,7 @@
 
-State Machine - |main|receptor:recep|state
-Name state.START state.STOP state.DATA 
-state.START 0 0 0 
-state.DATA 1 0 1 
-state.STOP 1 1 0 
+State Machine - |dht11_receive|state
+Name state.I state.E state.S1 state.S0 
+state.S0 0 0 0 0 
+state.S1 0 0 1 1 
+state.E 0 1 0 1 
+state.I 1 0 0 1 

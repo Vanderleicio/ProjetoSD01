@@ -1,15 +1,15 @@
-Fitter Status : Successful - Thu Aug 24 09:23:52 2023
+Fitter Status : Successful - Sun Aug 27 23:47:13 2023
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : PBLSD
-Top-level Entity Name : main
+Top-level Entity Name : dht11_receive
 Family : Cyclone IV E
 Device : EP4CE30F23C7
 Timing Models : Final
-Total logic elements : 137 / 28,848 ( < 1 % )
-    Total combinational functions : 130 / 28,848 ( < 1 % )
-    Dedicated logic registers : 64 / 28,848 ( < 1 % )
-Total registers : 64
-Total pins : 12 / 329 ( 4 % )
+Total logic elements : 0 / 28,848 ( 0 % )
+    Total combinational functions : 0 / 28,848 ( 0 % )
+    Dedicated logic registers : 0 / 28,848 ( 0 % )
+Total registers : 0
+Total pins : 3 / 329 ( < 1 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )

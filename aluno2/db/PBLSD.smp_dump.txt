@@ -1,0 +1,6 @@
+
+State Machine - |main|receptor:recep|state
+Name state.START state.STOP state.DATA 
+state.START 0 0 0 
+state.DATA 1 0 1 
+state.STOP 1 1 0 

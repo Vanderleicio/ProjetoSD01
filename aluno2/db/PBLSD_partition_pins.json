@@ -8,6 +8,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "colum",
+					"strict" : false
+				},
+				{
 					"name" : "linhas[0]",
 					"strict" : false
 				},
@@ -40,11 +44,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "rx",
+					"name" : "out",
+					"strict" : false
+				},
+				{
+					"name" : "ch2",
 					"strict" : false
 				},
 				{
 					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rx",
 					"strict" : false
 				}
 			]

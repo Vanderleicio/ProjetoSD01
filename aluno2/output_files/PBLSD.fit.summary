@@ -1,15 +1,15 @@
-Fitter Status : Successful - Thu Aug 24 09:23:52 2023
+Fitter Status : Successful - Mon Aug 28 21:15:48 2023
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : PBLSD
 Top-level Entity Name : main
 Family : Cyclone IV E
 Device : EP4CE30F23C7
 Timing Models : Final
-Total logic elements : 137 / 28,848 ( < 1 % )
-    Total combinational functions : 130 / 28,848 ( < 1 % )
-    Dedicated logic registers : 64 / 28,848 ( < 1 % )
-Total registers : 64
-Total pins : 12 / 329 ( 4 % )
+Total logic elements : 263 / 28,848 ( < 1 % )
+    Total combinational functions : 255 / 28,848 ( < 1 % )
+    Dedicated logic registers : 135 / 28,848 ( < 1 % )
+Total registers : 135
+Total pins : 14 / 329 ( 4 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )

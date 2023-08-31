@@ -1,6 +1,6 @@
 module dht11_receive(input clk, input en, input reset, inout bitComunDHT11, output dados);
    
-   reg [39:0] data;// dados em paralelo
+   /*reg [39:0] data;// dados em paralelo
 	
    // Para máquina de estados
    reg [2:0] state;
@@ -83,5 +83,5 @@ module dht11_receive(input clk, input en, input reset, inout bitComunDHT11, outp
 				endcase
 			end //end do else reset 
 		end //end do enable
-	end //end do always
+	end*/ //end do always
 endmodule

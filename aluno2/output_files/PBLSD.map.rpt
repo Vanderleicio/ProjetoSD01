@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PBLSD
-Mon Aug 28 21:15:39 2023
+Thu Aug 31 08:11:18 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -53,16 +53,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 28 21:15:39 2023       ;
+; Analysis & Synthesis Status        ; Successful - Thu Aug 31 08:11:18 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PBLSD                                       ;
 ; Top-level Entity Name              ; main                                        ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 264                                         ;
-;     Total combinational functions  ; 255                                         ;
-;     Dedicated logic registers      ; 135                                         ;
-; Total registers                    ; 135                                         ;
-; Total pins                         ; 14                                          ;
+; Total logic elements               ; 263                                         ;
+;     Total combinational functions  ; 254                                         ;
+;     Dedicated logic registers      ; 136                                         ;
+; Total registers                    ; 136                                         ;
+; Total pins                         ; 15                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -190,30 +190,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 264       ;
+; Estimated Total logic elements              ; 263       ;
 ;                                             ;           ;
-; Total combinational functions               ; 255       ;
+; Total combinational functions               ; 254       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 116       ;
+;     -- 4 input functions                    ; 114       ;
 ;     -- 3 input functions                    ; 16        ;
-;     -- <=2 input functions                  ; 123       ;
+;     -- <=2 input functions                  ; 124       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 150       ;
+;     -- normal mode                          ; 149       ;
 ;     -- arithmetic mode                      ; 105       ;
 ;                                             ;           ;
-; Total registers                             ; 135       ;
-;     -- Dedicated logic registers            ; 135       ;
+; Total registers                             ; 136       ;
+;     -- Dedicated logic registers            ; 136       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 14        ;
+; I/O pins                                    ; 15        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 84        ;
+; Maximum fan-out                             ; 85        ;
 ; Total fan-out                               ; 1181      ;
-; Average fan-out                             ; 2.83      ;
+; Average fan-out                             ; 2.81      ;
 +---------------------------------------------+-----------+
 
 
@@ -222,10 +222,10 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Entity Name       ; Library Name ;
 +--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------------+--------------+
-; |main                          ; 255 (1)             ; 135 (0)                   ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |main                           ; main              ; work         ;
+; |main                          ; 254 (1)             ; 136 (0)                   ; 0           ; 0            ; 0       ; 0         ; 15   ; 0            ; |main                           ; main              ; work         ;
 ;    |baudRateGenerator:geradot| ; 17 (17)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|baudRateGenerator:geradot ; baudRateGenerator ; work         ;
 ;    |receptor:recep|            ; 112 (112)           ; 51 (51)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|receptor:recep            ; receptor          ; work         ;
-;    |transmissor:transm|        ; 125 (125)           ; 71 (71)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|transmissor:transm        ; transmissor       ; work         ;
+;    |transmissor:transm|        ; 124 (124)           ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|transmissor:transm        ; transmissor       ; work         ;
 +--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -259,12 +259,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 135   ;
+; Total registers                              ; 136   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 13    ;
 ; Number of registers using Asynchronous Clear ; 37    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 72    ;
+; Number of registers using Clock Enable       ; 74    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -274,12 +274,12 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; transmissor:transm|out                 ; 3       ;
-; transmissor:transm|counter[3]          ; 3       ;
-; transmissor:transm|counter[2]          ; 3       ;
-; transmissor:transm|counter[1]          ; 3       ;
+; transmissor:transm|out                 ; 2       ;
 ; transmissor:transm|counter[0]          ; 3       ;
-; transmissor:transm|counterWait[0]      ; 3       ;
+; transmissor:transm|counter[1]          ; 3       ;
+; transmissor:transm|counter[2]          ; 3       ;
+; transmissor:transm|counter[3]          ; 3       ;
+; transmissor:transm|counterWait[0]      ; 2       ;
 ; Total number of inverted registers = 6 ;         ;
 +----------------------------------------+---------+
 
@@ -320,18 +320,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +------------------------------------------------+
 ; Port Connectivity Checks: "transmissor:transm" ;
-+--------------+-------+----------+--------------+
-; Port         ; Type  ; Severity ; Details      ;
-+--------------+-------+----------+--------------+
-; data[2..5]   ; Input ; Info     ; Stuck at GND ;
-; data[7..8]   ; Input ; Info     ; Stuck at GND ;
-; data[10..14] ; Input ; Info     ; Stuck at GND ;
-; data[0]      ; Input ; Info     ; Stuck at GND ;
-; data[1]      ; Input ; Info     ; Stuck at VCC ;
-; data[6]      ; Input ; Info     ; Stuck at VCC ;
-; data[9]      ; Input ; Info     ; Stuck at VCC ;
-; data[15]     ; Input ; Info     ; Stuck at VCC ;
-+--------------+-------+----------+--------------+
++-------------+-------+----------+---------------+
+; Port        ; Type  ; Severity ; Details       ;
++-------------+-------+----------+---------------+
+; data[6..7]  ; Input ; Info     ; Stuck at VCC  ;
+; data[2..5]  ; Input ; Info     ; Stuck at GND  ;
+; data[8..14] ; Input ; Info     ; Stuck at GND  ;
+; data[0]     ; Input ; Info     ; Stuck at GND  ;
+; data[1]     ; Input ; Info     ; Stuck at VCC  ;
+; data[15]    ; Input ; Info     ; Stuck at VCC  ;
++-------------+-------+----------+---------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------+
@@ -358,25 +356,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 14                          ;
-; cycloneiii_ff         ; 135                         ;
+; boundary_port         ; 15                          ;
+; cycloneiii_ff         ; 136                         ;
 ;     CLR               ; 6                           ;
-;     ENA               ; 41                          ;
+;     ENA               ; 43                          ;
 ;     ENA CLR           ; 31                          ;
 ;     SLD               ; 13                          ;
-;     plain             ; 44                          ;
-; cycloneiii_lcell_comb ; 256                         ;
+;     plain             ; 43                          ;
+; cycloneiii_lcell_comb ; 255                         ;
 ;     arith             ; 105                         ;
 ;         2 data inputs ; 105                         ;
-;     normal            ; 151                         ;
+;     normal            ; 150                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 13                          ;
+;         2 data inputs ; 14                          ;
 ;         3 data inputs ; 16                          ;
-;         4 data inputs ; 116                         ;
+;         4 data inputs ; 114                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.95                        ;
+; Average LUT depth     ; 3.84                        ;
 +-----------------------+-----------------------------+
 
 
@@ -395,7 +393,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Aug 28 21:15:28 2023
+    Info: Processing started: Thu Aug 31 08:10:53 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PBLSD -c PBLSD
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -415,27 +413,30 @@ Info (12021): Found 1 design units, including 1 entities, in source file transmi
     Info (12023): Found entity 1: transmissor File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/transmissor.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file receptor.v
     Info (12023): Found entity 1: receptor File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/receptor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file dht11_receive.v
+    Info (12023): Found entity 1: dht11_receive File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/dht11_receive.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tris.v
+    Info (12023): Found entity 1: TRIS File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/TRIS.v Line: 1
 Info (12127): Elaborating entity "main" for the top level hierarchy
-Info (12128): Elaborating entity "baudRateGenerator" for hierarchy "baudRateGenerator:geradot" File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/main.v Line: 5
-Info (12128): Elaborating entity "receptor" for hierarchy "receptor:recep" File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/main.v Line: 7
-Info (12128): Elaborating entity "transmissor" for hierarchy "transmissor:transm" File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/main.v Line: 9
-Warning (10230): Verilog HDL assignment warning at transmissor.v(41): truncated value with size 32 to match size of target (1) File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/transmissor.v Line: 41
+Info (12128): Elaborating entity "baudRateGenerator" for hierarchy "baudRateGenerator:geradot" File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/main.v Line: 4
+Info (12128): Elaborating entity "receptor" for hierarchy "receptor:recep" File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/main.v Line: 6
+Info (12128): Elaborating entity "transmissor" for hierarchy "transmissor:transm" File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/main.v Line: 8
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (13000): Registers with preset signals will power-up high File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/transmissor.v Line: 29
+Info (13000): Registers with preset signals will power-up high File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/transmissor.v Line: 31
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/output_files/PBLSD.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 279 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 281 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 265 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4762 megabytes
-    Info: Processing ended: Mon Aug 28 21:15:39 2023
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:17
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 266 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4758 megabytes
+    Info: Processing ended: Thu Aug 31 08:11:18 2023
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:14
 
 
 +------------------------------------------+

@@ -1,12 +1,14 @@
-module transmissor(clk_115200hz, out, data, start, debug);
+module transmissor(clk_115200hz, out, data, start, debug, debug2);
 
 input clk_115200hz, start; // clock e sinal de enable vindo do modulo decodificador
 input [0:15]data;  // dados a serem transmitidos
 output out;  // pino de saída por onde trafegarão os bit em serial
 output debug;
+output debug2;
 
 reg reset = 0;
 
+reg debug2 = 1'b0;
 reg debug = 1'b0;
 reg out = 1'b1;
 reg [1:0]state;
@@ -33,12 +35,12 @@ always @ (posedge clk_115200hz or posedge reset) begin
 						
 						if (waitBit) begin
 							if (counterWait < 0) begin
-								debug <= 1'b1;
 								waitBit = 0;
 								state <= DATA;
+								out = 1'b0;
 							end
 							else begin
-								out = counterWait;
+								out = 1'b1;
 								counterWait = counterWait - 1;
 							end
 						end
@@ -60,16 +62,23 @@ always @ (posedge clk_115200hz or posedge reset) begin
 						state <= STOP;
 					end
 					else begin     // se counter > 0 poe o bit data[counter] na saída e decrementa o counter
-
+						
 						out = data[counter];
-						counter <= counter - 1;
 						if (counter == 7) begin
-							
+							out = data[7];
+						end
+						debug <= data[counter];
+						counter <= counter - 1;
+						
+						if (counter == 7) begin
+							debug2 <= 1'b1;
 							waitBit = 1;
 							out = 1'b1;
 							state <= START;
 						end 
+						
 						else begin
+							debug2 <= 1'b0;
 							state <= DATA;
 						end
 					end

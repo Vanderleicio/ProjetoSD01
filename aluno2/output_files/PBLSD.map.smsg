@@ -1,4 +1,4 @@
-Warning (10268): Verilog HDL information at transmissor.v(22): always construct contains both blocking and non-blocking assignments File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/transmissor.v Line: 22
+Warning (10268): Verilog HDL information at transmissor.v(24): always construct contains both blocking and non-blocking assignments File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/transmissor.v Line: 24
 Info (10281): Verilog HDL Declaration information at transmissor.v(3): object "start" differs only in case from object "START" in the same scope File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/transmissor.v Line: 3
 Info (10281): Verilog HDL Declaration information at transmissor.v(4): object "data" differs only in case from object "DATA" in the same scope File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/transmissor.v Line: 4
 Warning (10268): Verilog HDL information at receptor.v(17): always construct contains both blocking and non-blocking assignments File: C:/Users/vande/Documents/SD/ProjetoSD01/aluno2/receptor.v Line: 17

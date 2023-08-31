@@ -2,80 +2,80 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : -3.740
-TNS   : -139.204
-
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -3.253
-TNS   : -203.276
+Slack : -4.289
+TNS   : -212.641
+
+Type  : Slow 1200mV 85C Model Setup 'baudRateGenerator:geradot|baudRateReg[0]'
+Slack : -3.934
+TNS   : -151.428
 
 Type  : Slow 1200mV 85C Model Hold 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : 0.391
+Slack : 0.392
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.394
+Slack : 0.395
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'clk'
-Slack : -0.553
-TNS   : -12.985
+Slack : -0.663
+TNS   : -14.801
 
 Type  : Slow 1200mV 85C Model Removal 'clk'
-Slack : 0.609
+Slack : 0.769
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -110.940
+TNS   : -112.225
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'baudRateGenerator:geradot|baudRateReg[0]'
 Slack : -1.285
 TNS   : -65.535
 
-Type  : Slow 1200mV 0C Model Setup 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : -3.270
-TNS   : -122.458
-
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -2.895
-TNS   : -175.599
+Slack : -3.871
+TNS   : -184.628
+
+Type  : Slow 1200mV 0C Model Setup 'baudRateGenerator:geradot|baudRateReg[0]'
+Slack : -3.566
+TNS   : -135.838
 
 Type  : Slow 1200mV 0C Model Hold 'baudRateGenerator:geradot|baudRateReg[0]'
 Slack : 0.344
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.345
+Slack : 0.346
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'clk'
-Slack : -0.389
-TNS   : -7.986
+Slack : -0.496
+TNS   : -9.316
 
 Type  : Slow 1200mV 0C Model Removal 'clk'
-Slack : 0.538
+Slack : 0.699
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -110.940
+TNS   : -112.225
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'baudRateGenerator:geradot|baudRateReg[0]'
 Slack : -1.285
 TNS   : -65.535
 
-Type  : Fast 1200mV 0C Model Setup 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : -1.342
-TNS   : -43.046
-
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.148
-TNS   : -58.622
+Slack : -1.694
+TNS   : -63.508
+
+Type  : Fast 1200mV 0C Model Setup 'baudRateGenerator:geradot|baudRateReg[0]'
+Slack : -1.382
+TNS   : -49.406
 
 Type  : Fast 1200mV 0C Model Hold 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : 0.177
+Slack : 0.178
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
@@ -83,16 +83,16 @@ Slack : 0.178
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'clk'
-Slack : 0.191
+Slack : 0.165
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'clk'
-Slack : 0.307
+Slack : 0.369
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -92.496
+TNS   : -93.982
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'baudRateGenerator:geradot|baudRateReg[0]'
 Slack : -1.000

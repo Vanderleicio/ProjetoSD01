@@ -1,0 +1,80 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/vande/Documents/SD/ProjetoSD01/aluno2/simulation/qsim
+vhard_block
+Z1 !s110 1693480318
+!i10b 1
+!s100 >nam06L;oc=1]AbD:9@2G3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IZ50OBGlB[mH@16L_KCAZ]1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1693480316
+Z5 8PBLSD.vo
+Z6 FPBLSD.vo
+!i122 36
+L0 7830 34
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1693480318.000000
+Z9 !s107 PBLSD.vo|
+Z10 !s90 -work|work|PBLSD.vo|
+!i113 1
+Z11 o-work work
+Z12 tCvgOpt 0
+vmain
+R1
+!i10b 1
+!s100 MW@81@:YJ2YEG_1b@5Lk23
+R2
+I8:jzCe`CkRZKfIc;3GJZ:1
+R3
+R0
+R4
+R5
+R6
+!i122 36
+L0 32 7797
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+vmain_vlg_vec_tst
+R1
+!i10b 1
+!s100 D^cbmBbon8fzCn@TEXcY71
+R2
+IjDHXL0zMM]MH?]TQIBY=>0
+R3
+R0
+w1693480315
+8Waveform2.vwf.vt
+FWaveform2.vwf.vt
+!i122 37
+L0 30 51
+R7
+r1
+!s85 0
+31
+R8
+!s107 Waveform2.vwf.vt|
+!s90 -work|work|Waveform2.vwf.vt|
+!i113 1
+R11
+R12

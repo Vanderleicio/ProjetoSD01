@@ -2,17 +2,18 @@
 clk => clk.IN2
 rx => rx.IN1
 ch2 => ch2.IN1
-led <= receptor:recep.port4
-colum <= transmissor:transm.port4
-linhas[0] <= receptor:recep.port2
-linhas[1] <= receptor:recep.port2
-linhas[2] <= receptor:recep.port2
-linhas[3] <= receptor:recep.port2
-linhas[4] <= receptor:recep.port2
-linhas[5] <= receptor:recep.port2
-linhas[6] <= receptor:recep.port2
-linhas[7] <= receptor:recep.port2
-out <= transmissor:transm.port1
+led << receptor:recep.port4
+colum << transmissor:transm.port4
+linhas[0] << receptor:recep.port2
+linhas[1] << receptor:recep.port2
+linhas[2] << receptor:recep.port2
+linhas[3] << receptor:recep.port2
+linhas[4] << receptor:recep.port2
+linhas[5] << receptor:recep.port2
+linhas[6] << receptor:recep.port2
+linhas[7] << receptor:recep.port2
+out << transmissor:transm.port1
+debug2 << transmissor:transm.port5
 
 
 |main|baudRateGenerator:geradot
@@ -120,6 +121,7 @@ led <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |main|transmissor:transm
+clk_115200hz => debug2~reg0.CLK
 clk_115200hz => debug~reg0.CLK
 clk_115200hz => counter[0].CLK
 clk_115200hz => counter[1].CLK
@@ -199,6 +201,7 @@ data[10] => Mux0.IN10
 data[9] => Mux0.IN9
 data[8] => Mux0.IN8
 data[7] => Mux0.IN7
+data[7] => out.DATAB
 data[6] => Mux0.IN6
 data[5] => Mux0.IN5
 data[4] => Mux0.IN4
@@ -206,7 +209,6 @@ data[3] => Mux0.IN3
 data[2] => Mux0.IN2
 data[1] => Mux0.IN1
 data[0] => Mux0.IN0
-start => debug.OUTPUTSELECT
 start => waitBit.OUTPUTSELECT
 start => state.OUTPUTSELECT
 start => state.OUTPUTSELECT
@@ -245,5 +247,6 @@ start => counterWait.OUTPUTSELECT
 start => counterWait.OUTPUTSELECT
 start => counterWait.OUTPUTSELECT
 debug <= debug~reg0.DB_MAX_OUTPUT_PORT_TYPE
+debug2 <= debug2~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

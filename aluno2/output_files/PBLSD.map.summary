@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Thu Aug 31 23:17:16 2023
+Analysis & Synthesis Status : Successful - Thu Aug 31 23:25:38 2023
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : PBLSD
 Top-level Entity Name : main
 Family : Cyclone IV E
-Total logic elements : 309
-    Total combinational functions : 301
+Total logic elements : 303
+    Total combinational functions : 295
     Dedicated logic registers : 134
 Total registers : 134
 Total pins : 18

@@ -90,12 +90,24 @@ module transmissor(clk_9k6hz, tx, data, en, state, fim1, fim2);
 					tx = 1'b1;
 					if (pos == 7) begin
 						fim1 = 1'b1;
-						state = START;// Sem espera
-						//state = WAIT;
+						//state = START;// Sem espera
+						state = WAIT;
 					end
 					else begin
 						fim2 = 1'b1;
 						state = IDLE;
+					end
+				end
+			// ESTADO QUE SÓ SERVE PARA GERAR UMA ESPERA DE 3 CICLOS PARA PODER MANDAR OS DOIS DADOS
+			WAIT:
+				begin
+					tx = 1'b1;
+					if (waitCycles != 0) begin
+						waitCycles = waitCycles - 1;
+						state = WAIT;
+					end
+					else begin
+						state = START;
 					end
 				end
 		endcase

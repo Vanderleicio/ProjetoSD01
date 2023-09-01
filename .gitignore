@@ -1,5 +1,7 @@
 # Prerequisites
 *.d
+aluno2/db
+aluno2\db
 
 # Object files
 *.o

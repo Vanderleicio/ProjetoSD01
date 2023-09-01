@@ -35,7 +35,7 @@ int main() {
 	tcsetattr(fd, TCSANOW, &options);
 
 	/* Write to serial port */
-	strcpy(text, "1");
+	strcpy(text, "B");
 	len = strlen(text);
 	// escREVE
 	len = write(fd, text, len);
@@ -53,14 +53,21 @@ int main() {
 	//Fim dos testes loucos alucinados
 	
 	printf("You have 5s to send me some input data...\n");
-	sleep(5);
+	sleep(10);
 
-	/* Read from serial port 
+	// Read from serial port 
 	memset(text, 0, 255);
 	len = read(fd, text, 255);
 	printf("Received %d bytes\n", len);
 	printf("Received string: %s\n", text);
-*/
+	
+	unsigned char *pST = (unsigned char *)&text;
+    
+    	for (int i = 0; i < len * sizeof(char); i++) {
+        	printf("Byte %d: ", i + 1);
+        	printBinary(pST[i]);
+        	printf("\n");
+    	}
 
 	close(fd);
 	return 0;

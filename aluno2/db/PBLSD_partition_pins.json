@@ -40,11 +40,27 @@
 					"strict" : false
 				},
 				{
-					"name" : "rx",
+					"name" : "tx",
+					"strict" : false
+				},
+				{
+					"name" : "fim1",
+					"strict" : false
+				},
+				{
+					"name" : "fim2",
+					"strict" : false
+				},
+				{
+					"name" : "ch2",
 					"strict" : false
 				},
 				{
 					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rx",
 					"strict" : false
 				}
 			]

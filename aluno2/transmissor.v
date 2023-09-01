@@ -3,19 +3,19 @@ O canal Tx fica em nível alto quando não está transmitindo nada
 O módulo faz o envio de 2 bytes, envia primeiro 1 byte e já parte para o próximo.
 O start-bit é colocando um nível baixo no tx , após isso envia-se os dados
 Após os 8 bits de dados, joga o end-bit que é o nível lógico em 1 tx
+espera n ciclos de clock e envia o segundo byte
 */
 
-module transmissor(clk_9k6hz, tx, data, en, state, fim1, fim2);
+module transmissor(clk_9k6hz, tx, data, en);
 
 	input clk_9k6hz; // clock
 	input en;// Sinal que, em 1, irá habilitar o processo de transmissão.
 	
 	input [0:15]data;  // dados a serem transmitidos, está invertido para mandar primeiro o 15 (menos significativo)
-	output reg tx, fim1, fim2;  // pino de saída por onde trafegarão os bit em serial
+	output reg tx;  // pino de saída por onde trafegarão os bit em serial
 	
 	// Para lógica de estados
-	output reg [2:0] state;
-	reg [2:0] nextstate;
+	reg [2:0] state;
 	//
 	parameter IDLE = 3'b000;
 	parameter START= 3'b001;
@@ -24,14 +24,10 @@ module transmissor(clk_9k6hz, tx, data, en, state, fim1, fim2);
 	parameter WAIT = 3'b100;//Ver se é necessário esperar 1 ciclo ou 2 antes da segunda parte do bit
 	integer waitCycles = 3;// Variável para contar o nº de ciclos que deve-se esperar antes de enviar o 2º byte
 
-	
-					
 	integer pos = 15;// Indica qual o bit do array será transmitido
 	
 	// Só para iniciar em espera
 	initial begin
-		fim1 = 1'b0;
-		fim2 = 1'b0;
 		tx = 1'b1;
 		state <= IDLE;
 	end
@@ -62,39 +58,39 @@ module transmissor(clk_9k6hz, tx, data, en, state, fim1, fim2);
 						state = IDLE;
 					end
 					else begin
-						// Informo que vou começar a transmitir
-						tx = 1'b0; //Ver para pôr no assign
+						tx = 1'b0; //Informo o start-bit
 						state = DATA;
 					end
 				end
 			// TRANSMITINDO OS DADOS
 			DATA:
 				begin
-					tx = data[pos]; //Ver para pôr no assign
+					tx = data[pos]; //
 					pos = pos - 1;
-					// Se já transmitiu o primeiro byte
+					// Se encerrou a transmissão do primeiro byte
 					if (pos == 7) begin
 						state = STOP;
 					end
+					// Se encerrou a transmissão do segundo byte
 					else if (pos == -1) begin
 						state = STOP;
 					end
+					// Se está no meio do processo de enviar algum byte
 					else begin
-						//tx = data[pos]; //Ver para pôr no assign
-						//pos = pos - 1;
 						state = DATA;
 					end
 				end
-			STOP: //15 14 13 12 11 10 9 8
+			// Encerrando a transmissão do byte
+			STOP:
 				begin
-					tx = 1'b1;
+					tx = 1'b1;// Informe o stop-bit
+					// Se ainda não terminei o segundo byte
 					if (pos == 7) begin
-						fim1 = 1'b1;
 						//state = START;// Sem espera
 						state = WAIT;
 					end
+					// Se já encerrei todo o processo (2 bytes)
 					else begin
-						fim2 = 1'b1;
 						state = IDLE;
 					end
 				end

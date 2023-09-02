@@ -1,0 +1,94 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "09/01/2023 21:16:25"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          main
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module main_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg ch2;
+reg clk;
+reg rx;
+// wires                                               
+wire colum;
+wire control;
+wire [7:0] linhas;
+wire tx;
+
+// assign statements (if any)                          
+main i1 (
+// port map - connection between master ports and signals/registers   
+	.ch2(ch2),
+	.clk(clk),
+	.colum(colum),
+	.control(control),
+	.linhas(linhas),
+	.rx(rx),
+	.tx(tx)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+
+// ch2
+initial
+begin
+	ch2 = 1'b0;
+	ch2 = #160000 1'b1;
+	ch2 = #450000 1'b0;
+end 
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #10000 1'b1;
+	#10000;
+end 
+
+// rx
+initial
+begin
+	rx = 1'b1;
+	rx = #110000 1'b0;
+	rx = #20000 1'b1;
+	rx = #20000 1'b0;
+	rx = #20000 1'b1;
+	rx = #40000 1'b0;
+	rx = #20000 1'b1;
+	rx = #20000 1'b0;
+	rx = #40000 1'b1;
+	rx = #20000 1'b0;
+	rx = #40000 1'b1;
+	rx = #20000 1'b0;
+	rx = #40000 1'b1;
+	rx = #20000 1'b0;
+	rx = #60000 1'b1;
+end 
+endmodule
+

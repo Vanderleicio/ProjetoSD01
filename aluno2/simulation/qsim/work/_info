@@ -10,23 +10,23 @@ z2
 cModel Technology
 dC:/Users/vande/Documents/SD/ProjetoSD01/aluno2/simulation/qsim
 vhard_block
-Z0 !s110 1693535231
+Z0 !s110 1693613786
 !i10b 1
-!s100 `jzK^:e?_EMkJPhWX=b5L1
+!s100 fZj[C6@lE12:e^EklOd:63
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I4S?Z:J^0VNkVMZ5Ell9Bi3
+IWV;<TUK>1^Q_CgnDHQImL2
 Z2 VDg1SIo80bB@j0V0VzS_@n1
-Z3 dC:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/simulation/qsim
-Z4 w1693535231
+Z3 dC:/Users/washi/Downloads/Sistemas Digitais/aluno2/simulation/qsim
+Z4 w1693613786
 Z5 8PBLSD.vo
 Z6 FPBLSD.vo
-!i122 84
-L0 8567 34
+!i122 94
+L0 6419 34
 Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1693535231.000000
+Z8 !s108 1693613786.000000
 Z9 !s107 PBLSD.vo|
 Z10 !s90 -work|work|PBLSD.vo|
 !i113 1
@@ -35,16 +35,16 @@ Z12 tCvgOpt 0
 vmain
 R0
 !i10b 1
-!s100 HlalQ0Q6W;N69lRNzRczC1
+!s100 g82D6==fHNoa7K3^SeF?]2
 R1
-I0lAzlo05WN4W;Qg[fk3280
+IDTN8<EaP9@P9=08<P:TL42
 R2
 R3
 R4
 R5
 R6
-!i122 84
-L0 32 8534
+!i122 94
+L0 32 6386
 R7
 r1
 !s85 0
@@ -58,23 +58,23 @@ R12
 vmain_vlg_vec_tst
 R0
 !i10b 1
-!s100 kd<gmZ^lj>A1zH162SRkP3
+!s100 G=H7DT0WM?T:Xl_0?KnUH3
 R1
-IP9dI[ejn?:M496l[XSd>E1
+IlQ66=c@Xd@>;P7cd[9nO82
 R2
 R3
-w1693535230
-8Waveform5.vwf.vt
-FWaveform5.vwf.vt
-!i122 85
-L0 30 56
+w1693613785
+8Waveform6.vwf.vt
+FWaveform6.vwf.vt
+!i122 95
+L0 30 64
 R7
 r1
 !s85 0
 31
 R8
-!s107 Waveform5.vwf.vt|
-!s90 -work|work|Waveform5.vwf.vt|
+!s107 Waveform6.vwf.vt|
+!s90 -work|work|Waveform6.vwf.vt|
 !i113 1
 R11
 R12

@@ -15,14 +15,12 @@ module transmissor(clk_9k6hz, tx, data, en);
 	output reg tx;  // pino de saída por onde trafegarão os bit em serial
 	
 	// Para lógica de estados
-	reg [2:0] state;
+	reg [1:0] state;
 	//
-	parameter IDLE = 3'b000;
-	parameter START= 3'b001;
-	parameter DATA = 3'b010;
-	parameter STOP = 3'b011;
-	parameter WAIT = 3'b100;//Ver se é necessário esperar 1 ciclo ou 2 antes da segunda parte do bit
-	integer waitCycles = 3;// Variável para contar o nº de ciclos que deve-se esperar antes de enviar o 2º byte
+	parameter IDLE = 2'b00;
+	parameter START= 2'b01;
+	parameter DATA = 2'b10;
+	parameter STOP = 2'b11;
 
 	integer pos = 15;// Indica qual o bit do array será transmitido
 	
@@ -42,7 +40,6 @@ module transmissor(clk_9k6hz, tx, data, en);
 			IDLE:
 				begin
 					pos = 15;// Reinicia o indicador da posição p/ transmitir
-					waitCycles = 3;
 					tx = 1'b1;
 					if (en) begin
 						state = START;
@@ -54,13 +51,8 @@ module transmissor(clk_9k6hz, tx, data, en);
 			// COMEÇA A TRANSMISSÃO
 			START:
 				begin
-					if (~en) begin
-						state = IDLE;
-					end
-					else begin
-						tx = 1'b0; //Informo o start-bit
-						state = DATA;
-					end
+					tx = 1'b0; //Informo o start-bit
+					state = DATA;
 				end
 			// TRANSMITINDO OS DADOS
 			DATA:
@@ -86,24 +78,11 @@ module transmissor(clk_9k6hz, tx, data, en);
 					tx = 1'b1;// Informe o stop-bit
 					// Se ainda não terminei o segundo byte
 					if (pos == 7) begin
-						//state = START;// Sem espera
-						state = WAIT;
+						state = START;// Sem espera
 					end
 					// Se já encerrei todo o processo (2 bytes)
 					else begin
 						state = IDLE;
-					end
-				end
-			// ESTADO QUE SÓ SERVE PARA GERAR UMA ESPERA DE 3 CICLOS PARA PODER MANDAR OS DOIS DADOS
-			WAIT:
-				begin
-					tx = 1'b1;
-					if (waitCycles != 0) begin
-						waitCycles = waitCycles - 1;
-						state = WAIT;
-					end
-					else begin
-						state = START;
 					end
 				end
 		endcase

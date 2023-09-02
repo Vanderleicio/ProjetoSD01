@@ -3,40 +3,20 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -5.149
-TNS   : -272.483
-
-Type  : Slow 1200mV 85C Model Setup 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : -3.664
-TNS   : -133.104
-
-Type  : Slow 1200mV 85C Model Hold 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : 0.391
-TNS   : 0.000
+Slack : -5.314
+TNS   : -307.260
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.394
+Slack : 0.393
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -109.655
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : -1.285
-TNS   : -65.535
+TNS   : -117.365
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -4.558
-TNS   : -240.267
-
-Type  : Slow 1200mV 0C Model Setup 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : -3.255
-TNS   : -118.182
-
-Type  : Slow 1200mV 0C Model Hold 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : 0.344
-TNS   : 0.000
+Slack : -4.693
+TNS   : -272.170
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
 Slack : 0.345
@@ -44,34 +24,18 @@ TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -109.655
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : -1.285
-TNS   : -65.535
+TNS   : -117.365
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.947
-TNS   : -91.791
-
-Type  : Fast 1200mV 0C Model Setup 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : -1.220
-TNS   : -38.742
-
-Type  : Fast 1200mV 0C Model Hold 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : 0.177
-TNS   : 0.000
+Slack : -2.050
+TNS   : -104.251
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.179
+Slack : 0.177
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -90.259
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'baudRateGenerator:geradot|baudRateReg[0]'
-Slack : -1.000
-TNS   : -51.000
+TNS   : -97.015
 
 ------------------------------------------------------------

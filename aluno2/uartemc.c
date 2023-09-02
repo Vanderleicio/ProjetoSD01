@@ -11,10 +11,11 @@ void printBinary(unsigned char byte) {
 }
 
 int main() {
+	int numBytes = 2;
 	int fd, len;
-	char text[255];
+	char text[numBytes];// só salvo dois bytes(char) por vez
 	struct termios options; /* Serial ports setting */
-
+	// Informando a porta, que é de leitura e escrita, sem delay
 	fd = open("/dev/ttyS0", O_RDWR | O_NDELAY | O_NOCTTY);
 	if (fd < 0) {
 		perror("Error opening serial port");
@@ -25,6 +26,7 @@ int main() {
 	// tcgetattr(fd, &options);
 	
 	/* Set up serial port */
+	// baud rate 9k6, 8bits, n sei, n sei
 	options.c_cflag = B9600 | CS8 | CLOCAL | CREAD;
 	options.c_iflag = IGNPAR;
 	options.c_oflag = 0;
@@ -34,41 +36,50 @@ int main() {
 	tcflush(fd, TCIFLUSH);
 	tcsetattr(fd, TCSANOW, &options);
 
-	/* Write to serial port */
-	strcpy(text, "B");
+	/** ######### TRECHO PARA ENVIAR ######### */
+	///**
+	strcpy(text, "BA");
 	len = strlen(text);
-	// escREVE
+	// ESCREVE NA PORTA
 	len = write(fd, text, len);
-	printf("Wrote %d bytes over UART\n", len);
+	//
+	printf("Você vai escrever os caracteres %s\n", text);
+	printf("Que representam %d bytes\n", len);
 	
-	//Testes loucos alucinados
+	// INFORMANDO O BINÁRIO doq foi enviado
     	unsigned char *ptr = (unsigned char *)&text;
-    
-    	for (int i = 0; i < sizeof(char); i++) {
+    	for (int i = 0; i < numBytes*sizeof(char); i++) {
         	printf("Byte %d: ", i + 1);
         	printBinary(ptr[i]);
         	printf("\n");
     	}
+    	//*/
+	/** ######### FIM TRECHO PARA ENVIAR ######### */
 	
-	//Fim dos testes loucos alucinados
 	
-	printf("You have 5s to send me some input data...\n");
-	sleep(10);
+	
+	
+	/** ######### TRECHO PARA RECEBER ######### */
+	///**
+	printf("Tem 5s para mandar os dados, corre!\n");
+	sleep(5);
 
 	// Read from serial port 
-	memset(text, 0, 255);
-	len = read(fd, text, 255);
-	printf("Received %d bytes\n", len);
-	printf("Received string: %s\n", text);
+	memset(text, 0, numBytes);
+	len = read(fd, text, numBytes);
+	printf("===================\n");
+	printf("Recebi %d bytes\n", len);
+	printf("Recebi as strings: %s\n", text);
 	
 	unsigned char *pST = (unsigned char *)&text;
     
-    	for (int i = 0; i < len * sizeof(char); i++) {
+    	for (int i = 0; i < numBytes * sizeof(char); i++) {
         	printf("Byte %d: ", i + 1);
         	printBinary(pST[i]);
         	printf("\n");
     	}
-
-	close(fd);
+    	//*/
+	/** ######### FIM TRECHO PARA RECEBER ######### */
+	close(fd);// fecha a porta
 	return 0;
 }

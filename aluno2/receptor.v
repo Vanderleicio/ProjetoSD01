@@ -1,52 +1,76 @@
-module receptor(clk_115200hz, rx, data, control, led);
+module receptor(clk_9k6hz, rx, data, concluded);
 
-	input clk_115200hz, rx;		// in = sinal vindo da raspberry	
-	output control, led;				// sinal de enable do decodificador
-	reg control = 1'b0;
+	input clk_9k6hz; // clock
+	//input en;// Sinal que, em 1, irá habilitar o processo de recepçao.
+	input rx;		// sinal vindo do pc	
 	
-	output [7:0]data;           // registrador de dados que enviará os dados recebidos para o decodificador
-	reg [7:0]data;	
-	reg [7:0]buffer;            //buffer temporário para receber os dados
-	reg [1:0]state;				// registrador de estados da maquina de estados
-		parameter START = 0, 
-					 DATA = 1,
-					 STOP = 2;			 
+	output reg concluded = 1'b0;// Sinal para informar que recebi 2 bytes
+	
+	output reg [15:0]data;           //registrador de dados que enviará os dados recebidos para o decodificador
+	reg [15:0]buffer;            //buffer temporário para receber os dados
+	
+	// Para lógica de estados
+	reg [1:0] state;
+	//
+	parameter IDLE = 2'b00;
+	parameter START= 2'b01;
+	parameter DATA = 2'b10;
+	parameter STOP = 2'b11;		 
 
-	integer counter = 0;		
-
-	always @ (posedge clk_115200hz) begin
+	integer pos = 0;// Indica qual o bit do array será transmitidos	
+	// Só para iniciar em espera
+	initial begin
+		concluded = 1'b0;
+		state <= START;
+	end
+	
+	
+	always @ (posedge clk_9k6hz) begin
 		case (state)
+			// Fica esperando o sinal de start
 			START:
 				begin
-					if(rx) begin		// in == 1 => idle
-						control = 1'b0;
-						state <= START;
+					// Se cheguei aqui, mas ja terminei o 2° byte. Volte a contar do inicio
+					if (pos == 16) begin
+						pos = 0;
+						concluded = 1'b0;
 					end
-					else					// in == 0 => start bit
-						state <= DATA;
+					
+					if(rx) begin// Nao recebi o start-bit
+						state = START;
+					end
+					else// Recebi o start-bit
+						state = DATA;
 				end
 			DATA:
 				begin
-					if(counter > 7) begin  // Se counter > 7 acabou a recepção
-						control = 1'b0;
-						state <= STOP;
+					data[pos] = rx;
+					pos = pos + 1;
+					if(pos == 8) begin// Acabou a recepção do 1° byte
+						state = STOP;
 					end
-					else begin		    	// Se counter < 7 armazena o bit atual no buffer e incrementa counter
-						buffer[counter] = rx;
-						counter = counter + 1;		
-						state <= DATA;
+					else if (pos == 16) begin// Acabou a recepção do 2° byte
+						state = STOP;
+					end
+					else begin// Continua no DATA
+						//buffer[counter] = rx;
+						//counter = counter + 1;		
+						state = DATA;
 					end	
 				end
 			STOP:
 				begin
-					data[7:0] <= buffer [7:0];  // registrador data recebe o buffer que é passado para saída
-					counter <= 0; 				// reseta counter
-					control <= 1'b1;			// seta o controle do decodificador em 1
-					state <= START;
-					
+					// Se terminei o 2º byte, informo que terminei
+					//if (pos == 8) begin
+					//	data[7:0] = buffer[7:0];
+					//end
+					if (pos == 16) begin
+						//data[15:0] <= buffer[15:0];// registrador data recebe o buffer que é passado para saída
+						concluded = 1'b1; // Informa 
+					end
+					state = START;
 				end
 		endcase
 	end
 	
-	assign led = (data == 8'b00110010);
 endmodule

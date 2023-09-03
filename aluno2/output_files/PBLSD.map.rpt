@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PBLSD
-Thu Aug 24 09:23:47 2023
+Sun Sep 03 13:09:30 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,14 +13,11 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |main|receptor:recep|state
-  9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: receptor:recep
- 11. Port Connectivity Checks: "receptor:recep"
- 12. Port Connectivity Checks: "baudRateGenerator:geradot"
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
+ 12. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -47,16 +44,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Aug 24 09:23:47 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sun Sep 03 13:09:30 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PBLSD                                       ;
-; Top-level Entity Name              ; main                                        ;
+; Top-level Entity Name              ; DESPACHANTE                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 138                                         ;
-;     Total combinational functions  ; 130                                         ;
-;     Dedicated logic registers      ; 64                                          ;
-; Total registers                    ; 64                                          ;
-; Total pins                         ; 12                                          ;
+; Total logic elements               ; 12                                          ;
+;     Total combinational functions  ; 12                                          ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 38                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -70,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE30F23C7       ;                    ;
-; Top-level entity name                                            ; main               ; PBLSD              ;
+; Top-level entity name                                            ; DESPACHANTE        ; PBLSD              ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -155,84 +152,66 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                   ;
-+---------------------------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                  ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                    ; Library ;
-+---------------------------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------+---------+
-; ProjetoSD01-baudrateGenerator/baudRateGenerator.v ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/aluno2/ProjetoSD01-baudrateGenerator/baudRateGenerator.v ;         ;
-; main.v                                            ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/aluno2/main.v                                            ;         ;
-; receptor.v                                        ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/aluno2/receptor.v                                        ;         ;
-+---------------------------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
+; DESPACHANTE.v                    ; yes             ; User Verilog HDL File  ; C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                    ;
-+---------------------------------------------+----------------------------------+
-; Resource                                    ; Usage                            ;
-+---------------------------------------------+----------------------------------+
-; Estimated Total logic elements              ; 138                              ;
-;                                             ;                                  ;
-; Total combinational functions               ; 130                              ;
-; Logic element usage by number of LUT inputs ;                                  ;
-;     -- 4 input functions                    ; 66                               ;
-;     -- 3 input functions                    ; 13                               ;
-;     -- <=2 input functions                  ; 51                               ;
-;                                             ;                                  ;
-; Logic elements by mode                      ;                                  ;
-;     -- normal mode                          ; 87                               ;
-;     -- arithmetic mode                      ; 43                               ;
-;                                             ;                                  ;
-; Total registers                             ; 64                               ;
-;     -- Dedicated logic registers            ; 64                               ;
-;     -- I/O registers                        ; 0                                ;
-;                                             ;                                  ;
-; I/O pins                                    ; 12                               ;
-;                                             ;                                  ;
-; Embedded Multiplier 9-bit elements          ; 0                                ;
-;                                             ;                                  ;
-; Maximum fan-out node                        ; baudRateGenerator:geradot|Equal0 ;
-; Maximum fan-out                             ; 64                               ;
-; Total fan-out                               ; 583                              ;
-; Average fan-out                             ; 2.67                             ;
-+---------------------------------------------+----------------------------------+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+; Estimated Total logic elements              ; 12                  ;
+;                                             ;                     ;
+; Total combinational functions               ; 12                  ;
+; Logic element usage by number of LUT inputs ;                     ;
+;     -- 4 input functions                    ; 3                   ;
+;     -- 3 input functions                    ; 9                   ;
+;     -- <=2 input functions                  ; 0                   ;
+;                                             ;                     ;
+; Logic elements by mode                      ;                     ;
+;     -- normal mode                          ; 12                  ;
+;     -- arithmetic mode                      ; 0                   ;
+;                                             ;                     ;
+; Total registers                             ; 0                   ;
+;     -- Dedicated logic registers            ; 0                   ;
+;     -- I/O registers                        ; 0                   ;
+;                                             ;                     ;
+; I/O pins                                    ; 38                  ;
+;                                             ;                     ;
+; Embedded Multiplier 9-bit elements          ; 0                   ;
+;                                             ;                     ;
+; Maximum fan-out node                        ; addres_req[1]~input ;
+; Maximum fan-out                             ; 9                   ;
+; Total fan-out                               ; 86                  ;
+; Average fan-out                             ; 0.98                ;
++---------------------------------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                            ;
-+--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Entity Name       ; Library Name ;
-+--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------------+--------------+
-; |main                          ; 130 (1)             ; 64 (0)                    ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |main                           ; main              ; work         ;
-;    |baudRateGenerator:geradot| ; 17 (17)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|baudRateGenerator:geradot ; baudRateGenerator ; work         ;
-;    |receptor:recep|            ; 112 (112)           ; 51 (51)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|receptor:recep            ; receptor          ; work         ;
-+--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |DESPACHANTE               ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 38   ; 0            ; |DESPACHANTE        ; DESPACHANTE ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+-----------------------------------------------------+
-; State Machine - |main|receptor:recep|state          ;
-+-------------+-------------+------------+------------+
-; Name        ; state.START ; state.STOP ; state.DATA ;
-+-------------+-------------+------------+------------+
-; state.START ; 0           ; 0          ; 0          ;
-; state.DATA  ; 1           ; 0          ; 1          ;
-; state.STOP  ; 1           ; 1          ; 0          ;
-+-------------+-------------+------------+------------+
 
 
 +------------------------------------------------------+
@@ -240,45 +219,14 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 64    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 13    ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: receptor:recep ;
-+----------------+-------+------------------------------------+
-; Parameter Name ; Value ; Type                               ;
-+----------------+-------+------------------------------------+
-; START          ; 0     ; Signed Integer                     ;
-; DATA           ; 1     ; Signed Integer                     ;
-; STOP           ; 2     ; Signed Integer                     ;
-+----------------+-------+------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "receptor:recep"                                                                        ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; control ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "baudRateGenerator:geradot"                                                                                                                                                             ;
-+-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port      ; Type  ; Severity ; Details                                                                                                                                                                            ;
-+-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; reset     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; reset[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-+-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -286,23 +234,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 12                          ;
-; cycloneiii_ff         ; 64                          ;
-;     ENA               ; 8                           ;
-;     SLD               ; 13                          ;
-;     plain             ; 43                          ;
-; cycloneiii_lcell_comb ; 130                         ;
-;     arith             ; 43                          ;
-;         2 data inputs ; 43                          ;
-;     normal            ; 87                          ;
+; boundary_port         ; 38                          ;
+; cycloneiii_lcell_comb ; 13                          ;
+;     normal            ; 13                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 5                           ;
-;         3 data inputs ; 13                          ;
-;         4 data inputs ; 66                          ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 3                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 4.08                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.89                        ;
 +-----------------------+-----------------------------+
 
 
@@ -321,43 +261,78 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Aug 24 09:23:40 2023
+    Info: Processing started: Sun Sep 03 13:09:22 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PBLSD -c PBLSD
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file ProjetoSD01-baudrateGenerator/serial_paralelo_8bit.v
-    Info (12023): Found entity 1: serial_paralelo_8bit File: /home/aluno/Documentos/aluno2/ProjetoSD01-baudrateGenerator/serial_paralelo_8bit.v Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file ProjetoSD01-baudrateGenerator/paralelo_serial_8bits.v
-    Info (12023): Found entity 1: paralelo_serial_8bits File: /home/aluno/Documentos/aluno2/ProjetoSD01-baudrateGenerator/paralelo_serial_8bits.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file ProjetoSD01-baudrateGenerator/gerador_serial_8bit.v
-    Info (12023): Found entity 1: gerador_serial_8bit File: /home/aluno/Documentos/aluno2/ProjetoSD01-baudrateGenerator/gerador_serial_8bit.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file ProjetoSD01-baudrateGenerator/d_ff.v
-    Info (12023): Found entity 1: d_ff File: /home/aluno/Documentos/aluno2/ProjetoSD01-baudrateGenerator/d_ff.v Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file ProjetoSD01-baudrateGenerator/baudRateGenerator.v
-    Info (12023): Found entity 1: baudRateGenerator File: /home/aluno/Documentos/aluno2/ProjetoSD01-baudrateGenerator/baudRateGenerator.v Line: 1
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file main.v
-    Info (12023): Found entity 1: main File: /home/aluno/Documentos/aluno2/main.v Line: 1
+    Info (12023): Found entity 1: main File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/main.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file transmissor.v
-    Info (12023): Found entity 1: transmissor File: /home/aluno/Documentos/aluno2/transmissor.v Line: 1
+    Info (12023): Found entity 1: transmissor File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/transmissor.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file receptor.v
-    Info (12023): Found entity 1: receptor File: /home/aluno/Documentos/aluno2/receptor.v Line: 1
-Info (12127): Elaborating entity "main" for the top level hierarchy
-Info (12128): Elaborating entity "baudRateGenerator" for hierarchy "baudRateGenerator:geradot" File: /home/aluno/Documentos/aluno2/main.v Line: 4
-Info (12128): Elaborating entity "receptor" for hierarchy "receptor:recep" File: /home/aluno/Documentos/aluno2/main.v Line: 5
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+    Info (12023): Found entity 1: receptor File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/receptor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file dht11_receive.v
+    Info (12023): Found entity 1: dht11_receive File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/dht11_receive.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tris.v
+    Info (12023): Found entity 1: TRIS File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/TRIS.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file teste_ben.v
+    Info (12023): Found entity 1: teste_ben File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/teste_ben.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file baudrategenerator.v
+    Info (12023): Found entity 1: baudRateGenerator File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/baudRateGenerator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file transmissor_com_wait.v
+    Info (12023): Found entity 1: transmissor_com_wait File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/transmissor_com_wait.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file uart.v
+    Info (12023): Found entity 1: UART File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_rx.v
+    Info (12023): Found entity 1: UART_rx File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART_rx.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_tx.v
+    Info (12023): Found entity 1: UART_tx File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART_tx.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file despachante.v
+    Info (12023): Found entity 1: DESPACHANTE File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 2
+Info (12127): Elaborating entity "DESPACHANTE" for the top level hierarchy
+Warning (10034): Output port "pin_to_module[31..9]" at DESPACHANTE.v(4) has no driver File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "colum" is stuck at GND File: /home/aluno/Documentos/aluno2/main.v Line: 1
+    Warning (13410): Pin "pin_to_module[9]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[10]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[11]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[12]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[13]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[14]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[15]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[16]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[17]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[18]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[19]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[20]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[21]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[22]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[23]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[24]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[25]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[26]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[27]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[28]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[29]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[30]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[31]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
 Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/output_files/PBLSD.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 151 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 139 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 442 megabytes
-    Info: Processing ended: Thu Aug 24 09:23:47 2023
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:12
+Info (21057): Implemented 50 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 12 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 4750 megabytes
+    Info: Processing ended: Sun Sep 03 13:09:30 2023
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:06
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/output_files/PBLSD.map.smsg.
 
 

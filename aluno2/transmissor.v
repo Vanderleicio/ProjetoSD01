@@ -1,58 +1,91 @@
-module transmissor(clk_115200hz, out, data, start);
+/**Módulo responsável pela transmissão na UART
+O canal Tx fica em nível alto quando não está transmitindo nada
+O módulo faz o envio de 2 bytes, envia primeiro 1 byte e já parte para o próximo.
+O start-bit é colocando um nível baixo no tx , após isso envia-se os dados
+Após os 8 bits de dados, joga o end-bit que é o nível lógico em 1 tx
+espera n ciclos de clock e envia o segundo byte
+*/
 
-	input clk_115200hz, start; // clock e sinal de enable vindo do modulo decodificador
-	input [0:7]data;  // dados a serem transmitidos
-	output out;  // pino de saída por onde trafegarão os bit em serial
+module transmissor(clk_9k6hz, tx, data, en);
 
+	input clk_9k6hz; // clock
+	input en;// Sinal que, em 1, irá habilitar o processo de transmissão.
+	
+	input [0:15]data;  // dados a serem transmitidos, está invertido para mandar primeiro o 15 (menos significativo)
+	output reg tx;  // pino de saída por onde trafegarão os bit em serial
+	
+	// Para lógica de estados
+	reg [1:0] state;
+	//
+	parameter IDLE = 2'b00;
+	parameter START= 2'b01;
+	parameter DATA = 2'b10;
+	parameter STOP = 2'b11;
 
-	reg reset = 0;
+	integer pos = 15;// Indica qual o bit do array será transmitido
+	
+	// Só para iniciar em espera
+	initial begin
+		tx = 1'b1;
+		state <= IDLE;
+	end
+	
+	
+	//wire clk_control = clk_9k6hz & en;//usar esse clk_control no always em vez de clk_9k6hz
 
-
-	reg out = 1'b1;
-	reg [1:0]state;
-		parameter START=0,
-					 DATA=1,
-					 STOP=2;
-						
-	integer counter = 7;
-
-	always @ (posedge clk_115200hz or posedge reset) begin
-		if (reset == 1) begin
-			reset = 0;
-			state <= START;		
-		end else begin
-			case(state)
-				START:
-					begin
-						if(start) begin // se houver sinal de start do controlador poe a saída em nivel baixo que indica um start bit
-							out = 1'b0;
-							state <= DATA;
-						end
-						else begin
-							out = 1'b1; // enquanto não houver sinal de start do decodificador manter no estado start
-							state <= START;
-						end
+	always @ (posedge clk_9k6hz) begin
+		// Se recebe o en, passa pro próximo estado
+		case (state)
+			// PARADO
+			IDLE:
+				begin
+					pos = 15;// Reinicia o indicador da posição p/ transmitir
+					tx = 1'b1;
+					if (en) begin
+						state = START;
 					end
-				DATA:
-					begin
-						if (counter < 0) begin // se counter < 0 indica que acabaou a transmissão
-							out = 1'b1;
-							state <= STOP;
-						end
-						else begin     // se counter > 0 poe o bit data[counter] na saída e decrementa o counter
-							out = data[counter];
-							counter = counter - 1;
-							state <= DATA;
-						end
+					else begin
+						state = IDLE;
+					end	
+				end
+			// COMEÇA A TRANSMISSÃO
+			START:
+				begin
+					tx = 1'b0; //Informo o start-bit
+					state = DATA;
+				end
+			// TRANSMITINDO OS DADOS
+			DATA:
+				begin
+					tx = data[pos]; //
+					pos = pos - 1;
+					// Se encerrou a transmissão do primeiro byte
+					if (pos == 7) begin
+						state = STOP;
 					end
-				STOP:     
-					begin	
-						counter = 7;       // reseta counter em 7
-						reset = 1'b1;		// reset em 1 
-						state <= START;     // volta para o estado star para aguardar a proxima transmissão
+					// Se encerrou a transmissão do segundo byte
+					else if (pos == -1) begin
+						state = STOP;
 					end
-			endcase
-		end
+					// Se está no meio do processo de enviar algum byte
+					else begin
+						state = DATA;
+					end
+				end
+			// Encerrando a transmissão do byte
+			STOP:
+				begin
+					tx = 1'b1;// Informe o stop-bit
+					// Se ainda não terminei o segundo byte
+					if (pos == 7) begin
+						state = START;// Sem espera
+					end
+					// Se já encerrei todo o processo (2 bytes)
+					else begin
+						state = IDLE;
+					end
+				end
+		endcase
 	end
 
 endmodule 

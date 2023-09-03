@@ -1,5 +1,5 @@
-Warning (10268): Verilog HDL information at transmissor.v(19): always construct contains both blocking and non-blocking assignments File: /home/aluno/Documentos/aluno2/transmissor.v Line: 19
-Info (10281): Verilog HDL Declaration information at transmissor.v(3): object "start" differs only in case from object "START" in the same scope File: /home/aluno/Documentos/aluno2/transmissor.v Line: 3
-Info (10281): Verilog HDL Declaration information at transmissor.v(4): object "data" differs only in case from object "DATA" in the same scope File: /home/aluno/Documentos/aluno2/transmissor.v Line: 4
-Warning (10268): Verilog HDL information at receptor.v(17): always construct contains both blocking and non-blocking assignments File: /home/aluno/Documentos/aluno2/receptor.v Line: 17
-Info (10281): Verilog HDL Declaration information at receptor.v(7): object "data" differs only in case from object "DATA" in the same scope File: /home/aluno/Documentos/aluno2/receptor.v Line: 7
+Info (10281): Verilog HDL Declaration information at transmissor.v(14): object "data" differs only in case from object "DATA" in the same scope File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/transmissor.v Line: 14
+Info (10281): Verilog HDL Declaration information at receptor.v(9): object "data" differs only in case from object "DATA" in the same scope File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/receptor.v Line: 9
+Info (10281): Verilog HDL Declaration information at transmissor_com_wait.v(14): object "data" differs only in case from object "DATA" in the same scope File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/transmissor_com_wait.v Line: 14
+Info (10281): Verilog HDL Declaration information at UART_rx.v(9): object "data" differs only in case from object "DATA" in the same scope File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART_rx.v Line: 9
+Info (10281): Verilog HDL Declaration information at UART_tx.v(14): object "data" differs only in case from object "DATA" in the same scope File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART_tx.v Line: 14

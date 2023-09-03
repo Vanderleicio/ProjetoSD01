@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Sep 01 21:16:01 2023
+Analysis & Synthesis Status : Successful - Sun Sep 03 13:09:30 2023
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : PBLSD
-Top-level Entity Name : main
+Top-level Entity Name : DESPACHANTE
 Family : Cyclone IV E
-Total logic elements : 238
-    Total combinational functions : 238
-    Dedicated logic registers : 89
-Total registers : 89
-Total pins : 14
+Total logic elements : 12
+    Total combinational functions : 12
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 38
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

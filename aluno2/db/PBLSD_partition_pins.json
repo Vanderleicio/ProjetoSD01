@@ -4,51 +4,63 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "linhas[0]",
+					"name" : "pin_to_module[0]",
 					"strict" : false
 				},
 				{
-					"name" : "linhas[1]",
+					"name" : "pin_to_module[1]",
 					"strict" : false
 				},
 				{
-					"name" : "linhas[2]",
+					"name" : "pin_to_module[2]",
 					"strict" : false
 				},
 				{
-					"name" : "linhas[3]",
+					"name" : "pin_to_module[3]",
 					"strict" : false
 				},
 				{
-					"name" : "linhas[4]",
+					"name" : "pin_to_module[4]",
 					"strict" : false
 				},
 				{
-					"name" : "linhas[5]",
+					"name" : "pin_to_module[5]",
 					"strict" : false
 				},
 				{
-					"name" : "linhas[6]",
+					"name" : "pin_to_module[6]",
 					"strict" : false
 				},
 				{
-					"name" : "linhas[7]",
+					"name" : "pin_to_module[7]",
 					"strict" : false
 				},
 				{
-					"name" : "tx",
+					"name" : "pin_to_module[8]",
 					"strict" : false
 				},
 				{
-					"name" : "control",
+					"name" : "uart_rx_ready",
 					"strict" : false
 				},
 				{
-					"name" : "rx",
+					"name" : "addres_req[0]",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "addres_req[3]",
+					"strict" : false
+				},
+				{
+					"name" : "addres_req[4]",
+					"strict" : false
+				},
+				{
+					"name" : "addres_req[1]",
+					"strict" : false
+				},
+				{
+					"name" : "addres_req[2]",
 					"strict" : false
 				}
 			]

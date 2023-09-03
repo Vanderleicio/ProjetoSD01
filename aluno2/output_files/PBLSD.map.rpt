@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PBLSD
-Fri Sep 01 21:16:01 2023
+Sun Sep 03 13:09:30 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,19 +13,11 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |main|transmissor:transm|state
-  9. State Machine - |main|receptor:recep|state
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: receptor:recep
- 15. Parameter Settings for User Entity Instance: transmissor:transm
- 16. Port Connectivity Checks: "baudRateGenerator:geradot"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
- 20. Analysis & Synthesis Suppressed Messages
+  8. General Register Statistics
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
+ 12. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -52,16 +44,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Sep 01 21:16:01 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sun Sep 03 13:09:30 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PBLSD                                       ;
-; Top-level Entity Name              ; main                                        ;
+; Top-level Entity Name              ; DESPACHANTE                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 238                                         ;
-;     Total combinational functions  ; 238                                         ;
-;     Dedicated logic registers      ; 89                                          ;
-; Total registers                    ; 89                                          ;
-; Total pins                         ; 14                                          ;
+; Total logic elements               ; 12                                          ;
+;     Total combinational functions  ; 12                                          ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 38                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -75,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE30F23C7       ;                    ;
-; Top-level entity name                                            ; main               ; PBLSD              ;
+; Top-level entity name                                            ; DESPACHANTE        ; PBLSD              ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -164,104 +156,62 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                        ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                          ; Library ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
-; main.v                           ; yes             ; User Verilog HDL File  ; C:/Users/washi/Downloads/Sistemas Digitais/aluno2/main.v              ;         ;
-; transmissor.v                    ; yes             ; User Verilog HDL File  ; C:/Users/washi/Downloads/Sistemas Digitais/aluno2/transmissor.v       ;         ;
-; receptor.v                       ; yes             ; User Verilog HDL File  ; C:/Users/washi/Downloads/Sistemas Digitais/aluno2/receptor.v          ;         ;
-; baudRateGenerator.v              ; yes             ; User Verilog HDL File  ; C:/Users/washi/Downloads/Sistemas Digitais/aluno2/baudRateGenerator.v ;         ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
+; DESPACHANTE.v                    ; yes             ; User Verilog HDL File  ; C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 238       ;
-;                                             ;           ;
-; Total combinational functions               ; 238       ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 115       ;
-;     -- 3 input functions                    ; 11        ;
-;     -- <=2 input functions                  ; 112       ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 176       ;
-;     -- arithmetic mode                      ; 62        ;
-;                                             ;           ;
-; Total registers                             ; 89        ;
-;     -- Dedicated logic registers            ; 89        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 14        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 89        ;
-; Total fan-out                               ; 953       ;
-; Average fan-out                             ; 2.68      ;
-+---------------------------------------------+-----------+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+; Estimated Total logic elements              ; 12                  ;
+;                                             ;                     ;
+; Total combinational functions               ; 12                  ;
+; Logic element usage by number of LUT inputs ;                     ;
+;     -- 4 input functions                    ; 3                   ;
+;     -- 3 input functions                    ; 9                   ;
+;     -- <=2 input functions                  ; 0                   ;
+;                                             ;                     ;
+; Logic elements by mode                      ;                     ;
+;     -- normal mode                          ; 12                  ;
+;     -- arithmetic mode                      ; 0                   ;
+;                                             ;                     ;
+; Total registers                             ; 0                   ;
+;     -- Dedicated logic registers            ; 0                   ;
+;     -- I/O registers                        ; 0                   ;
+;                                             ;                     ;
+; I/O pins                                    ; 38                  ;
+;                                             ;                     ;
+; Embedded Multiplier 9-bit elements          ; 0                   ;
+;                                             ;                     ;
+; Maximum fan-out node                        ; addres_req[1]~input ;
+; Maximum fan-out                             ; 9                   ;
+; Total fan-out                               ; 86                  ;
+; Average fan-out                             ; 0.98                ;
++---------------------------------------------+---------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                           ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name      ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+-------------+--------------+
-; |main                      ; 238 (0)             ; 89 (0)                    ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |main                    ; main        ; work         ;
-;    |receptor:recep|        ; 125 (125)           ; 52 (52)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|receptor:recep     ; receptor    ; work         ;
-;    |transmissor:transm|    ; 113 (113)           ; 37 (37)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|transmissor:transm ; transmissor ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+-------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |DESPACHANTE               ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 38   ; 0            ; |DESPACHANTE        ; DESPACHANTE ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+------------------------------------------------------------------+
-; State Machine - |main|transmissor:transm|state                   ;
-+-------------+------------+------------+-------------+------------+
-; Name        ; state.STOP ; state.DATA ; state.START ; state.IDLE ;
-+-------------+------------+------------+-------------+------------+
-; state.IDLE  ; 0          ; 0          ; 0           ; 0          ;
-; state.START ; 0          ; 0          ; 1           ; 1          ;
-; state.DATA  ; 0          ; 1          ; 0           ; 1          ;
-; state.STOP  ; 1          ; 0          ; 0           ; 1          ;
-+-------------+------------+------------+-------------+------------+
-
-
-Encoding Type:  One-Hot
-+-----------------------------------------------------+
-; State Machine - |main|receptor:recep|state          ;
-+-------------+------------+-------------+------------+
-; Name        ; state.STOP ; state.START ; state.DATA ;
-+-------------+------------+-------------+------------+
-; state.START ; 0          ; 0           ; 0          ;
-; state.DATA  ; 0          ; 1           ; 1          ;
-; state.STOP  ; 1          ; 1           ; 0          ;
-+-------------+------------+-------------+------------+
-
-
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; transmissor:transm|state~2            ; Lost fanout        ;
-; transmissor:transm|state~3            ; Lost fanout        ;
-; Total Number of Removed Registers = 2 ;                    ;
-+---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -269,75 +219,14 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 89    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 36    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; transmissor:transm|tx                  ; 1       ;
-; transmissor:transm|pos[1]              ; 8       ;
-; transmissor:transm|pos[0]              ; 8       ;
-; transmissor:transm|pos[3]              ; 4       ;
-; transmissor:transm|pos[2]              ; 3       ;
-; Total number of inverted registers = 5 ;         ;
-+----------------------------------------+---------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |main|receptor:recep|pos[31]    ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|transmissor:transm|pos[3] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-
-
-+-------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: receptor:recep ;
-+----------------+-------+------------------------------------+
-; Parameter Name ; Value ; Type                               ;
-+----------------+-------+------------------------------------+
-; IDLE           ; 00    ; Unsigned Binary                    ;
-; START          ; 01    ; Unsigned Binary                    ;
-; DATA           ; 10    ; Unsigned Binary                    ;
-; STOP           ; 11    ; Unsigned Binary                    ;
-+----------------+-------+------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: transmissor:transm ;
-+----------------+-------+----------------------------------------+
-; Parameter Name ; Value ; Type                                   ;
-+----------------+-------+----------------------------------------+
-; IDLE           ; 00    ; Unsigned Binary                        ;
-; START          ; 01    ; Unsigned Binary                        ;
-; DATA           ; 10    ; Unsigned Binary                        ;
-; STOP           ; 11    ; Unsigned Binary                        ;
-+----------------+-------+----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "baudRateGenerator:geradot"                                                                                                                                                              ;
-+-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                                                                                                                            ;
-+-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; reset     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; reset[-1] ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; out       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-+-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -345,22 +234,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 14                          ;
-; cycloneiii_ff         ; 89                          ;
-;     ENA               ; 36                          ;
-;     plain             ; 53                          ;
-; cycloneiii_lcell_comb ; 240                         ;
-;     arith             ; 62                          ;
-;         2 data inputs ; 62                          ;
-;     normal            ; 178                         ;
+; boundary_port         ; 38                          ;
+; cycloneiii_lcell_comb ; 13                          ;
+;     normal            ; 13                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 48                          ;
-;         3 data inputs ; 11                          ;
-;         4 data inputs ; 115                         ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 3                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.90                        ;
-; Average LUT depth     ; 6.50                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.89                        ;
 +-----------------------+-----------------------------+
 
 
@@ -379,52 +261,78 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Sep 01 21:15:54 2023
+    Info: Processing started: Sun Sep 03 13:09:22 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PBLSD -c PBLSD
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file main.v
-    Info (12023): Found entity 1: main File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/main.v Line: 2
+    Info (12023): Found entity 1: main File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/main.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file transmissor.v
-    Info (12023): Found entity 1: transmissor File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/transmissor.v Line: 9
+    Info (12023): Found entity 1: transmissor File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/transmissor.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file receptor.v
-    Info (12023): Found entity 1: receptor File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/receptor.v Line: 1
+    Info (12023): Found entity 1: receptor File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/receptor.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file dht11_receive.v
-    Info (12023): Found entity 1: dht11_receive File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/dht11_receive.v Line: 1
+    Info (12023): Found entity 1: dht11_receive File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/dht11_receive.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file tris.v
-    Info (12023): Found entity 1: TRIS File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/TRIS.v Line: 1
+    Info (12023): Found entity 1: TRIS File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/TRIS.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file teste_ben.v
-    Info (12023): Found entity 1: teste_ben File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/teste_ben.v Line: 1
+    Info (12023): Found entity 1: teste_ben File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/teste_ben.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file baudrategenerator.v
-    Info (12023): Found entity 1: baudRateGenerator File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/baudRateGenerator.v Line: 1
-Info (12127): Elaborating entity "main" for the top level hierarchy
-Info (12128): Elaborating entity "baudRateGenerator" for hierarchy "baudRateGenerator:geradot" File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/main.v Line: 6
-Info (12128): Elaborating entity "receptor" for hierarchy "receptor:recep" File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/main.v Line: 8
-Info (12128): Elaborating entity "transmissor" for hierarchy "transmissor:transm" File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/main.v Line: 10
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+    Info (12023): Found entity 1: baudRateGenerator File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/baudRateGenerator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file transmissor_com_wait.v
+    Info (12023): Found entity 1: transmissor_com_wait File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/transmissor_com_wait.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file uart.v
+    Info (12023): Found entity 1: UART File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_rx.v
+    Info (12023): Found entity 1: UART_rx File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART_rx.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_tx.v
+    Info (12023): Found entity 1: UART_tx File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART_tx.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file despachante.v
+    Info (12023): Found entity 1: DESPACHANTE File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 2
+Info (12127): Elaborating entity "DESPACHANTE" for the top level hierarchy
+Warning (10034): Output port "pin_to_module[31..9]" at DESPACHANTE.v(4) has no driver File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "colum" is stuck at GND File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/main.v Line: 2
+    Warning (13410): Pin "pin_to_module[9]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[10]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[11]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[12]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[13]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[14]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[15]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[16]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[17]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[18]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[19]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[20]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[21]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[22]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[23]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[24]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[25]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[26]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[27]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[28]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[29]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[30]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
+    Warning (13410): Pin "pin_to_module[31]" is stuck at GND File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/DESPACHANTE.v Line: 4
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 2 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/washi/Downloads/Sistemas Digitais/aluno2/output_files/PBLSD.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/output_files/PBLSD.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "ch2" File: C:/Users/washi/Downloads/Sistemas Digitais/aluno2/main.v Line: 2
-Info (21057): Implemented 252 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 238 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4764 megabytes
-    Info: Processing ended: Fri Sep 01 21:16:01 2023
-    Info: Elapsed time: 00:00:07
+Info (21057): Implemented 50 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 12 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 4750 megabytes
+    Info: Processing ended: Sun Sep 03 13:09:30 2023
+    Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:06
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/washi/Downloads/Sistemas Digitais/aluno2/output_files/PBLSD.map.smsg.
+The suppressed messages can be found in C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/output_files/PBLSD.map.smsg.
 
 

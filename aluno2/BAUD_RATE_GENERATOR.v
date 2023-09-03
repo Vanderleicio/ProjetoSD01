@@ -1,4 +1,4 @@
-module baudRateGenerator(clk_in, reset, out);
+module BAUD_RATE_GENERATOR(clk_in, reset, out);
 	input clk_in;
 	input reset;	
 	

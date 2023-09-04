@@ -5,7 +5,7 @@ para a entrada de todos os sensores) aí ele olha oq o comando pede e faz oq pre
 
 - Cada 'pin_to_module' vai em um módulo de sensoriamento*/
 
-module DESPACHANTE(input uart_rx_ready, // Pino do Uart RX que indica quando terminou o processo de recebimento de dados
+module ENTREGADOR(input uart_rx_ready, // Pino do Uart RX que indica quando terminou o processo de recebimento de dados
 						input [4:0] addres_req,// Parte dos dados recebidos pela uart que indica o endereço 
 						output [31:0] pin_to_module);// Um pino para cada módulo dos 32 sensores
 	//

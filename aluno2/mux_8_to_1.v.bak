@@ -1,0 +1,23 @@
+module mux_8_to_1 (
+  input [7:0] data_inputs, // Entradas de dados de 8 bits
+  input [2:0] select,     // Entrada de seleção de 3 bits
+  output y// Saída do MUX
+);
+
+
+
+
+
+assign y = (select == 3'b000) & data_inputs[0];
+assign y = (select == 3'b001) & data_inputs[1];
+/**
+assign output = (select == 3'b000) ? data_inputs[0] :
+               (select == 3'b001) ? data_inputs[1] :
+               (select == 3'b010) ? data_inputs[2] :
+               (select == 3'b011) ? data_inputs[3] :
+               (select == 3'b100) ? data_inputs[4] :
+               (select == 3'b101) ? data_inputs[5] :
+               (select == 3'b110) ? data_inputs[6] :
+                                    data_inputs[7];
+*/
+endmodule

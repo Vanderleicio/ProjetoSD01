@@ -1,0 +1,756 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "09/07/2023 18:48:49"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          ESCALONADOR_V3
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module ESCALONADOR_V3_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clk;
+reg [127:0] sensor_bus;
+reg [7:0] sensor_ready;
+reg shipping_done;
+// wires                                               
+wire [15:0] data_to_send;
+wire [7:0] data_used;
+wire en_uart_tx;
+wire [2:0] sensor;
+wire state;
+
+// assign statements (if any)                          
+ESCALONADOR_V3 i1 (
+// port map - connection between master ports and signals/registers   
+	.clk(clk),
+	.data_to_send(data_to_send),
+	.data_used(data_used),
+	.en_uart_tx(en_uart_tx),
+	.sensor(sensor),
+	.sensor_bus(sensor_bus),
+	.sensor_ready(sensor_ready),
+	.shipping_done(shipping_done),
+	.state(state)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #10000 1'b1;
+	#10000;
+end 
+// sensor_bus[ 127 ]
+initial
+begin
+	sensor_bus[127] = 1'b0;
+end 
+// sensor_bus[ 126 ]
+initial
+begin
+	sensor_bus[126] = 1'b0;
+end 
+// sensor_bus[ 125 ]
+initial
+begin
+	sensor_bus[125] = 1'b0;
+end 
+// sensor_bus[ 124 ]
+initial
+begin
+	sensor_bus[124] = 1'b0;
+end 
+// sensor_bus[ 123 ]
+initial
+begin
+	sensor_bus[123] = 1'b0;
+end 
+// sensor_bus[ 122 ]
+initial
+begin
+	sensor_bus[122] = 1'b0;
+end 
+// sensor_bus[ 121 ]
+initial
+begin
+	sensor_bus[121] = 1'b0;
+end 
+// sensor_bus[ 120 ]
+initial
+begin
+	sensor_bus[120] = 1'b0;
+end 
+// sensor_bus[ 119 ]
+initial
+begin
+	sensor_bus[119] = 1'b0;
+end 
+// sensor_bus[ 118 ]
+initial
+begin
+	sensor_bus[118] = 1'b0;
+end 
+// sensor_bus[ 117 ]
+initial
+begin
+	sensor_bus[117] = 1'b0;
+end 
+// sensor_bus[ 116 ]
+initial
+begin
+	sensor_bus[116] = 1'b0;
+end 
+// sensor_bus[ 115 ]
+initial
+begin
+	sensor_bus[115] = 1'b0;
+end 
+// sensor_bus[ 114 ]
+initial
+begin
+	sensor_bus[114] = 1'b0;
+end 
+// sensor_bus[ 113 ]
+initial
+begin
+	sensor_bus[113] = 1'b0;
+end 
+// sensor_bus[ 112 ]
+initial
+begin
+	sensor_bus[112] = 1'b0;
+end 
+// sensor_bus[ 111 ]
+initial
+begin
+	sensor_bus[111] = 1'b0;
+end 
+// sensor_bus[ 110 ]
+initial
+begin
+	sensor_bus[110] = 1'b0;
+end 
+// sensor_bus[ 109 ]
+initial
+begin
+	sensor_bus[109] = 1'b0;
+end 
+// sensor_bus[ 108 ]
+initial
+begin
+	sensor_bus[108] = 1'b0;
+end 
+// sensor_bus[ 107 ]
+initial
+begin
+	sensor_bus[107] = 1'b0;
+end 
+// sensor_bus[ 106 ]
+initial
+begin
+	sensor_bus[106] = 1'b0;
+end 
+// sensor_bus[ 105 ]
+initial
+begin
+	sensor_bus[105] = 1'b0;
+end 
+// sensor_bus[ 104 ]
+initial
+begin
+	sensor_bus[104] = 1'b0;
+end 
+// sensor_bus[ 103 ]
+initial
+begin
+	sensor_bus[103] = 1'b0;
+end 
+// sensor_bus[ 102 ]
+initial
+begin
+	sensor_bus[102] = 1'b0;
+end 
+// sensor_bus[ 101 ]
+initial
+begin
+	sensor_bus[101] = 1'b0;
+end 
+// sensor_bus[ 100 ]
+initial
+begin
+	sensor_bus[100] = 1'b0;
+end 
+// sensor_bus[ 99 ]
+initial
+begin
+	sensor_bus[99] = 1'b0;
+end 
+// sensor_bus[ 98 ]
+initial
+begin
+	sensor_bus[98] = 1'b0;
+end 
+// sensor_bus[ 97 ]
+initial
+begin
+	sensor_bus[97] = 1'b0;
+end 
+// sensor_bus[ 96 ]
+initial
+begin
+	sensor_bus[96] = 1'b0;
+end 
+// sensor_bus[ 95 ]
+initial
+begin
+	sensor_bus[95] = 1'b0;
+end 
+// sensor_bus[ 94 ]
+initial
+begin
+	sensor_bus[94] = 1'b0;
+end 
+// sensor_bus[ 93 ]
+initial
+begin
+	sensor_bus[93] = 1'b0;
+end 
+// sensor_bus[ 92 ]
+initial
+begin
+	sensor_bus[92] = 1'b0;
+end 
+// sensor_bus[ 91 ]
+initial
+begin
+	sensor_bus[91] = 1'b0;
+end 
+// sensor_bus[ 90 ]
+initial
+begin
+	sensor_bus[90] = 1'b0;
+end 
+// sensor_bus[ 89 ]
+initial
+begin
+	sensor_bus[89] = 1'b0;
+end 
+// sensor_bus[ 88 ]
+initial
+begin
+	sensor_bus[88] = 1'b0;
+end 
+// sensor_bus[ 87 ]
+initial
+begin
+	sensor_bus[87] = 1'b0;
+end 
+// sensor_bus[ 86 ]
+initial
+begin
+	sensor_bus[86] = 1'b0;
+end 
+// sensor_bus[ 85 ]
+initial
+begin
+	sensor_bus[85] = 1'b0;
+end 
+// sensor_bus[ 84 ]
+initial
+begin
+	sensor_bus[84] = 1'b0;
+end 
+// sensor_bus[ 83 ]
+initial
+begin
+	sensor_bus[83] = 1'b0;
+end 
+// sensor_bus[ 82 ]
+initial
+begin
+	sensor_bus[82] = 1'b0;
+end 
+// sensor_bus[ 81 ]
+initial
+begin
+	sensor_bus[81] = 1'b0;
+end 
+// sensor_bus[ 80 ]
+initial
+begin
+	sensor_bus[80] = 1'b0;
+end 
+// sensor_bus[ 79 ]
+initial
+begin
+	sensor_bus[79] = 1'b0;
+end 
+// sensor_bus[ 78 ]
+initial
+begin
+	sensor_bus[78] = 1'b0;
+end 
+// sensor_bus[ 77 ]
+initial
+begin
+	sensor_bus[77] = 1'b0;
+end 
+// sensor_bus[ 76 ]
+initial
+begin
+	sensor_bus[76] = 1'b0;
+end 
+// sensor_bus[ 75 ]
+initial
+begin
+	sensor_bus[75] = 1'b0;
+end 
+// sensor_bus[ 74 ]
+initial
+begin
+	sensor_bus[74] = 1'b0;
+end 
+// sensor_bus[ 73 ]
+initial
+begin
+	sensor_bus[73] = 1'b0;
+end 
+// sensor_bus[ 72 ]
+initial
+begin
+	sensor_bus[72] = 1'b0;
+end 
+// sensor_bus[ 71 ]
+initial
+begin
+	sensor_bus[71] = 1'b0;
+end 
+// sensor_bus[ 70 ]
+initial
+begin
+	sensor_bus[70] = 1'b0;
+end 
+// sensor_bus[ 69 ]
+initial
+begin
+	sensor_bus[69] = 1'b0;
+end 
+// sensor_bus[ 68 ]
+initial
+begin
+	sensor_bus[68] = 1'b0;
+end 
+// sensor_bus[ 67 ]
+initial
+begin
+	sensor_bus[67] = 1'b0;
+end 
+// sensor_bus[ 66 ]
+initial
+begin
+	sensor_bus[66] = 1'b0;
+end 
+// sensor_bus[ 65 ]
+initial
+begin
+	sensor_bus[65] = 1'b0;
+end 
+// sensor_bus[ 64 ]
+initial
+begin
+	sensor_bus[64] = 1'b0;
+end 
+// sensor_bus[ 63 ]
+initial
+begin
+	sensor_bus[63] = 1'b0;
+end 
+// sensor_bus[ 62 ]
+initial
+begin
+	sensor_bus[62] = 1'b0;
+end 
+// sensor_bus[ 61 ]
+initial
+begin
+	sensor_bus[61] = 1'b0;
+end 
+// sensor_bus[ 60 ]
+initial
+begin
+	sensor_bus[60] = 1'b0;
+end 
+// sensor_bus[ 59 ]
+initial
+begin
+	sensor_bus[59] = 1'b0;
+end 
+// sensor_bus[ 58 ]
+initial
+begin
+	sensor_bus[58] = 1'b0;
+end 
+// sensor_bus[ 57 ]
+initial
+begin
+	sensor_bus[57] = 1'b0;
+end 
+// sensor_bus[ 56 ]
+initial
+begin
+	sensor_bus[56] = 1'b0;
+end 
+// sensor_bus[ 55 ]
+initial
+begin
+	sensor_bus[55] = 1'b0;
+end 
+// sensor_bus[ 54 ]
+initial
+begin
+	sensor_bus[54] = 1'b0;
+end 
+// sensor_bus[ 53 ]
+initial
+begin
+	sensor_bus[53] = 1'b0;
+end 
+// sensor_bus[ 52 ]
+initial
+begin
+	sensor_bus[52] = 1'b0;
+end 
+// sensor_bus[ 51 ]
+initial
+begin
+	sensor_bus[51] = 1'b0;
+end 
+// sensor_bus[ 50 ]
+initial
+begin
+	sensor_bus[50] = 1'b0;
+end 
+// sensor_bus[ 49 ]
+initial
+begin
+	sensor_bus[49] = 1'b0;
+end 
+// sensor_bus[ 48 ]
+initial
+begin
+	sensor_bus[48] = 1'b0;
+end 
+// sensor_bus[ 47 ]
+initial
+begin
+	sensor_bus[47] = 1'b0;
+end 
+// sensor_bus[ 46 ]
+initial
+begin
+	sensor_bus[46] = 1'b0;
+end 
+// sensor_bus[ 45 ]
+initial
+begin
+	sensor_bus[45] = 1'b0;
+end 
+// sensor_bus[ 44 ]
+initial
+begin
+	sensor_bus[44] = 1'b0;
+end 
+// sensor_bus[ 43 ]
+initial
+begin
+	sensor_bus[43] = 1'b0;
+end 
+// sensor_bus[ 42 ]
+initial
+begin
+	sensor_bus[42] = 1'b0;
+end 
+// sensor_bus[ 41 ]
+initial
+begin
+	sensor_bus[41] = 1'b0;
+end 
+// sensor_bus[ 40 ]
+initial
+begin
+	sensor_bus[40] = 1'b0;
+end 
+// sensor_bus[ 39 ]
+initial
+begin
+	sensor_bus[39] = 1'b0;
+end 
+// sensor_bus[ 38 ]
+initial
+begin
+	sensor_bus[38] = 1'b0;
+end 
+// sensor_bus[ 37 ]
+initial
+begin
+	sensor_bus[37] = 1'b0;
+end 
+// sensor_bus[ 36 ]
+initial
+begin
+	sensor_bus[36] = 1'b0;
+end 
+// sensor_bus[ 35 ]
+initial
+begin
+	sensor_bus[35] = 1'b0;
+end 
+// sensor_bus[ 34 ]
+initial
+begin
+	sensor_bus[34] = 1'b0;
+end 
+// sensor_bus[ 33 ]
+initial
+begin
+	sensor_bus[33] = 1'b0;
+end 
+// sensor_bus[ 32 ]
+initial
+begin
+	sensor_bus[32] = 1'b0;
+end 
+// sensor_bus[ 31 ]
+initial
+begin
+	sensor_bus[31] = 1'b0;
+end 
+// sensor_bus[ 30 ]
+initial
+begin
+	sensor_bus[30] = 1'b0;
+end 
+// sensor_bus[ 29 ]
+initial
+begin
+	sensor_bus[29] = 1'b0;
+end 
+// sensor_bus[ 28 ]
+initial
+begin
+	sensor_bus[28] = 1'b0;
+end 
+// sensor_bus[ 27 ]
+initial
+begin
+	sensor_bus[27] = 1'b0;
+end 
+// sensor_bus[ 26 ]
+initial
+begin
+	sensor_bus[26] = 1'b0;
+end 
+// sensor_bus[ 25 ]
+initial
+begin
+	sensor_bus[25] = 1'b0;
+end 
+// sensor_bus[ 24 ]
+initial
+begin
+	sensor_bus[24] = 1'b0;
+end 
+// sensor_bus[ 23 ]
+initial
+begin
+	sensor_bus[23] = 1'b0;
+end 
+// sensor_bus[ 22 ]
+initial
+begin
+	sensor_bus[22] = 1'b0;
+end 
+// sensor_bus[ 21 ]
+initial
+begin
+	sensor_bus[21] = 1'b0;
+end 
+// sensor_bus[ 20 ]
+initial
+begin
+	sensor_bus[20] = 1'b0;
+end 
+// sensor_bus[ 19 ]
+initial
+begin
+	sensor_bus[19] = 1'b0;
+end 
+// sensor_bus[ 18 ]
+initial
+begin
+	sensor_bus[18] = 1'b0;
+end 
+// sensor_bus[ 17 ]
+initial
+begin
+	sensor_bus[17] = 1'b0;
+end 
+// sensor_bus[ 16 ]
+initial
+begin
+	sensor_bus[16] = 1'b0;
+end 
+// sensor_bus[ 15 ]
+initial
+begin
+	sensor_bus[15] = 1'b0;
+end 
+// sensor_bus[ 14 ]
+initial
+begin
+	sensor_bus[14] = 1'b0;
+end 
+// sensor_bus[ 13 ]
+initial
+begin
+	sensor_bus[13] = 1'b0;
+end 
+// sensor_bus[ 12 ]
+initial
+begin
+	sensor_bus[12] = 1'b0;
+end 
+// sensor_bus[ 11 ]
+initial
+begin
+	sensor_bus[11] = 1'b0;
+end 
+// sensor_bus[ 10 ]
+initial
+begin
+	sensor_bus[10] = 1'b0;
+end 
+// sensor_bus[ 9 ]
+initial
+begin
+	sensor_bus[9] = 1'b0;
+end 
+// sensor_bus[ 8 ]
+initial
+begin
+	sensor_bus[8] = 1'b0;
+end 
+// sensor_bus[ 7 ]
+initial
+begin
+	sensor_bus[7] = 1'b0;
+end 
+// sensor_bus[ 6 ]
+initial
+begin
+	sensor_bus[6] = 1'b0;
+end 
+// sensor_bus[ 5 ]
+initial
+begin
+	sensor_bus[5] = 1'b0;
+end 
+// sensor_bus[ 4 ]
+initial
+begin
+	sensor_bus[4] = 1'b0;
+end 
+// sensor_bus[ 3 ]
+initial
+begin
+	sensor_bus[3] = 1'b0;
+end 
+// sensor_bus[ 2 ]
+initial
+begin
+	sensor_bus[2] = 1'b0;
+end 
+// sensor_bus[ 1 ]
+initial
+begin
+	sensor_bus[1] = 1'b0;
+end 
+// sensor_bus[ 0 ]
+initial
+begin
+	sensor_bus[0] = 1'b0;
+end 
+// sensor_ready[ 7 ]
+initial
+begin
+	sensor_ready[7] = 1'b0;
+end 
+// sensor_ready[ 6 ]
+initial
+begin
+	sensor_ready[6] = 1'b0;
+end 
+// sensor_ready[ 5 ]
+initial
+begin
+	sensor_ready[5] = 1'b0;
+end 
+// sensor_ready[ 4 ]
+initial
+begin
+	sensor_ready[4] = 1'b0;
+end 
+// sensor_ready[ 3 ]
+initial
+begin
+	sensor_ready[3] = 1'b0;
+end 
+// sensor_ready[ 2 ]
+initial
+begin
+	sensor_ready[2] = 1'b0;
+end 
+// sensor_ready[ 1 ]
+initial
+begin
+	sensor_ready[1] = 1'b0;
+end 
+// sensor_ready[ 0 ]
+initial
+begin
+	sensor_ready[0] = 1'b0;
+end 
+
+// shipping_done
+initial
+begin
+	shipping_done = 1'b0;
+end 
+endmodule
+

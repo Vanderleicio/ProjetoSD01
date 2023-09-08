@@ -1,0 +1,123 @@
+/** Este módulo é responsavel por pegar os dados nos buffers dos 8 sensores e jogar no transmissor,
+bem como garantir que somente um sensor vai poder utilizar o barramento de enviar dados por vez e que ficará até o final
+da transmissão na ueart
+
+*/
+
+
+module ESCALONADOR_V3(clk, shipping_done, sensor_bus, sensor_ready, data_to_send, data_used, en_uart_tx, sensor);
+	
+	// Clock da placa 50M Hz
+	input clk;
+	// UART tx informa que encerrou a transmissão
+	input shipping_done;
+	// bit de cada controlador que diz se os bits do buffer estão prontos
+	input [7:0] sensor_ready;
+	
+	// Informa ao controlador do sensor que já usei os dados do buffer
+	output reg [7:0] data_used;
+	
+	// Preciso de um cara que vai jogar aqui todos os sensores em um barramento
+	input [127:0] sensor_bus;// Todos os 8, cada um com (7 bits data + 5 ender  +4 comando = 16) 16*8
+	// Do 0 ao 15 é um sensor
+	// Do 127 ao 111 é outro
+	
+	// Saída com 16 bits
+	output [15:0] data_to_send;
+	wire [15:0] mux_out; //Saída do mux 
+	
+	// Habilita a transmissão na uart
+	output en_uart_tx;
+
+	output reg[2:0] sensor = 3'b000;// Vai de 1 a 8
+	
+	
+	
+	reg state, nextstate;
+	parameter A = 1'b0; // Estado em que fica olhando cada sensor
+	parameter T= 1'b1;	// Estado em que achei um sensor pronto e fico transmitindo até o tx falr que acabou
+	
+	
+	initial begin
+		state = A;
+	end
+	
+
+	
+	
+	// Lógica para o próximo estado
+	always @ (posedge clk) begin
+		case (state)				
+			A:
+				begin
+					sensor = sensor + 1'b1;
+					if (sensor_ready[sensor]) begin
+						nextstate = T;
+						data_used[sensor] = 1;// Falo pro sensor que já usei ele
+					end
+					else begin
+						nextstate = A;
+					end
+				end
+			
+			T: 
+				begin
+					if (shipping_done) begin
+						data_used[sensor] = 1;// Falo pro sensor que já usei ele
+						nextstate = A;
+					end
+					else begin
+						nextstate = T;
+					end
+					
+				end
+		endcase
+		
+	end
+	
+	
+	assign en_uart_tx = (state == T);// Se estiver transmitindo
+	
+	
+		// Bloco de Multiplexadores para falar qual sensor do barramento vai poder usar o barramento para escrever na UART
+	mux_8_to_1 m01(sensor, sensor_bus[127], sensor_bus[111], sensor_bus[95], sensor_bus[79], sensor_bus[63], sensor_bus[47], sensor_bus[31], sensor_bus[15], mux_out[15]);
+	mux_8_to_1 m02(sensor, sensor_bus[126], sensor_bus[110], sensor_bus[94], sensor_bus[78], sensor_bus[62], sensor_bus[46], sensor_bus[30], sensor_bus[14], mux_out[14]);
+	mux_8_to_1 m03(sensor, sensor_bus[125], sensor_bus[109], sensor_bus[93], sensor_bus[77], sensor_bus[61], sensor_bus[45], sensor_bus[29], sensor_bus[13], mux_out[13]);
+	mux_8_to_1 m04(sensor, sensor_bus[124], sensor_bus[108], sensor_bus[92], sensor_bus[76], sensor_bus[60], sensor_bus[44], sensor_bus[28], sensor_bus[12], mux_out[12]);
+	mux_8_to_1 m05(sensor, sensor_bus[123], sensor_bus[107], sensor_bus[91], sensor_bus[75], sensor_bus[59], sensor_bus[43], sensor_bus[27], sensor_bus[11], mux_out[11]);
+	mux_8_to_1 m06(sensor, sensor_bus[122], sensor_bus[106], sensor_bus[90], sensor_bus[74], sensor_bus[58], sensor_bus[42], sensor_bus[26], sensor_bus[10], mux_out[10]);
+	mux_8_to_1 m07(sensor, sensor_bus[121], sensor_bus[105], sensor_bus[89], sensor_bus[73], sensor_bus[57], sensor_bus[41], sensor_bus[25], sensor_bus[9], mux_out[9]);
+	mux_8_to_1 m08(sensor, sensor_bus[120], sensor_bus[104], sensor_bus[88], sensor_bus[72], sensor_bus[56], sensor_bus[40], sensor_bus[24], sensor_bus[8], mux_out[8]);
+	mux_8_to_1 m09(sensor, sensor_bus[119], sensor_bus[103], sensor_bus[87], sensor_bus[71], sensor_bus[55], sensor_bus[39], sensor_bus[23], sensor_bus[7], mux_out[7]);
+	mux_8_to_1 m10(sensor, sensor_bus[118], sensor_bus[102], sensor_bus[86], sensor_bus[70], sensor_bus[54], sensor_bus[38], sensor_bus[22], sensor_bus[6], mux_out[6]);
+	mux_8_to_1 m11(sensor, sensor_bus[117], sensor_bus[101], sensor_bus[85], sensor_bus[69], sensor_bus[53], sensor_bus[37], sensor_bus[21], sensor_bus[5], mux_out[5]);
+	mux_8_to_1 m12(sensor, sensor_bus[116], sensor_bus[100], sensor_bus[84], sensor_bus[68], sensor_bus[52], sensor_bus[36], sensor_bus[20], sensor_bus[4], mux_out[4]);
+	mux_8_to_1 m13(sensor, sensor_bus[115], sensor_bus[99],  sensor_bus[83], sensor_bus[67], sensor_bus[51], sensor_bus[35], sensor_bus[19], sensor_bus[3], mux_out[3]);
+	mux_8_to_1 m14(sensor, sensor_bus[114], sensor_bus[98],  sensor_bus[82], sensor_bus[66], sensor_bus[50], sensor_bus[34], sensor_bus[18], sensor_bus[2], mux_out[2]);
+	mux_8_to_1 m15(sensor, sensor_bus[113], sensor_bus[97],  sensor_bus[81], sensor_bus[65], sensor_bus[49], sensor_bus[33], sensor_bus[17], sensor_bus[1], mux_out[1]);
+	mux_8_to_1 m16(sensor, sensor_bus[112], sensor_bus[96],  sensor_bus[80], sensor_bus[64], sensor_bus[48], sensor_bus[32], sensor_bus[16], sensor_bus[0], mux_out[0]);
+	
+	
+	// Só habilita a saída se a uart estiver habilitada para transmitir (Nem precisa disso, só botei para o waveform ficar mais fácil de ver)
+	assign data_to_send[0] = (mux_out[0]& en_uart_tx);
+	assign data_to_send[1] = (mux_out[1]& en_uart_tx);
+	assign data_to_send[2] = (mux_out[2]& en_uart_tx);
+	assign data_to_send[3] = (mux_out[3]& en_uart_tx);
+	assign data_to_send[4] = (mux_out[4]& en_uart_tx);
+	assign data_to_send[5] = (mux_out[5]& en_uart_tx);
+	assign data_to_send[6] = (mux_out[6]& en_uart_tx);
+	assign data_to_send[7] = (mux_out[7]& en_uart_tx);
+	assign data_to_send[8] = (mux_out[8]& en_uart_tx);
+	assign data_to_send[9] = (mux_out[9]& en_uart_tx);
+	assign data_to_send[10] = (mux_out[10]& en_uart_tx);
+	assign data_to_send[11] = (mux_out[11]& en_uart_tx);
+	assign data_to_send[12] = (mux_out[12]& en_uart_tx);
+	assign data_to_send[13] = (mux_out[13]& en_uart_tx);
+	assign data_to_send[14] = (mux_out[14]& en_uart_tx);
+	assign data_to_send[15] = (mux_out[15]& en_uart_tx);
+	
+endmodule
+
+
+
+// Ver se faço com as m´aquinas

@@ -22,25 +22,24 @@ module ESCALONADOR_V3(clk, uart_tx_done, sensor_bus, sensor_ready, data_to_send,
 	// bit de cada controlador que diz se os bits do buffer estão prontos (Deve haver um bit no controlador que avisa se o Escalonador pode pegar os dados do buffer)
 	input [7:0] sensor_ready;
 	
-	// Informa ao controlador do sensor que já usei os dados do buffer
+	// Informa ao controlador do sensor que já usei os dados do buffer (Cada controlador deve receber esse bit do ESCALONADOR). Se for 1, o controlador poderá carregar outros dados no seu buffer
 	output reg [7:0] data_used;
 	
 	// Preciso de um cara que vai jogar aqui todos os sensores em um barramento
 	input [127:0] sensor_bus;// Todos os 8, cada um com (7 bits data + 5 ender  +4 comando = 16) 16*8
-	// Do 0 ao 15 é um sensor
-	// Do 127 ao 111 é outro
+	// Do 15 ao 0 é um sensor
+	// Do 127 ao 111 é outro ...
 	
-	// Saída com 16 bits
-	output [15:0] data_to_send;
-	wire [15:0] mux_out; //Saída do mux 
-	
-	// Habilita a transmissão na uart
+	// Habilita a transmissão do data_to_send na UART
 	output uart_tx_en;
+	
+	// Saída com 16 bits. São os dados que vai para UART_TX
+	output [15:0] data_to_send;
+	wire [15:0] mux_out; //Saída do mux, é só um auxiliar 
 
+	// Indica qual o sensor que terá a vez. Se o sensor estiver pronto para mandar, vai ter a vez até a transmissão ser concluída
 	output reg [2:0] sensor_num = 0;// Vai de 1 a 8
-	
-	
-	
+		
 	output reg state;
 	
 	parameter A = 1'b0; // Estado em que fica olhando cada sensor

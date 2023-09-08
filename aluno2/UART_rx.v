@@ -1,17 +1,16 @@
-module UART_rx(clk_9k6hz, rx, data, concluded);
+module UART_rx(clk_9k6hz, rx, buffer, concluded);
 
 	input clk_9k6hz; // clock
-	//input en;// Sinal que, em 1, irá habilitar o processo de recepçao.
-	input rx;		// sinal vindo do pc	
+	input rx;		  // sinal vindo do pc	
 	
-	output reg concluded = 1'b0;// Sinal para informar que recebi 2 bytes
+	output reg concluded = 1'b0;// Sinal para informar, os outros módulos, que já recebi os 2 bytes
 	
-	output reg [15:0]data;           //registrador de dados que enviará os dados recebidos para o decodificador
-	reg [15:0]buffer;            //buffer temporário para receber os dados
+	// Dados recebidos armazenados em buffer
+	output reg [15:0] buffer; // Só está aqui para garantir que o ENTREGADOR leve a requisição para o módulo correto a tempo, antes da UART receber outros dados e acabar sobreescrevendo tudo  
+	reg [15:0] data_tmp;      // Regs com os dados temporários recebidos pela UART
 	
 	// Para lógica de estados
 	reg [1:0] state;
-	//
 	parameter IDLE = 2'b00;
 	parameter START= 2'b01;
 	parameter DATA = 2'b10;
@@ -27,7 +26,7 @@ module UART_rx(clk_9k6hz, rx, data, concluded);
 	
 	always @ (posedge clk_9k6hz) begin
 		case (state)
-			// Fica esperando o sinal de start
+			// Esperando o sinal de start
 			START:
 				begin
 					// Se cheguei aqui, mas ja terminei o 2° byte. Volte a contar do inicio
@@ -35,38 +34,41 @@ module UART_rx(clk_9k6hz, rx, data, concluded);
 						pos = 0;
 						concluded = 1'b0;
 					end
-					
-					if(rx) begin// Nao recebi o start-bit
+					// Se não recebi o start-bit
+					if(rx) begin
 						state = START;
 					end
-					else// Recebi o start-bit
+					// Se recebi o start-bit
+					else
 						state = DATA;
 				end
+			// Recebendo 8 bits
 			DATA:
 				begin
-					data[pos] = rx;
+					data_tmp[pos] = rx;
 					pos = pos + 1;
-					if(pos == 8) begin// Acabou a recepção do 1° byte
+					// Se recebi o último bit do 1° byte
+					if(pos == 8) begin
 						state = STOP;
 					end
-					else if (pos == 16) begin// Acabou a recepção do 2° byte
+					// Se recebi o último bit do 2° byte
+					else if (pos == 16) begin 
 						state = STOP;
 					end
-					else begin// Continua no DATA
-						//buffer[counter] = rx;
-						//counter = counter + 1;		
+					// Caso contrário, continua no DATA
+					else begin		
 						state = DATA;
 					end	
 				end
+			// Fim dos 8 bits
 			STOP:
 				begin
 					// Se terminei o 2º byte, informo que terminei
-					//if (pos == 8) begin
-					//	data[7:0] = buffer[7:0];
-					//end
 					if (pos == 16) begin
-						//data[15:0] <= buffer[15:0];// registrador data recebe o buffer que é passado para saída
-						concluded = 1'b1; // Informa 
+						// Buffer recebendo os dados
+						buffer[15:0] <= data_tmp[15:0];
+						// Sinalizo aos outros módulos que tenho os 2 bytes prontos no buffer
+						concluded = 1'b1; 
 					end
 					state = START;
 				end

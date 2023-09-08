@@ -1,50 +1,3 @@
-/*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off PBLSD -c PBLSD --vector_source="C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/Waveform9.vwf" --testbench_file="C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/simulation/qsim/Waveform9.vwf.vt"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off PBLSD -c PBLSD --vector_source="C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/Waveform9.vwf" --testbench_file="C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/simulation/qsim/Waveform9.vwf.vt"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/simulation/qsim/" PBLSD -c PBLSD</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/simulation/qsim/" PBLSD -c PBLSD</tnetlist_cmd>
-<modelsim_script>onerror {exit -code 1}
-vlib work
-vlog -work work PBLSD.vo
-vlog -work work Waveform9.vwf.vt
-vsim  -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.ESCALONADOR_V3_vlg_vec_tst
-vcd file -direction PBLSD.msim.vcd
-vcd add -internal ESCALONADOR_V3_vlg_vec_tst/*
-vcd add -internal ESCALONADOR_V3_vlg_vec_tst/i1/*
-proc simTimestamp {} {
-    echo "Simulation time: $::now ps"
-    if { [string equal running [runStatus]] } {
-        after 2500 simTimestamp
-    }
-}
-after 2500 simTimestamp
-run -all
-quit -f
-
-
-</modelsim_script>
-<modelsim_script_timing>onerror {exit -code 1}
-vlib work
-vlog -work work PBLSD.vo
-vlog -work work Waveform9.vwf.vt
-vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.ESCALONADOR_V3_vlg_vec_tst
-vcd file -direction PBLSD.msim.vcd
-vcd add -internal ESCALONADOR_V3_vlg_vec_tst/*
-vcd add -internal ESCALONADOR_V3_vlg_vec_tst/i1/*
-proc simTimestamp {} {
-    echo "Simulation time: $::now ps"
-    if { [string equal running [runStatus]] } {
-        after 2500 simTimestamp
-    }
-}
-after 2500 simTimestamp
-run -all
-quit -f
-
-
-</modelsim_script_timing>
-<hdl_lang>verilog</hdl_lang>
-</simulation_settings>*/
 /*
 WARNING: Do NOT edit the input and output ports in this file in a text
 editor if you plan to continue editing the block that represents it in
@@ -1807,7 +1760,55 @@ TRANSITION_LIST("clk")
 		REPEAT = 1;
 		NODE
 		{
-			REPEAT = 25;
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
 			LEVEL 0 FOR 20.0;
 			LEVEL 1 FOR 20.0;
 		}
@@ -1819,7 +1820,13 @@ TRANSITION_LIST("data_to_send[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 580.0;
+		}
 	}
 }
 
@@ -1828,7 +1835,15 @@ TRANSITION_LIST("data_to_send[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 140.0;
+		}
 	}
 }
 
@@ -1837,7 +1852,13 @@ TRANSITION_LIST("data_to_send[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 580.0;
+		}
 	}
 }
 
@@ -1846,7 +1867,15 @@ TRANSITION_LIST("data_to_send[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 140.0;
+		}
 	}
 }
 
@@ -1855,7 +1884,15 @@ TRANSITION_LIST("data_to_send[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 60.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 80.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 580.0;
+		}
 	}
 }
 
@@ -1864,7 +1901,15 @@ TRANSITION_LIST("data_to_send[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 140.0;
+		}
 	}
 }
 
@@ -1873,7 +1918,13 @@ TRANSITION_LIST("data_to_send[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 580.0;
+		}
 	}
 }
 
@@ -1882,7 +1933,17 @@ TRANSITION_LIST("data_to_send[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 60.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 80.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 140.0;
+		}
 	}
 }
 
@@ -1891,7 +1952,13 @@ TRANSITION_LIST("data_to_send[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 580.0;
+		}
 	}
 }
 
@@ -1900,7 +1967,15 @@ TRANSITION_LIST("data_to_send[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 140.0;
+		}
 	}
 }
 
@@ -1909,7 +1984,15 @@ TRANSITION_LIST("data_to_send[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 60.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 80.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 580.0;
+		}
 	}
 }
 
@@ -1918,7 +2001,15 @@ TRANSITION_LIST("data_to_send[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 140.0;
+		}
 	}
 }
 
@@ -1927,7 +2018,13 @@ TRANSITION_LIST("data_to_send[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 580.0;
+		}
 	}
 }
 
@@ -1936,7 +2033,17 @@ TRANSITION_LIST("data_to_send[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 60.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 80.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 140.0;
+		}
 	}
 }
 
@@ -1945,7 +2052,15 @@ TRANSITION_LIST("data_to_send[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 60.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 80.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 580.0;
+		}
 	}
 }
 
@@ -1954,7 +2069,15 @@ TRANSITION_LIST("data_to_send[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 140.0;
+		}
 	}
 }
 
@@ -1963,7 +2086,11 @@ TRANSITION_LIST("data_used[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -1972,7 +2099,11 @@ TRANSITION_LIST("data_used[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -1981,7 +2112,11 @@ TRANSITION_LIST("data_used[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -1990,7 +2125,11 @@ TRANSITION_LIST("data_used[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -1999,7 +2138,11 @@ TRANSITION_LIST("data_used[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2008,7 +2151,13 @@ TRANSITION_LIST("data_used[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 420.0;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 540.0;
+		}
 	}
 }
 
@@ -2017,7 +2166,13 @@ TRANSITION_LIST("data_used[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 740.0;
+		}
 	}
 }
 
@@ -2026,7 +2181,13 @@ TRANSITION_LIST("data_used[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 860.0;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 100.0;
+		}
 	}
 }
 
@@ -2035,9 +2196,13 @@ TRANSITION_LIST("sensor_bus[127]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2046,9 +2211,13 @@ TRANSITION_LIST("sensor_bus[126]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2057,7 +2226,11 @@ TRANSITION_LIST("sensor_bus[125]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2066,9 +2239,13 @@ TRANSITION_LIST("sensor_bus[124]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2077,7 +2254,11 @@ TRANSITION_LIST("sensor_bus[123]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2086,7 +2267,11 @@ TRANSITION_LIST("sensor_bus[122]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2095,7 +2280,11 @@ TRANSITION_LIST("sensor_bus[121]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2104,7 +2293,11 @@ TRANSITION_LIST("sensor_bus[120]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2113,7 +2306,11 @@ TRANSITION_LIST("sensor_bus[119]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2122,7 +2319,11 @@ TRANSITION_LIST("sensor_bus[118]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2131,7 +2332,11 @@ TRANSITION_LIST("sensor_bus[117]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2140,7 +2345,11 @@ TRANSITION_LIST("sensor_bus[116]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2149,7 +2358,11 @@ TRANSITION_LIST("sensor_bus[115]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2158,7 +2371,11 @@ TRANSITION_LIST("sensor_bus[114]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2167,7 +2384,11 @@ TRANSITION_LIST("sensor_bus[113]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2176,9 +2397,13 @@ TRANSITION_LIST("sensor_bus[112]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 200.0;
-		LEVEL 0 FOR 780.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 200.0;
+			LEVEL 0 FOR 780.0;
+		}
 	}
 }
 
@@ -2187,9 +2412,13 @@ TRANSITION_LIST("sensor_bus[111]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 200.0;
-		LEVEL 0 FOR 780.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 200.0;
+			LEVEL 0 FOR 780.0;
+		}
 	}
 }
 
@@ -2198,7 +2427,11 @@ TRANSITION_LIST("sensor_bus[110]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2207,7 +2440,11 @@ TRANSITION_LIST("sensor_bus[109]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2216,7 +2453,11 @@ TRANSITION_LIST("sensor_bus[108]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2225,7 +2466,11 @@ TRANSITION_LIST("sensor_bus[107]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2234,7 +2479,11 @@ TRANSITION_LIST("sensor_bus[106]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2243,7 +2492,11 @@ TRANSITION_LIST("sensor_bus[105]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2252,7 +2505,11 @@ TRANSITION_LIST("sensor_bus[104]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2261,7 +2518,11 @@ TRANSITION_LIST("sensor_bus[103]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2270,7 +2531,11 @@ TRANSITION_LIST("sensor_bus[102]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2279,7 +2544,11 @@ TRANSITION_LIST("sensor_bus[101]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2288,7 +2557,11 @@ TRANSITION_LIST("sensor_bus[100]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2297,7 +2570,11 @@ TRANSITION_LIST("sensor_bus[99]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2306,7 +2583,11 @@ TRANSITION_LIST("sensor_bus[98]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2315,7 +2596,11 @@ TRANSITION_LIST("sensor_bus[97]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2324,7 +2609,11 @@ TRANSITION_LIST("sensor_bus[96]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2333,7 +2622,11 @@ TRANSITION_LIST("sensor_bus[95]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2342,7 +2635,11 @@ TRANSITION_LIST("sensor_bus[94]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2351,7 +2648,11 @@ TRANSITION_LIST("sensor_bus[93]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2360,7 +2661,11 @@ TRANSITION_LIST("sensor_bus[92]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2369,7 +2674,11 @@ TRANSITION_LIST("sensor_bus[91]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2378,7 +2687,11 @@ TRANSITION_LIST("sensor_bus[90]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2387,7 +2700,11 @@ TRANSITION_LIST("sensor_bus[89]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2396,7 +2713,11 @@ TRANSITION_LIST("sensor_bus[88]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2405,7 +2726,11 @@ TRANSITION_LIST("sensor_bus[87]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2414,7 +2739,11 @@ TRANSITION_LIST("sensor_bus[86]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2423,7 +2752,11 @@ TRANSITION_LIST("sensor_bus[85]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2432,7 +2765,11 @@ TRANSITION_LIST("sensor_bus[84]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2441,7 +2778,11 @@ TRANSITION_LIST("sensor_bus[83]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2450,7 +2791,11 @@ TRANSITION_LIST("sensor_bus[82]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2459,7 +2804,11 @@ TRANSITION_LIST("sensor_bus[81]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2468,7 +2817,11 @@ TRANSITION_LIST("sensor_bus[80]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2477,7 +2830,11 @@ TRANSITION_LIST("sensor_bus[79]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2486,7 +2843,11 @@ TRANSITION_LIST("sensor_bus[78]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2495,7 +2856,11 @@ TRANSITION_LIST("sensor_bus[77]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2504,7 +2869,11 @@ TRANSITION_LIST("sensor_bus[76]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2513,7 +2882,11 @@ TRANSITION_LIST("sensor_bus[75]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2522,7 +2895,11 @@ TRANSITION_LIST("sensor_bus[74]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2531,7 +2908,11 @@ TRANSITION_LIST("sensor_bus[73]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2540,7 +2921,11 @@ TRANSITION_LIST("sensor_bus[72]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2549,7 +2934,11 @@ TRANSITION_LIST("sensor_bus[71]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2558,7 +2947,11 @@ TRANSITION_LIST("sensor_bus[70]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2567,7 +2960,11 @@ TRANSITION_LIST("sensor_bus[69]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2576,7 +2973,11 @@ TRANSITION_LIST("sensor_bus[68]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2585,7 +2986,11 @@ TRANSITION_LIST("sensor_bus[67]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2594,7 +2999,11 @@ TRANSITION_LIST("sensor_bus[66]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2603,7 +3012,11 @@ TRANSITION_LIST("sensor_bus[65]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2612,7 +3025,11 @@ TRANSITION_LIST("sensor_bus[64]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2621,7 +3038,11 @@ TRANSITION_LIST("sensor_bus[63]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2630,7 +3051,11 @@ TRANSITION_LIST("sensor_bus[62]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2639,7 +3064,11 @@ TRANSITION_LIST("sensor_bus[61]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2648,7 +3077,11 @@ TRANSITION_LIST("sensor_bus[60]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2657,7 +3090,11 @@ TRANSITION_LIST("sensor_bus[59]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2666,7 +3103,11 @@ TRANSITION_LIST("sensor_bus[58]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2675,7 +3116,11 @@ TRANSITION_LIST("sensor_bus[57]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2684,7 +3129,11 @@ TRANSITION_LIST("sensor_bus[56]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2693,7 +3142,11 @@ TRANSITION_LIST("sensor_bus[55]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2702,7 +3155,11 @@ TRANSITION_LIST("sensor_bus[54]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2711,7 +3168,11 @@ TRANSITION_LIST("sensor_bus[53]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2720,7 +3181,11 @@ TRANSITION_LIST("sensor_bus[52]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2729,7 +3194,11 @@ TRANSITION_LIST("sensor_bus[51]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2738,7 +3207,11 @@ TRANSITION_LIST("sensor_bus[50]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2747,7 +3220,11 @@ TRANSITION_LIST("sensor_bus[49]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2756,7 +3233,11 @@ TRANSITION_LIST("sensor_bus[48]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2765,9 +3246,13 @@ TRANSITION_LIST("sensor_bus[47]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2776,9 +3261,13 @@ TRANSITION_LIST("sensor_bus[46]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2787,9 +3276,13 @@ TRANSITION_LIST("sensor_bus[45]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2798,9 +3291,13 @@ TRANSITION_LIST("sensor_bus[44]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2809,9 +3306,13 @@ TRANSITION_LIST("sensor_bus[43]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2820,9 +3321,13 @@ TRANSITION_LIST("sensor_bus[42]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2831,9 +3336,13 @@ TRANSITION_LIST("sensor_bus[41]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2842,9 +3351,13 @@ TRANSITION_LIST("sensor_bus[40]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2853,9 +3366,13 @@ TRANSITION_LIST("sensor_bus[39]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2864,9 +3381,13 @@ TRANSITION_LIST("sensor_bus[38]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2875,9 +3396,13 @@ TRANSITION_LIST("sensor_bus[37]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2886,9 +3411,13 @@ TRANSITION_LIST("sensor_bus[36]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2897,9 +3426,13 @@ TRANSITION_LIST("sensor_bus[35]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2908,9 +3441,13 @@ TRANSITION_LIST("sensor_bus[34]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2919,9 +3456,13 @@ TRANSITION_LIST("sensor_bus[33]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2930,9 +3471,13 @@ TRANSITION_LIST("sensor_bus[32]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 220.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 220.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2941,7 +3486,11 @@ TRANSITION_LIST("sensor_bus[31]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2950,7 +3499,11 @@ TRANSITION_LIST("sensor_bus[30]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2959,7 +3512,11 @@ TRANSITION_LIST("sensor_bus[29]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2968,7 +3525,11 @@ TRANSITION_LIST("sensor_bus[28]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2977,9 +3538,13 @@ TRANSITION_LIST("sensor_bus[27]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -2988,7 +3553,11 @@ TRANSITION_LIST("sensor_bus[26]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -2997,7 +3566,11 @@ TRANSITION_LIST("sensor_bus[25]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3006,9 +3579,13 @@ TRANSITION_LIST("sensor_bus[24]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -3017,7 +3594,11 @@ TRANSITION_LIST("sensor_bus[23]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3026,7 +3607,11 @@ TRANSITION_LIST("sensor_bus[22]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3035,9 +3620,13 @@ TRANSITION_LIST("sensor_bus[21]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -3046,7 +3635,11 @@ TRANSITION_LIST("sensor_bus[20]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3055,7 +3648,11 @@ TRANSITION_LIST("sensor_bus[19]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3064,9 +3661,13 @@ TRANSITION_LIST("sensor_bus[18]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -3075,9 +3676,13 @@ TRANSITION_LIST("sensor_bus[17]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 550.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 550.0;
+		}
 	}
 }
 
@@ -3086,9 +3691,13 @@ TRANSITION_LIST("sensor_bus[16]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 650.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 650.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 120.0;
+		}
 	}
 }
 
@@ -3097,7 +3706,11 @@ TRANSITION_LIST("sensor_bus[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3106,9 +3719,13 @@ TRANSITION_LIST("sensor_bus[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 650.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 650.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 120.0;
+		}
 	}
 }
 
@@ -3117,7 +3734,11 @@ TRANSITION_LIST("sensor_bus[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3126,9 +3747,13 @@ TRANSITION_LIST("sensor_bus[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 650.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 650.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 120.0;
+		}
 	}
 }
 
@@ -3137,7 +3762,11 @@ TRANSITION_LIST("sensor_bus[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3146,9 +3775,13 @@ TRANSITION_LIST("sensor_bus[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 650.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 650.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 120.0;
+		}
 	}
 }
 
@@ -3157,7 +3790,11 @@ TRANSITION_LIST("sensor_bus[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3166,9 +3803,13 @@ TRANSITION_LIST("sensor_bus[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 650.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 650.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 120.0;
+		}
 	}
 }
 
@@ -3177,7 +3818,11 @@ TRANSITION_LIST("sensor_bus[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3186,9 +3831,13 @@ TRANSITION_LIST("sensor_bus[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 650.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 650.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 120.0;
+		}
 	}
 }
 
@@ -3197,7 +3846,11 @@ TRANSITION_LIST("sensor_bus[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3206,11 +3859,15 @@ TRANSITION_LIST("sensor_bus[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 200.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 120.0;
+		}
 	}
 }
 
@@ -3219,7 +3876,11 @@ TRANSITION_LIST("sensor_bus[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3228,11 +3889,15 @@ TRANSITION_LIST("sensor_bus[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 200.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 120.0;
+		}
 	}
 }
 
@@ -3241,7 +3906,11 @@ TRANSITION_LIST("sensor_bus[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3250,11 +3919,15 @@ TRANSITION_LIST("sensor_bus[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 430.0;
-		LEVEL 0 FOR 200.0;
-		LEVEL 1 FOR 230.0;
-		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 430.0;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 230.0;
+			LEVEL 0 FOR 120.0;
+		}
 	}
 }
 
@@ -3263,9 +3936,13 @@ TRANSITION_LIST("sensor_ready[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 920.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 60.0;
+			LEVEL 0 FOR 920.0;
+		}
 	}
 }
 
@@ -3274,9 +3951,13 @@ TRANSITION_LIST("sensor_ready[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 920.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 60.0;
+			LEVEL 0 FOR 920.0;
+		}
 	}
 }
 
@@ -3285,7 +3966,11 @@ TRANSITION_LIST("sensor_ready[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3294,7 +3979,11 @@ TRANSITION_LIST("sensor_ready[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3303,7 +3992,11 @@ TRANSITION_LIST("sensor_ready[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -3312,9 +4005,13 @@ TRANSITION_LIST("sensor_ready[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 250.0;
-		LEVEL 1 FOR 90.0;
-		LEVEL 0 FOR 660.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 250.0;
+			LEVEL 1 FOR 90.0;
+			LEVEL 0 FOR 660.0;
+		}
 	}
 }
 
@@ -3323,11 +4020,15 @@ TRANSITION_LIST("sensor_ready[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 150.0;
-		LEVEL 0 FOR 750.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 60.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 150.0;
+			LEVEL 0 FOR 750.0;
+		}
 	}
 }
 
@@ -3336,9 +4037,13 @@ TRANSITION_LIST("sensor_ready[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 660.0;
-		LEVEL 1 FOR 180.0;
-		LEVEL 0 FOR 160.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 660.0;
+			LEVEL 1 FOR 180.0;
+			LEVEL 0 FOR 160.0;
+		}
 	}
 }
 
@@ -3347,7 +4052,17 @@ TRANSITION_LIST("state")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 60.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 80.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 140.0;
+		}
 	}
 }
 
@@ -3356,7 +4071,13 @@ TRANSITION_LIST("sensor_num[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 500.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 340.0;
+		}
 	}
 }
 
@@ -3365,7 +4086,16 @@ TRANSITION_LIST("sensor_num[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 260.0;
+			LEVEL 1 FOR 240.0;
+			LEVEL 0 FOR 80.0;
+			LEVEL 1 FOR 80.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 60.0;
+		}
 	}
 }
 
@@ -3374,7 +4104,22 @@ TRANSITION_LIST("sensor_num[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 240.0;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 40.0;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 40.0;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 240.0;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 40.0;
+			LEVEL 1 FOR 20.0;
+		}
 	}
 }
 
@@ -3383,13 +4128,17 @@ TRANSITION_LIST("uart_tx_done")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 180.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 170.0;
-		LEVEL 1 FOR 30.0;
-		LEVEL 0 FOR 430.0;
-		LEVEL 1 FOR 30.0;
-		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 180.0;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 170.0;
+			LEVEL 1 FOR 30.0;
+			LEVEL 0 FOR 430.0;
+			LEVEL 1 FOR 30.0;
+			LEVEL 0 FOR 120.0;
+		}
 	}
 }
 
@@ -3398,7 +4147,17 @@ TRANSITION_LIST("uart_tx_en")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 60.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 80.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 280.0;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 140.0;
+		}
 	}
 }
 

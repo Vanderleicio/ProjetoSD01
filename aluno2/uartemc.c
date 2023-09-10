@@ -16,7 +16,7 @@ int main() {
 	char text[numBytes];// só salvo dois bytes(char) por vez
 	struct termios options; /* Serial ports setting */
 	// Informando a porta, que é de leitura e escrita, sem delay
-	fd = open("/dev/ttyS0", O_RDWR | O_NDELAY | O_NOCTTY);
+	fd = open("/dev/ttyS0", O_RDWR); // | O_NDELAY | O_NOCTTY);
 	if (fd < 0) {
 		perror("Error opening serial port");
 		return -1;

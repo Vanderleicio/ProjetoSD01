@@ -13,7 +13,7 @@ typedef struct sensor{
 } sensor;
 
 int main (){
-	sensor arrayE[32];
+	sensor arrayE[31];
 	int numBytes = 2;
 	int fd, len;
 	char text[numBytes];// só salvo dois bytes(char) por vez
@@ -22,7 +22,7 @@ int main (){
 
 	// Informando a porta, que é de leitura e escrita, sem delay
 	//O_RDONLY e flag de somente leitura
-	fd = open("/dev/ttyS0", O_RDONLY); // | O_NDELAY | O_NOCTTY);
+	fd = open("/dev/ttyS0", O_RDONLY | O_NDELAY | O_NOCTTY);
 	if (fd < 0) {
 		perror("Error opening serial port");
 		return -1;
@@ -62,7 +62,8 @@ int main (){
 
 			// chame a funcao que ira atualizar as informacoes dos sensores
 			// e imprimir no terminal
-		// ---> terminalprinter(); <---
+
+		// ---> terminalprinter(endereco,arrayE,resposta); <---
 
 		// deve chamar funcao de sleep para tornar possivel leitura das informacoes
 		//sleep = (int number); number = milisegundo
@@ -84,7 +85,7 @@ int main (){
 * reading = vetor de sensores
 * newInfor = vetor com as informacoes a serem atualizadas
 */
-void terminalprinter(int srs_address, sensor* reading,char *newinfo){
+void terminalprinter(int srs_address, sensor* reading,char *newinfo[]){
 	// troca as informacoes
 	reading[srs_address].temp = newinfo[0];
 	reading[srs_address].humidity = newinfo[1];

@@ -7,7 +7,8 @@ module DHT11 (
 	inout dht_data, //Pino em tri-state
 	output [39:0] data_out, 
 	output WAIT, //Informa quando o circuito está operando e aguardando algum retorno do dht11
-	output reg error
+	output reg error,
+	output reg done
 	);
 	
 	reg dht_out, dir, wait_reg, debug_reg; // Registradores de saída
@@ -45,7 +46,7 @@ module DHT11 (
 		begin
 			if (rst == 1'b1) // Reset da máquina de estados
 			begin
-			
+				
 				dht_out <= 1'b1;
 				wait_reg <= 1'b0;
 				counter <= 26'b00000000000000000000000000;				
@@ -60,7 +61,7 @@ module DHT11 (
 				
 					START: 
 						begin 
-						
+							done <= 1'b0;
 							wait_reg <= 1'b1;
 							dir <= 1'b1; // Direção alterada para saída 
 							dht_out <= 1'b1; // DHT11 em modo espera, nível lógico alto
@@ -217,7 +218,7 @@ module DHT11 (
 								counter <= 26'b00000000000000000000000000;
 								STATE <= S8;
 							end else begin
-								if (counter < 1600000) // Verificação para caso dht tenha travado - espera 32ms
+								if (counter < 16000000) // Verificação para caso dht tenha travado - espera 32ms
 								begin
 									counter <= counter +1'b1;
 									STATE <= S7;
@@ -260,16 +261,16 @@ module DHT11 (
 								end
 										
 						// Se ainda não comutou para 0, continua aguardando
-						end else begin 
-							counter <= counter + 1'b1;
-							if(counter > 1600000) // Caso mais de 32uS de espera, travou
-							begin 
-								error <= 1'b1;
-								STATE <= STOP;
-							end
+							end else begin 
+								counter <= counter + 1'b1;
+								if(counter > 16000000) // Caso mais de 32uS de espera, travou
+								begin 
+									error <= 1'b1;
+									STATE <= STOP;
+								end
 
+							end
 						end
-					end
 					
 					
 				S9:
@@ -284,9 +285,11 @@ module DHT11 (
 				
 					begin 
 						// A máquina não aparece quando o state está atribuido ao stop, se mudar para start ela aparece no rtl viewer
-						STATE <= STOP;
+						STATE <= START;
+						
 						if ( error == 1'b0 )
 						begin  // Resetando, estrutura terminou o processamento
+							done <= 1'b1;
 							dht_out <= 1'b1;
 							wait_reg <= 1'b0;
 							counter <= 26'b00000000000000000000000000;
@@ -296,7 +299,7 @@ module DHT11 (
 							
 						end else begin 
 						//Podemos tirar essa parte pois é só para caso de análise
-							if(counter < 1600000 ) // Se tiver erro bloqueia a estrutura por 32ms para testes no osciloscopio
+							if(counter < 16000000 ) // Se tiver erro bloqueia a estrutura por 32ms para testes no osciloscopio
 							begin 
 								intdata <= 40'b0000000000000000000000000000000000000000;
 								counter <= counter + 1'b1;

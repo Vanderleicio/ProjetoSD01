@@ -26,8 +26,8 @@ module DHT11 (
 	
 	
 	// Conexões dos barramentos
+	// INT RH[39:32] + DEC RH[31:24] + INT T[23:16] + DEC T[15:8] + CRC[7:0]
 	assign data_out [39:0] = intdata [39:0];
-	
 	
 	// Inicialização máquina de estados
 	
@@ -285,7 +285,7 @@ module DHT11 (
 				
 					begin 
 						// A máquina não aparece quando o state está atribuido ao stop, se mudar para start ela aparece no rtl viewer
-						STATE <= START;
+						STATE <= STOP;
 						
 						if ( error == 1'b0 )
 						begin  // Resetando, estrutura terminou o processamento

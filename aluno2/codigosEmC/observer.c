@@ -41,15 +41,6 @@ int main (){
 	/* Apply the settings */
 	tcflush(fd, TCIFLUSH);
 	tcsetattr(fd, TCSANOW, &options);
-	
-
-	// INFORMANDO O BINÁRIO doq foi enviado
-	unsigned char *ptr = (unsigned char *)&text;
-	for (int i = 0; i < numBytes*sizeof(char); i++) {
-		printf("Byte %d: ", i + 1);
-		printBinary(ptr[i]);
-		printf("\n");
-	}
     
     
 	// bloco de leitura continua da porta de conexao, bloco de excecao dedicado a nao subir db.lock
@@ -71,7 +62,7 @@ int main (){
 	};
 
 	
-	fd.close();
+	close(fd);
 	return 0;
 	}
 	
@@ -90,12 +81,12 @@ void terminalprinter(int srs_address, sensor* reading,char *newinfo[]){
 	reading[srs_address].temp = newinfo[0];
 	reading[srs_address].humidity = newinfo[1];
 	
-	cleanscreen(); // chama funcao de limpar terminal
+	printf("\033[J");; // chama funcao de limpar terminal
 
 	// print do array de sensores atualizado com as novas informações	
-	for (int i = 0; i<4;i++){
+	for (int i = 0; i<8;i++){
 		printf("\n");
-			for (int ii = 0; ii<8;ii++){
+			for (int ii = 0; ii<4;ii++){
 			
 			};
 	};

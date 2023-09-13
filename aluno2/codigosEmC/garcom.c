@@ -4,31 +4,31 @@
 #include <fcntl.h>
 #include <termios.h>
 
-
-int selector(char *comando){
-    int resp;
+/*
+* Recebe codigo hex
+* e devolve cod binario do comando, pronto para uart 
+*/
+int selector(char *comando){   
     if (strcmp(comando,"0x00")==0){
-        resp = 0;        
+        return 0;        
     }else if (strcmp(comando,"0x01")==0){
-        resp = 1;   
+        return 1;   
     }else if (strcmp(comando,"0x02")==0){
-        resp = 2;
+        return 2;
     }else if (strcmp(comando,"0x03")==0){
-        resp = 3;
+        return 3;
     }else if (strcmp(comando,"0x04")==0){
-        resp = 4;
+        return 4;
     }else if (strcmp(comando,"0x05")==0){
-        resp = 5;
+        return 5;
     }else if (strcmp(comando,"0x06")==0){
-        resp = 6;
+        return 6;
     };
-    return resp;
-
-
+    return -1; // erro, comando nao especificado
 };
 
 int main(){
-    char comando[5]; // entrada do usuario
+    char comando[4]; // entrada do usuario
 	int fd, len, resp;
 	char text[2];// só salvo dois bytes(char) por vez
 	struct termios options; /* Serial ports setting */
@@ -55,23 +55,27 @@ int main(){
 
 	/** ######### TRECHO PARA ENVIAR ######### */
 	///**
+    int srsAddress;  // endereco do sensor
+    while (srsAddress!=-1){
+        printf("Digite o endereco de um sensor ou -1 para sair\n Aguardando: ");
+        scanf("%i",&srsAddress);
+    
+        while (comando!=NULL){
+            printf("Digite um comando: ");
+            fgets(comando, sizeof(comando), stdin);
 
-    while (comando!=NULL){
-        printf("Digite um comando: ");
-        fgets(comando, sizeof(comando), stdin);
-
-        size_t len = strlen(comando);
-        if (len > 0 && comando[len - 1] == '\n') {
-            comando[len - 1] = '\0';
-        }
-        resp = selector(comando);
+            resp = selector(comando);
 
 
+            printf("%c", resp);
 
-        strcpy(text, resp);
-        len = strlen(text);
-        // ESCREVE NA PORTA
-        //len = write(fd, text, len);
+            strcpy(text, resp);
+            len = strlen(text);
+            // ESCREVE NA PORTA
+            len = write(fd, text, len);
+        };
     };
+
+    close(fd);
     return 0;
 }

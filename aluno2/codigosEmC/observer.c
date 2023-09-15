@@ -10,22 +10,12 @@ typedef struct sensor{
 	char humidity;
 } sensor;
 
-char recConvert(char* recived){
-	char address[3];
-	char comand[4];
-	char info[8];
 
-	for(int i = 15; i >= 0; i--){
-		if (2 >= i >= 0){
-			address[i] = recived[i];
-		}else if (6 >= i > 2){
-			comand[i-3] = recived[i-3]; 
-		}else if ( 15 >= i >= 7){
-			info[i-8] = recived[i-8];
-		}
-	}
-	return address,comand,info;
-}
+void binToInt(char binary[], int rec){
+		for(int i = 0; i<8; i++){
+			rec = rec + (binary[i] * (pow(2, i)));
+		};
+	};
 
 void terminalprinter(int srs_address, sensor* reading,char info, int n_humi){
 	// troca as informacoes
@@ -48,6 +38,8 @@ int main (){
 
 	char* address,comand,info;
 
+	int fresh = 0;
+	unsigned char *pST = (unsigned char *)&text;
 
 	// Informando a porta, que é de leitura e escrita, sem delay
 	//O_RDONLY e flag de somente leitura
@@ -61,7 +53,7 @@ int main (){
 	tcgetattr(fd, &options);
 	
 	/* Set up serial port */
-	// baud rate 9k6, 8bits
+	// baud rate 9k6, 8bits | conexão local | Flag de somente leitura
 	options.c_cflag = B9600 | CS8 | CLOCAL | CREAD;
 	options.c_iflag = IGNPAR;
 	options.c_oflag = 0;
@@ -77,7 +69,7 @@ int main (){
 	// 
 	// +			-
 	//0			0
-	int fresh = 0;
+	
 	while (fd > 0){
 		// Read from serial port 
 		for (fresh <= 31;fresh++;){

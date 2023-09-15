@@ -6,9 +6,7 @@
 
 
 int main(){
-    char comando[4]; // entrada do usuario
 	int fd, len, resp;
-	char text[2];// só salvo dois bytes(char) por vez
 	struct termios options; /* Serial ports setting */
 	// Informando a porta, que é de leitura e escrita, sem delay
 	fd = open("/dev/ttyS0", O_WRONLY | O_NDELAY | O_NOCTTY);
@@ -33,26 +31,27 @@ int main(){
 
 	/** ######### TRECHO PARA ENVIAR ######### */
 	///**
-    int srsAddress;  // endereco do sensor
-        while (srsAddress != -1) {
+	unsigned char comando; // entrada do usuário
+    int srsAddress;  // endereço do sensor
+
+    printf("Digite o endereco de um sensor ou -1 para sair\nAguardando: ");
+    scanf("%d", &srsAddress);
+
+    while (srsAddress != -1) {
         while (getchar() != '\n'); // Limpar o buffer de entrada
 
         printf("Digite um comando: ");
-        fgets(comando, sizeof(comando), stdin);
+        scanf("%2s\n",&comando);
 
-        // Remova a quebra de linha do comando, se presente
-        size_t len = strlen(comando);
-        if (len > 0 && comando[len - 1] == '\n') {
-            comando[len - 1] = '\0';
-        }
+
+        // Simulação de escrita na porta (substitua por sua implementação real)
+        printf("\n\nEndereco do sensor: %d\n", srsAddress);
+        printf("Comando:  0x%02hhX\n", comando);
+
+        // Agora você pode escrever os dados na porta real, substitua esta parte pelo seu código real
 
         printf("Digite o endereco de um sensor ou -1 para sair\nAguardando: ");
-        scanf("%d", &srsAddress);
-
-        // escrita na porta 
-        text[0] = comando; text[1] = srsAddress;
-        len = strlen(text);
-        len = write(fd, text, len);
+        scanf("%d\n", &srsAddress);
     }
 
     close(fd);

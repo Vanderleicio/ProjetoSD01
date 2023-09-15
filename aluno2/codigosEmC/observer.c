@@ -3,14 +3,41 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <termios.h>
-
 #include <unistd.h>
 
 typedef struct sensor{
-	int address;
-	int temp;
-	int humidity;
+	char temp;
+	char humidity;
 } sensor;
+
+char recConvert(char* recived){
+	char address[3];
+	char comand[4];
+	char info[8];
+
+	for(int i = 15; i >= 0; i--){
+		if (2 >= i >= 0){
+			address[i] = recived[i];
+		}else if (6 >= i > 2){
+			comand[i-3] = recived[i-3]; 
+		}else if ( 15 >= i >= 7){
+			info[i-8] = recived[i-8];
+		}
+	}
+	return address,comand,info;
+}
+
+void terminalprinter(int srs_address, sensor* reading,char info, int n_humi){
+	// troca as informacoes
+	reading[srs_address].temp = info;
+	reading[srs_address].humidity;
+	
+	printf("\033[J");; // chama funcao de limpar terminal
+
+	// print do array de sensores atualizado com as novas informações	
+	printf("SENSOR");
+	printf("TEMP %d | HUMI %d",reading[srs_address].temp,reading[srs_address].humidity);
+}
 
 int main (){
 	sensor arrayE[31];
@@ -18,6 +45,8 @@ int main (){
 	int fd, len;
 	char text[numBytes];// só salvo dois bytes(char) por vez
 	struct termios options; /* Serial ports setting */
+
+	char* address,comand,info;
 
 
 	// Informando a porta, que é de leitura e escrita, sem delay
@@ -29,7 +58,7 @@ int main (){
 	};
 	
 	/* Read current serial port settings */
-	// tcgetattr(fd, &options);
+	tcgetattr(fd, &options);
 	
 	/* Set up serial port */
 	// baud rate 9k6, 8bits
@@ -44,17 +73,23 @@ int main (){
     
     
 	// bloco de leitura continua da porta de conexao, bloco de excecao dedicado a nao subir db.lock
-
+	// 16 bits
+	// 
+	// +			-
+	//0			0
+	int fresh = 0;
 	while (fd > 0){
 		// Read from serial port 
-		memset(text, 0, numBytes);
-		len = read(fd, text, numBytes);
-		unsigned char *pST = (unsigned char *)&text;
+		for (fresh <= 31;fresh++;){
+			memset(text, 0, numBytes);
+			len = read(fd, text, numBytes);
+			unsigned char *pST = (unsigned char *)&text;
 
-			// chame a funcao que ira atualizar as informacoes dos sensores
-			// e imprimir no terminal
-
-		// ---> terminalprinter(endereco,arrayE,resposta); <---
+				// chame a funcao que ira atualizar as informacoes dos sensores
+				// e imprimir no terminal
+			address,comand,info = recConvert(pST);
+			terminalprinter(address,comand,arrayE,info);
+		}
 
 		// deve chamar funcao de sleep para tornar possivel leitura das informacoes
 		//sleep = (int number); number = milisegundo
@@ -76,18 +111,3 @@ int main (){
 * reading = vetor de sensores
 * newInfor = vetor com as informacoes a serem atualizadas
 */
-void terminalprinter(int srs_address, sensor* reading,char *newinfo[]){
-	// troca as informacoes
-	reading[srs_address].temp = newinfo[0];
-	reading[srs_address].humidity = newinfo[1];
-	
-	printf("\033[J");; // chama funcao de limpar terminal
-
-	// print do array de sensores atualizado com as novas informações	
-	for (int i = 0; i<8;i++){
-		printf("\n");
-			for (int ii = 0; ii<4;ii++){
-			
-			};
-	};
-}

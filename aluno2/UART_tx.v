@@ -11,8 +11,8 @@ module UART_tx(clk_9k6hz, tx, data, en, finish_send);
 	input clk_9k6hz; // clock
 	input en;// Sinal que, em 1, irá habilitar o processo de transmissão.
 	
-	input [0:15]data;  // dados a serem transmitidos, está invertido para mandar primeiro o 15 (menos significativo)
-	reg [0:15] buffer;
+	input [15:0]data;  // dados a serem transmitidos, está invertido para mandar primeiro o 15 (menos significativo)
+	reg [15:0] buffer;
 	output reg tx;  // pino de saída por onde trafegarão os bit em serial
 	output reg finish_send;
 	
@@ -24,7 +24,7 @@ module UART_tx(clk_9k6hz, tx, data, en, finish_send);
 	parameter DATA = 2'b10;
 	parameter STOP = 2'b11;
 
-	integer pos = 15;// Indica qual o bit do array será transmitido
+	integer pos = 0;// Indica qual o bit do array será transmitido
 	
 	// Só para iniciar em espera
 	initial begin
@@ -42,7 +42,7 @@ module UART_tx(clk_9k6hz, tx, data, en, finish_send);
 			// PARADO
 			IDLE:
 				begin
-					pos = 15;// Reinicia o indicador da posição p/ transmitir
+					pos = 0;// Reinicia o indicador da posição p/ transmitir
 					tx = 1'b1;
 					if (en) begin
 						buffer <= data;
@@ -62,13 +62,13 @@ module UART_tx(clk_9k6hz, tx, data, en, finish_send);
 			DATA:
 				begin
 					tx = buffer[pos]; //
-					pos = pos - 1;
+					pos = pos + 1;
 					// Se encerrou a transmissão do primeiro byte
 					if (pos == 7) begin
 						state = STOP;
 					end
 					// Se encerrou a transmissão do segundo byte
-					else if (pos == -1) begin
+					else if (pos == 16) begin
 						state = STOP;
 					end
 					// Se está no meio do processo de enviar algum byte

@@ -2,31 +2,56 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdlib.h>
 #include <termios.h>
-#include <unistd.h>
+
+// bloco para detectar sistema operacional (usado no procedimento limpaTela())
+#if defined(_WIN32) || defined(_WIN64)
+    #define OS_WINDOWS
+#elif defined(__linux__)
+    #define OS_LINUX
+#endif
 
 typedef struct sensor{
 	char temp;
 	char humidity;
 } sensor;
 
+void limpaTela() {
+    #ifdef OS_WINDOWS
+        system("cls"); // Limpar terminal
+    #elif OS_LINUX
+        system("clear");
+    #endif
+}
 
-void binToInt(char binary[], int rec){
-		for(int i = 0; i<8; i++){
-			rec = rec + (binary[i] * (pow(2, i)));
-		};
-	};
+void printAllSensors(sensor *sensorArray) {
+    limpaTela();
+    printf("\nSituacao atual dos sensores:\n");
+    printf("\n----------------   ----------------   ----------------   ----------------\n");
 
-void terminalprinter(int srs_address, sensor* reading,char info, int n_humi){
-	// troca as informacoes
-	reading[srs_address].temp = info;
-	reading[srs_address].humidity;
+    for (size_t i = 0; i < 32; i++) {
+        // i = numero do sensor;
+        printf("|%2d|T:%-2iC H:%-2i%%|   ", i, sensorArray[i].temp, sensorArray[i].humidity);
+
+        if ((i + 1) % 4 == 0) {
+            printf("    "); // Adicionar 4 espaços entre conjuntos de informações
+            if (i != 31) {
+                printf("\n|--|-----------|   |--|-----------|   |--|-----------|   |--|-----------|\n");
+            } else {
+                printf("\n----------------   ----------------   ----------------   ----------------\n");
+            }
+        }
+    }
+}
+
+/*
+to do
+*/
+void refreshSensors(sensor *reading,int srs_address,int info, int comando){
 	
-	printf("\033[J");; // chama funcao de limpar terminal
-
-	// print do array de sensores atualizado com as novas informações	
-	printf("SENSOR");
-	printf("TEMP %d | HUMI %d",reading[srs_address].temp,reading[srs_address].humidity);
+	reading[srs_address].temp = info;
+	reading[srs_address].humidity = info;
 }
 
 int main (){
@@ -36,13 +61,15 @@ int main (){
 	char text[numBytes];// só salvo dois bytes(char) por vez
 	struct termios options; /* Serial ports setting */
 
-	char* address,comand,info;
+	//	  endereco | comando | informacao
+	unsigned int address,info;
+	unsigned char comand;
 
 	int fresh = 0;
 	unsigned char *pST = (unsigned char *)&text;
 
-	// Informando a porta, que é de leitura e escrita, sem delay
-	//O_RDONLY e flag de somente leitura
+	// Informando a porta, que é somente leitura, sem delay
+	//	O_RDONLY e flag de somente leitura ; O_NDLEAY = sem delay; O_N0CTTY = porta
 	fd = open("/dev/ttyS0", O_RDONLY | O_NDELAY | O_NOCTTY);
 	if (fd < 0) {
 		perror("Error opening serial port");
@@ -59,33 +86,32 @@ int main (){
 	options.c_oflag = 0;
 	options.c_lflag = 0;
 	
-	/* Apply the settings */
+	/* Aplica as configuracoes */
 	tcflush(fd, TCIFLUSH);
 	tcsetattr(fd, TCSANOW, &options);
     
-    
-	// bloco de leitura continua da porta de conexao, bloco de excecao dedicado a nao subir db.lock
-	// 16 bits
-	// 
-	// +			-
-	//0			0
-	
 	while (fd > 0){
-		// Read from serial port 
-		for (fresh <= 31;fresh++;){
+		// Ler a porta serial
+		for (fresh < 32;fresh++;){
 			memset(text, 0, numBytes);
 			len = read(fd, text, numBytes);
-			unsigned char *pST = (unsigned char *)&text;
+			*pST = (unsigned char *)&text;
 
-				// chame a funcao que ira atualizar as informacoes dos sensores
-				// e imprimir no terminal
-			address,comand,info = recConvert(pST);
-			terminalprinter(address,comand,arrayE,info);
+			// trate variavel pST e separe as informacoes recebidas
+			// se endereco e informacao sao inteiros e comando um char:
+			info = pST[0] -'0';
+			address = (pST[1] << 4) - '0';
+			comand = (pST[1] >> 4);
+			// chame a funcao que ira atualizar as informacoes dos sensores
+			refreshSensors(arrayE,address,info,comand);
 		}
+		fresh = 0;
 
 		// deve chamar funcao de sleep para tornar possivel leitura das informacoes
 		//sleep = (int number); number = milisegundo
-		sleep(200*1000);	// quando em linux
+		printAllSensors(arrayE);
+		sleep(0.5);
+		
 	};
 
 	
@@ -93,13 +119,3 @@ int main (){
 	return 0;
 	}
 	
-/*
-* usar as informacoes recebidas pela uart
-* trocar a informacao do sensor dentro da leitura (reading) pelo novo dado
-* limpar a tela
-* printar array com informacoes atualizadas
-* utiliza ponteiros para manipular valores originais do vetor de sensores.
-* srs_address = Endeço do sensor (0 a 31)
-* reading = vetor de sensores
-* newInfor = vetor com as informacoes a serem atualizadas
-*/

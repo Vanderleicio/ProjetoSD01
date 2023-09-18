@@ -26,16 +26,16 @@ void limpaTela() {
 }
 
 void printAllSensors(sensor *sensorArray) {
-    limpaTela();
+
     printf("\nSituacao atual dos sensores:\n");
     printf("\n----------------   ----------------   ----------------   ----------------\n");
 
     for (size_t i = 0; i < 32; i++) {
         // i = numero do sensor;
-        printf("|%2d|T:%-2iC H:%-2i%%|   ", i, sensorArray[i].temp, sensorArray[i].humidity);
+        printf("|%2d|T:%-2iC H:%-2i%%|", i, sensorArray[i].temp, sensorArray[i].humidity);
+		printf("   "); // Adicionar 4 espaços entre conjuntos de informações
 
         if ((i + 1) % 4 == 0) {
-            printf("    "); // Adicionar 4 espaços entre conjuntos de informações
             if (i != 31) {
                 printf("\n|--|-----------|   |--|-----------|   |--|-----------|   |--|-----------|\n");
             } else {
@@ -45,25 +45,51 @@ void printAllSensors(sensor *sensorArray) {
     }
 }
 
-/*
-to do
-*/
 void refreshSensors(sensor *reading,int srs_address,int info, int comando){
-	
-	reading[srs_address].temp = info;
-	reading[srs_address].humidity = info;
+	switch (comando)
+	{
+	case 8:		// sensor com problema
+		printf("Problema no sensor N:%i\n",srs_address);
+		break;
+	case 9:		// sensor funcionando normalmente
+		printf("Sensor %i Operando normalmente.\n",srs_address);
+		break;
+	case 10:		// requesitar umidade
+		printf("Umidade do sensor N %i: %i\n",srs_address, info);
+		reading[srs_address].humidity = info; 
+		break;
+	case 11:		// requesitar temperatura
+		printf("Temperatura do sensor N %i: %i\n",srs_address, info);
+		reading[srs_address].temp = info;
+		break;
+	case 12:		// desativacao do monitoramento continuo de temperatura
+		printf("",srs_address);
+		break;
+	case 13:		// desativacao do monitoramento continuo de umidade
+		printf("",srs_address);
+		break;
+	default:
+		printf("\n");
+		break;
+	}
 }
 
 int main (){
-	sensor arrayE[31];
+	sensor arrayE[32];
+	for (size_t i = 0; i < 32; i++)	// zerando lixo na memoria
+	{
+		arrayE[i].temp = 0;
+		arrayE[i].humidity = 0;
+	}
+	
 	int numBytes = 2;
 	int fd, len;
 	char text[numBytes];// só salvo dois bytes(char) por vez
 	struct termios options; /* Serial ports setting */
 
-	//	  endereco | comando | informacao
-	unsigned int address,info;
-	unsigned char comand;
+	//	  endereco | informacao | comando
+	unsigned int address,info,comand;
+
 
 	int fresh = 0;
 	unsigned char *pST = (unsigned char *)&text;
@@ -92,27 +118,26 @@ int main (){
     
 	while (fd > 0){
 		// Ler a porta serial
-		for (fresh < 32;fresh++;){
-			memset(text, 0, numBytes);
-			len = read(fd, text, numBytes);
+		memset(text, 0, numBytes);
+		len = read(fd, text, numBytes);
+		if(fd){	
 			*pST = (unsigned char *)&text;
 
 			// trate variavel pST e separe as informacoes recebidas
 			// se endereco e informacao sao inteiros e comando um char:
 			info = pST[0] -'0';
 			address = (pST[1] << 4) - '0';
-			comand = (pST[1] >> 4);
+			comand = (pST[1] >> 4) - '0';
 			// chame a funcao que ira atualizar as informacoes dos sensores
 			refreshSensors(arrayE,address,info,comand);
 		}
-		fresh = 0;
-
 		// deve chamar funcao de sleep para tornar possivel leitura das informacoes
 		//sleep = (int number); number = milisegundo
 		printAllSensors(arrayE);
 		sleep(0.5);
-		
-	};
+		limpaTela();
+		};
+
 
 	
 	close(fd);

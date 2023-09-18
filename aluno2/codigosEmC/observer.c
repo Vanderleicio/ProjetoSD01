@@ -63,12 +63,12 @@ void refreshSensors(sensor *reading,int srs_address,int info, int comando){
 		reading[srs_address].temp = info;
 		break;
 	case 12:		// desativacao do monitoramento continuo de temperatura
-		printf("",srs_address);
+		printf("\n");
 		break;
 	case 13:		// desativacao do monitoramento continuo de umidade
-		printf("",srs_address);
+		printf("\n");
 		break;
-	default:
+	default:		// resposta nao conhecida
 		printf("\n");
 		break;
 	}

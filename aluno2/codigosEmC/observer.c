@@ -5,32 +5,20 @@
 #include <stdlib.h>
 #include <termios.h>
 
-// bloco para detectar sistema operacional (usado no procedimento limpaTela())
-#if defined(_WIN32) || defined(_WIN64)
-    #define OS_WINDOWS
-#elif defined(__linux__)
-    #define OS_LINUX
-#endif
-
 typedef struct sensor{
 	char temp;
 	char humidity;
 } sensor;
 
 void limpaTela() {
-    #ifdef OS_WINDOWS
-        system("cls"); // Limpar terminal
-    #elif OS_LINUX
-        system("clear");
-    #endif
+    system("clear");
 }
 
 void printAllSensors(sensor *sensorArray) {
-
     printf("\nSituacao atual dos sensores:\n");
     printf("\n----------------   ----------------   ----------------   ----------------\n");
 
-    for (size_t i = 0; i < 32; i++) {
+    for (int i = 0; i < 32; i++) {
         // i = numero do sensor;
         printf("|%2d|T:%-2iC H:%-2i%%|", i, sensorArray[i].temp, sensorArray[i].humidity);
 		printf("   "); // Adicionar 4 espaços entre conjuntos de informações
@@ -63,13 +51,13 @@ void refreshSensors(sensor *reading,int srs_address,int info, int comando){
 		reading[srs_address].temp = info;
 		break;
 	case 12:		// desativacao do monitoramento continuo de temperatura
-		printf("\n");
+		printf("Monitoramento continuo de temperatura do sensor N %i desativado.\n",srs_address);
 		break;
 	case 13:		// desativacao do monitoramento continuo de umidade
-		printf("\n");
+		printf("Monitoramento continuo de umidade do sensor N %i desativado.\n",srs_address);
 		break;
 	default:		// resposta nao conhecida
-		printf("\n");
+		printf("Codigo de resposta não conhecido.\n");
 		break;
 	}
 }
@@ -81,8 +69,12 @@ int main (){
 		arrayE[i].temp = 0;
 		arrayE[i].humidity = 0;
 	}
-	
+	/*
+	***** DEFININDO NUMERO DE BYTES ******
+	*/
 	int numBytes = 2;
+
+
 	int fd, len;
 	char text[numBytes];// só salvo dois bytes(char) por vez
 	struct termios options; /* Serial ports setting */
@@ -90,9 +82,7 @@ int main (){
 	//	  endereco | informacao | comando
 	unsigned int address,info,comand;
 
-
-	int fresh = 0;
-	unsigned char *pST = (unsigned char *)&text;
+	unsigned char *pST;
 
 	// Informando a porta, que é somente leitura, sem delay
 	//	O_RDONLY e flag de somente leitura ; O_NDLEAY = sem delay; O_N0CTTY = porta
@@ -121,13 +111,13 @@ int main (){
 		memset(text, 0, numBytes);
 		len = read(fd, text, numBytes);
 		if(fd){	
-			*pST = (unsigned char *)&text;
+			pST = (unsigned char *)&text;
 
 			// trate variavel pST e separe as informacoes recebidas
 			// se endereco e informacao sao inteiros e comando um char:
-			info = pST[0] -'0';
-			address = (pST[1] << 4) - '0';
-			comand = (pST[1] >> 4) - '0';
+			info = pST[0];
+			comand = (pST[1] & 0x0F);
+			address = (pST[1] >> 4);
 			// chame a funcao que ira atualizar as informacoes dos sensores
 			refreshSensors(arrayE,address,info,comand);
 		}

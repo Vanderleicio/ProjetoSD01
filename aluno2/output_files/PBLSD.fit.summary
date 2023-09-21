@@ -1,15 +1,15 @@
-Fitter Status : Successful - Thu Sep 07 22:37:55 2023
+Fitter Status : Successful - Wed Sep 20 20:57:49 2023
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : PBLSD
-Top-level Entity Name : ESCALONADOR_V3
+Top-level Entity Name : testaMain
 Family : Cyclone IV E
 Device : EP4CE30F23C7
 Timing Models : Final
-Total logic elements : 107 / 28,848 ( < 1 % )
-    Total combinational functions : 107 / 28,848 ( < 1 % )
-    Dedicated logic registers : 12 / 28,848 ( < 1 % )
-Total registers : 12
-Total pins : 167 / 329 ( 51 % )
+Total logic elements : 110 / 28,848 ( < 1 % )
+    Total combinational functions : 102 / 28,848 ( < 1 % )
+    Dedicated logic registers : 54 / 28,848 ( < 1 % )
+Total registers : 54
+Total pins : 19 / 329 ( 6 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )

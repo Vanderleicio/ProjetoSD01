@@ -6,11 +6,11 @@ Após os 8 bits de dados, joga o end-bit que é o nível lógico em 1 tx
 espera n ciclos de clock e envia o segundo byte
 */
 
-module transmissor(clk_9k6hz, tx, data, en);
+module transmissor(clk_9k6hz, tx, data, en, done);
 
 	input clk_9k6hz; // clock
 	input en;// Sinal que, em 1, irá habilitar o processo de transmissão.
-	
+	output reg done;
 	input [0:15]data;  // dados a serem transmitidos, está invertido para mandar primeiro o 15 (menos significativo)
 	output reg tx;  // pino de saída por onde trafegarão os bit em serial
 	
@@ -27,6 +27,7 @@ module transmissor(clk_9k6hz, tx, data, en);
 	// Só para iniciar em espera
 	initial begin
 		tx = 1'b1;
+		done = 1'b0;
 		state <= IDLE;
 	end
 	
@@ -41,6 +42,7 @@ module transmissor(clk_9k6hz, tx, data, en);
 				begin
 					pos = 15;// Reinicia o indicador da posição p/ transmitir
 					tx = 1'b1;
+					done = 1'b0;
 					if (en) begin
 						state = START;
 					end
@@ -82,6 +84,7 @@ module transmissor(clk_9k6hz, tx, data, en);
 					end
 					// Se já encerrei todo o processo (2 bytes)
 					else begin
+					done = 1'b1;
 						state = IDLE;
 					end
 				end

@@ -4,671 +4,79 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "data_to_send[0]",
+					"name" : "tx",
 					"strict" : false
 				},
 				{
-					"name" : "data_to_send[1]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[2]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[3]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[4]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[5]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[6]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[7]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[8]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[9]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[10]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[11]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[12]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[13]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[14]",
-					"strict" : false
-				},
-				{
-					"name" : "data_to_send[15]",
-					"strict" : false
-				},
-				{
-					"name" : "data_used[0]",
-					"strict" : false
-				},
-				{
-					"name" : "data_used[1]",
-					"strict" : false
-				},
-				{
-					"name" : "data_used[2]",
-					"strict" : false
-				},
-				{
-					"name" : "data_used[3]",
-					"strict" : false
-				},
-				{
-					"name" : "data_used[4]",
-					"strict" : false
-				},
-				{
-					"name" : "data_used[5]",
-					"strict" : false
-				},
-				{
-					"name" : "data_used[6]",
-					"strict" : false
-				},
-				{
-					"name" : "data_used[7]",
-					"strict" : false
-				},
-				{
-					"name" : "uart_tx_en",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_num[0]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_num[1]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_num[2]",
-					"strict" : false
-				},
-				{
-					"name" : "state",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[80]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[48]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[16]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[112]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[64]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[32]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[0]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[96]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[81]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[49]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[17]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[113]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[33]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[65]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[1]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[97]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[82]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[50]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[18]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[114]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[34]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[66]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[2]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[98]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[83]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[51]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[19]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[115]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[35]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[67]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[3]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[99]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[84]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[52]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[20]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[116]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[36]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[68]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[4]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[100]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[85]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[53]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[21]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[117]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[37]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[69]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[5]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[101]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[86]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[54]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[22]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[118]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[38]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[70]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[6]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[102]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[87]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[55]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[23]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[119]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[39]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[71]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[7]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[103]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[88]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[56]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[24]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[120]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[40]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[72]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[8]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[104]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[89]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[57]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[25]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[121]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[41]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[73]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[9]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[105]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[90]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[58]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[26]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[122]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[42]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[74]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[10]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[106]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[91]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[59]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[27]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[123]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[43]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[75]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[11]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[107]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[92]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[60]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[28]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[124]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[44]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[76]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[12]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[108]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[93]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[61]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[29]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[125]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[45]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[77]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[13]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[109]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[94]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[62]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[30]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[126]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[46]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[78]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[14]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[110]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[95]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[63]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[31]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[127]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[47]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[79]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[15]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_bus[111]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_ready[5]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_ready[6]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_ready[4]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_ready[7]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_ready[1]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_ready[2]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_ready[0]",
-					"strict" : false
-				},
-				{
-					"name" : "sensor_ready[3]",
-					"strict" : false
-				},
-				{
-					"name" : "uart_tx_done",
+					"name" : "done",
 					"strict" : false
 				},
 				{
 					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "data[10]",
+					"strict" : false
+				},
+				{
+					"name" : "data[9]",
+					"strict" : false
+				},
+				{
+					"name" : "data[8]",
+					"strict" : false
+				},
+				{
+					"name" : "data[11]",
+					"strict" : false
+				},
+				{
+					"name" : "data[5]",
+					"strict" : false
+				},
+				{
+					"name" : "data[6]",
+					"strict" : false
+				},
+				{
+					"name" : "data[4]",
+					"strict" : false
+				},
+				{
+					"name" : "data[7]",
+					"strict" : false
+				},
+				{
+					"name" : "data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "data[3]",
+					"strict" : false
+				},
+				{
+					"name" : "data[13]",
+					"strict" : false
+				},
+				{
+					"name" : "data[14]",
+					"strict" : false
+				},
+				{
+					"name" : "data[12]",
+					"strict" : false
+				},
+				{
+					"name" : "data[15]",
 					"strict" : false
 				}
 			]

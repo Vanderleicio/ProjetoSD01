@@ -4,4 +4,3 @@ Info (10281): Verilog HDL Declaration information at transmissor_com_wait.v(14):
 Warning (10268): Verilog HDL information at UART_rx.v(27): always construct contains both blocking and non-blocking assignments File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART_rx.v Line: 27
 Warning (10268): Verilog HDL information at UART_tx.v(39): always construct contains both blocking and non-blocking assignments File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART_tx.v Line: 39
 Info (10281): Verilog HDL Declaration information at UART_tx.v(14): object "data" differs only in case from object "DATA" in the same scope File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART_tx.v Line: 14
-Warning (10268): Verilog HDL information at ESCALONADOR_V3.v(58): always construct contains both blocking and non-blocking assignments File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/ESCALONADOR_V3.v Line: 58

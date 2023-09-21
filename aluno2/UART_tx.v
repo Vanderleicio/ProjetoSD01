@@ -56,8 +56,13 @@ module UART_tx(clk_9k6hz, tx, data, en, done);
 			// COMEÇA A TRANSMISSÃO
 			START:
 				begin
-					tx = 1'b0; //Informo o start-bit
-					state = DATA;
+					if (en) begin
+						tx = 1'b0; //Informo o start-bit
+						state = DATA;
+					end
+					else begin
+						state = IDLE;
+					end
 				end
 			// TRANSMITINDO OS DADOS
 			DATA:

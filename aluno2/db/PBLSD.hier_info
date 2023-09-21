@@ -1,7 +1,7 @@
 |testa_Escalonador
 clk => clk.IN2
-tx <= UART_tx:transmissor.port1
-done <= done.DB_MAX_OUTPUT_PORT_TYPE
+tx << UART_tx:transmissor.port1
+done << done.DB_MAX_OUTPUT_PORT_TYPE
 sensor_ready[0] => sensor_ready[0].IN1
 sensor_ready[1] => sensor_ready[1].IN1
 sensor_ready[2] => sensor_ready[2].IN1
@@ -10,18 +10,18 @@ sensor_ready[4] => sensor_ready[4].IN1
 sensor_ready[5] => sensor_ready[5].IN1
 sensor_ready[6] => sensor_ready[6].IN1
 sensor_ready[7] => sensor_ready[7].IN1
-data_used[0] <= ESCALONADOR_V3:escalona.port5
-data_used[1] <= ESCALONADOR_V3:escalona.port5
-data_used[2] <= ESCALONADOR_V3:escalona.port5
-data_used[3] <= ESCALONADOR_V3:escalona.port5
-data_used[4] <= ESCALONADOR_V3:escalona.port5
-data_used[5] <= ESCALONADOR_V3:escalona.port5
-data_used[6] <= ESCALONADOR_V3:escalona.port5
-data_used[7] <= ESCALONADOR_V3:escalona.port5
-sensor_num[0] <= ESCALONADOR_V3:escalona.port7
-sensor_num[1] <= ESCALONADOR_V3:escalona.port7
-sensor_num[2] <= ESCALONADOR_V3:escalona.port7
-state <= ESCALONADOR_V3:escalona.port8
+data_used[0] << ESCALONADOR_V3:escalona.port5
+data_used[1] << ESCALONADOR_V3:escalona.port5
+data_used[2] << ESCALONADOR_V3:escalona.port5
+data_used[3] << ESCALONADOR_V3:escalona.port5
+data_used[4] << ESCALONADOR_V3:escalona.port5
+data_used[5] << ESCALONADOR_V3:escalona.port5
+data_used[6] << ESCALONADOR_V3:escalona.port5
+data_used[7] << ESCALONADOR_V3:escalona.port5
+sensor_num[0] << ESCALONADOR_V3:escalona.port7
+sensor_num[1] << ESCALONADOR_V3:escalona.port7
+sensor_num[2] << ESCALONADOR_V3:escalona.port7
+state << ESCALONADOR_V3:escalona.port8
 sensor_bus[0] => sensor_bus[0].IN1
 sensor_bus[1] => sensor_bus[1].IN1
 sensor_bus[2] => sensor_bus[2].IN1
@@ -150,6 +150,7 @@ sensor_bus[124] => sensor_bus[124].IN1
 sensor_bus[125] => sensor_bus[125].IN1
 sensor_bus[126] => sensor_bus[126].IN1
 sensor_bus[127] => sensor_bus[127].IN1
+uart_tx_en << uart_tx_en.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |testa_Escalonador|UART_tx:transmissor
@@ -237,8 +238,11 @@ en => buffer.OUTPUTSELECT
 en => buffer.OUTPUTSELECT
 en => buffer.OUTPUTSELECT
 en => buffer.OUTPUTSELECT
+en => tx.OUTPUTSELECT
 en => Selector35.IN3
+en => Selector36.IN3
 en => Selector34.IN1
+en => Selector34.IN2
 done <= done~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

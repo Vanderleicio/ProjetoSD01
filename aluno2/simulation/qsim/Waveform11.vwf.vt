@@ -19,7 +19,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "09/20/2023 21:29:48"
+// Generated on "09/20/2023 21:59:51"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          testa_Escalonador
 // 
@@ -39,6 +39,7 @@ wire done;
 wire [2:0] sensor_num;
 wire state;
 wire tx;
+wire uart_tx_en;
 
 // assign statements (if any)                          
 testa_Escalonador i1 (
@@ -50,7 +51,8 @@ testa_Escalonador i1 (
 	.sensor_num(sensor_num),
 	.sensor_ready(sensor_ready),
 	.state(state),
-	.tx(tx)
+	.tx(tx),
+	.uart_tx_en(uart_tx_en)
 );
 initial 
 begin 

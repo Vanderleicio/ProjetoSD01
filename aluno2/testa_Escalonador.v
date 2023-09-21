@@ -1,6 +1,6 @@
-module testa_Escalonador(input clk, output tx, output done, input [7:0] sensor_ready, output [7:0] data_used, output[2:0] sensor_num, output state, input [127:0] sensor_bus);
+module testa_Escalonador(input clk, output tx, output done, input [7:0] sensor_ready, output [7:0] data_used, output[2:0] sensor_num, output state, input [127:0] sensor_bus, output uart_tx_en);
 
-	wire uart_tx_en;//habilita o transmissor
+	//wire uart_tx_en;//habilita o transmissor
 	wire [15:0] data_to_send;
 	
 

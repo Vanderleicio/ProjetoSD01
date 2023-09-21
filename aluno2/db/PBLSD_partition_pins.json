@@ -60,6 +60,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "uart_tx_en",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},

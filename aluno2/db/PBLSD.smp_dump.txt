@@ -1,5 +1,5 @@
 
-State Machine - |testaMain|UART_tx:TTsX|state
+State Machine - |testa_Escalonador|UART_tx:transmissor|state
 Name state.STOP state.DATA state.START state.IDLE 
 state.IDLE 0 0 0 0 
 state.START 0 0 1 1 

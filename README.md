@@ -127,7 +127,7 @@ O receptor UART possui duas saídas de informação cruciais para esta estrutura
 <center>
   
 ![DHT11](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/dht11.png)
-**Figura ...:** *Funcionamento do sensor. [Components101](https://components101.com/sensors/dht11-temperature-sensor)*
+- **Figura ...:** *Funcionamento do sensor. [Components101](https://components101.com/sensors/dht11-temperature-sensor)*
 
 </center>
 

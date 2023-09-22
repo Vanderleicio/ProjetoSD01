@@ -124,6 +124,10 @@ O receptor UART possui duas saídas de informação cruciais para esta estrutura
 ## Módulo DHT11
 
 O módulo DHT11 é responsável por implementar a lógica de funcionamento do sensor. 
+
+[![DHT11]](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/dht11.png)
+
+Funcionamento do sensor [Components101](https://components101.com/sensors/dht11-temperature-sensor)
 #### Controlador
 
 O módulo controlador possibilita a solicitação de diversas informações do sensor DHT11, como temperatura, umidade, ou a contínua atualização de uma dessas variáveis. Ele age como o coordenador dos dados, processando e enviando de volta ao PC apenas o que foi requisitado.

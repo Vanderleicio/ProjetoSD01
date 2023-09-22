@@ -124,9 +124,12 @@ O receptor UART possui duas saídas de informação cruciais para esta estrutura
 
 #### Salientando que o código do DHT11 utilizado foi implementado pelo grupo de: José Gabriel, Thiago, Pedro e Luís Henrique
 
+<center>
+  
 ![DHT11](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/dht11.png)
+**Figura ...:** *Funcionamento do sensor. [Components101](https://components101.com/sensors/dht11-temperature-sensor)*
 
-Funcionamento do sensor [Components101](https://components101.com/sensors/dht11-temperature-sensor)
+</center>
 
 O módulo DHT11 é responsável por implementar a lógica de funcionamento do sensor. Essa estrutura visa executar de maneira similar a imagem acima. Para isso o DHT11 conta com 10 estados, sendo eles:
 + **Idle:** O estado inicial do sensor é o estado de espera, no qual a máquina permanece até que o bit inicial seja recebido. Para iniciar a comunicação e ir para o próximo estado, o DHT11 aguarda a recepção de um bit em nível lógico baixo, pois seu estado de espera é sempre em nível lógico alto.

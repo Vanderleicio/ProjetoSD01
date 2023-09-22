@@ -67,7 +67,7 @@ Na implementação desta solução, optou-se pelo uso de comunicação full-dupl
 
 A comunicação UART é estabelecida entre o código C e a FPGA. No que diz respeito ao código C, a explicação é bastante simples. São utilizadas três bibliotecas (*stdio.h*, *unistd.h* e *fcntl.h*), além da definição de tags de controle, entrada, saída e local. Estas flags são responsáveis por habilitar o código C a realizar a comunicação UART.
 
-#### Recebendo dados via UART através da FPGA
+### Recebendo dados via UART através da FPGA
 ----------
 
 O módulo Uart Receptor desempenha a função de receber dados na FPGA através da interface UART. Este módulo possui quatro parâmetros:
@@ -85,7 +85,7 @@ Dentro do módulo Uart Receptor, há uma máquina de estados finitos composta po
 
 + **Stop:** Estado de final, Neste estado, verifica-se se o último dado correspondente ao segundo byte foi recebido. Se sim, o valor do buffer é atribuído ao registrador de dados e o sinal concluído é definido como bit 1, indicando o término da transferência.
 
-#### Enviando dados via UART através da FPGA
+### Enviando dados via UART através da FPGA
 ----------
 
 O módulo Uart Transmissor desempenha a função de transmitir os dados da FPGA através da interface UART. Este módulo possui cinco parâmetros:
@@ -115,7 +115,11 @@ Dentro do módulo Uart Transmissor, uma máquina de estados finitos composta por
 
 
 
-## 6. Resultados de Síntese
+## 6. Resultados de Síntese (Falar dos pinos)
+
+A partir da Figura (2)[#sintese], percebe-se que a implementação da solução proposta, utiliza cerca de 8% dos elementos lógicos da placa, 10% dos seus LABs, sendo valores consideráveis em relação as escolhas utilizadas nos projeto, como o uso de máquinas de estado em diversos blocos.
+
+[![Síntese (LEs, LABs, Pinos)](#sintese "Síntese (LEs, LABs, Pinos)")](http://https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/resultadoDeSintese.png "Síntese (LEs, LABs, Pinos)")
 
 ## 7. Como Executar
 

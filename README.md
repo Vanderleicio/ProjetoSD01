@@ -149,22 +149,27 @@ O módulo DHT11 é responsável por implementar a lógica de funcionamento do se
 
 O módulo controlador possibilita a solicitação de diversas informações do sensor DHT11, como temperatura, umidade, ou a contínua atualização de uma dessas variáveis. Ele age como o coordenador dos dados, processando e enviando de volta ao PC apenas o que foi requisitado.
 
-Essa estrutura é composta por uma máquina de estados que possui quatro estados distintos: 
+Essa estrutura é composta por uma máquina que possuí quatro estados distintos: 
 
-+ **Espera Comando:** Estado inicial, verifica se houve alguma solicitação, se chegou algum comando real
++ **Espera Comando:** O estado inicial permanece em espera até receber um comando (sinal de requisição). Se a solicitação recebida for para monitoramento contínuo, é essencial alternar o registrador que armazena as informações do comando solicitado para o sensor selecionado e, em seguida, avançar para o próximo estado. Tal como, se a solicitação for para um dado específico. Por outro lado, ocorre um erro se o valor for do contador for diferente de zero.
 
-+ **Coletando:**
++ **Coletando:** No estado de coleta e tratamento das informações do sensor, primeiro verifica-se se o sensor correspondente à solicitação já obteve todos os dados necessários, se não, se mantém no estado. Se  for confirmado, o registrador info, com 16 bits, recebe a informação do endereço do sensor (5 bits). Após essa atribuição e na ausência de erros detectados no sensor, inicia-se o processo para determinar qual comando foi enviado.
 
-+ **Transmitir:**
+Recebemos dados do sensor de temperatura e umidade, tanto em formato inteiro quanto decimal, e o dado de checksum, com 8 bits cada. Todas essas informações são armazenadas no barramento saidaDHT, que possui 40 bits. Com base no comando recebido do PC, seleciona-se um intervalo de 8 bits no saidaDHT correspondente ao que foi requisitado. Por exemplo, quando se solicita o valor da temperatura atual, info além de guardar o endereço do sensor, recebe o comando de resposta, e também armazena o dado de saidaDHT[22:16], que representa o valor inteiro da temperatura. A estrutura de info[15:0] é composta por 5 bits de endereço, 4 bits representando comando de resposta e os 7 bits restantes referentes a informação solicitada, ocupando todos os 16 bits definidos para essa funcionalidade.
 
-+ **Enviada:**
++ **Transmitir:** No estado de transmissão, a máquina aguarda até que o contador alcance zero e verifica se o módulo [escalonador](#escalonador) já retirou os dados do buffer. Caso isso ainda não tenha acontecido, ela permanece nesse estado.
+
++ **Resetar:** 
+Ao chegar ao estado final, a máquina verifica se a solicitação é do tipo contínuo. Nesse caso, ela precisa repetir o processo até receber o comando para desativar esse monitoramento.
 
 
-#### Entregador
+#### Escalonador
 
 ## Sistema de teste 
 
+## Tabela de Comando
 
+## Teste
 
 
 

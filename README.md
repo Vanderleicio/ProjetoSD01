@@ -20,12 +20,12 @@
 [3. Características da solução](#características)
 &nbsp;&nbsp;&nbsp;[3.1. Materiais utilizados](#comunicação)
 &nbsp;&nbsp;&nbsp;[3.2. Módulo de Comunicação](#comunicação)
-&nbsp;&nbsp;&nbsp;[3.3. Módulo FPGA](#modulo-FPGA)
-&nbsp;&nbsp;&nbsp;[3.4. Módulo DHT11](#modulo-DHT11)
-&nbsp;&nbsp;&nbsp;[3.5. Sistema de teste](#modulo-FPGA)
+&nbsp;&nbsp;&nbsp;[3.3. Módulo FPGA](#módulo-FPGA)
+&nbsp;&nbsp;&nbsp;[3.4. Módulo DHT11](#módulo-DHT11)
+&nbsp;&nbsp;&nbsp;[3.5. Sistema de teste](#módulo-C)
 [4. Tabela de Comandos](#tabela-de-domandos)
 [5. Testes](#testes)
-[6. Resultados de síntese](#resultados-de-síntese)
+[6. Síntese (LEs, LABs e Pinos)](#síntese)
 [7. Como Executar](#resultados) 
 [8. Conclusões](#conclusões) 
 [9. Referências](#referências) 
@@ -70,19 +70,56 @@ A comunicação UART é estabelecida entre o código C e a FPGA. No que diz resp
 #### Recebendo dados via UART através da FPGA
 ----------
 
-O módulo Uart rx é responsável por receber dados na FPGA atráves da UART. Esse módulo possui quarto parâmetros, sendo eles:
-    + `clk_9k6hz:` Clock de 9.600 hz, que serve para sincronizar o transmissor com o receptor, para que não se perca os dados, Vale salientar que esse clock é decorrente de uma divisão que ocorre no módulo BaudGenerator ,
-    + `rx:`, 
-    + `buffer:`, 
-    + `concluded:`
+O módulo Uart Receptor desempenha a função de receber dados na FPGA através da interface UART. Este módulo possui quatro parâmetros:
 
+- `clk_9k6hz`: Refere-se ao clock de 9.600 Hz, utilizado para sincronizar o transmissor com o receptor, assegurando a integridade dos dados. Importante ressaltar que esse clock é obtido a partir da divisão do clock da placa (50MHz) por um valor aproximado a 9.600 Hz.
+- `rx`: Corresponde aos dados recebidos de forma serial do PC.
+- `data`: Enviará os dados recebidos para o decodificador.
+- `concluded`: Este sinal informa aos outros módulos que os dois bytes de dados foram recebidos.
+
+Dentro do módulo Uart Receptor, há uma máquina de estados finitos composta por três estados, encarregados do processo de recebimento dos dados provenientes do computador. Esses dados são utilizados para solicitar ao sensor a informação correspondente. Sobre os estados: 
+
++ **Start:** Estado inicial, este é o estado inicial da máquina. Aqui, a máquina aguarda a recepção do bit de início, bit 0. Assim que recebido, ela transita para o estado de "Data" para iniciar o compartilhamento de dados. Se continuar recebendo bit 1, permanece neste estado.
+
++ **Data:** Estado de transmissão, a comunicação UART permite apenas a transmissão de 8 bits de dados de cada vez. Caso seja necessário transmitir uma quantidade maior de dados, é possível fazê-lo em partes, em requisições separadas de 8bits de comprimento. Durante este estado, a FPGA verifica se o bit sendo recebido é o último. Esta verificação ocorre tanto para a sequência do 1º byte, quanto para o 2º byte. Caso seja o último bit, a máquina transita para o estado de "Stop". Caso contrário, permanece no estado "Data" e incrementa o contador em +1. Este contador serve para determinar a quantidade de dados recebidos e a posição desse dado. Quando a máquina conclui a transmissão de um byte, verifica-se qual byte ela transmitiu verificando o contador, caso seja o 1º byte, a máquina transita para o estado de Stop, desse estado, volta para o estado Start para receber o 2º byte. 
+
++ **Stop:** Estado de final, Neste estado, verifica-se se o último dado correspondente ao segundo byte foi recebido. Se sim, o valor do buffer é atribuído ao registrador de dados e o sinal concluído é definido como bit 1, indicando o término da transferência.
 
 #### Enviando dados via UART através da FPGA
 ----------
 
+O módulo Uart Transmissor desempenha a função de transmitir os dados da FPGA através da interface UART. Este módulo possui cinco parâmetros:
 
+- `clk_9k6hz`: Refere-se ao clock de 9.600 Hz.
+- `tx`: Corresponde aos dados a serem transmitidos de forma serial.
+- `data`: Dados a serem transmitidos, dados que vem do sensor e são tratados no código em C.
+- `en`: Sinal que habilita a transmissão.
+- `done`: Este sinal informa aos outros módulos que a transmissão foi concluída.
+
+
+Dentro do módulo Uart Transmissor, uma máquina de estados finitos composta por quatro estados é empregada para gerenciar o processo de recebimento da resposta de dados do sensor e encaminhamento desses dados para o módulo solicitador. O funcionamento dos estados é o seguinte:
+
++ **Idle:** Estado de espera.
+
++ **Start:** Este é o estado inicial. Ele inicia a comunicação UART enviando o bit de início, sinalizando ao receptor que a transmissão está prestes a começar, e então avança para o próximo estado.
+
++ **Data:** Neste estado de transmissão, há um contador que é decrementado a cada iteração. O contador indica qual o bit de data está sendo transmitido. Assim como no receptor, este estado possui verificações para determinar qual byte está sendo transmitido. Se ainda houver bits a serem transmitidos, o estado permanece em modo de transmissão. Se a transmissão do 1º byte for concluída, é necessário repetir o processo para transmitir o 2º byte. Ao finalizar, o estado transita para o estado final.
+
++ **Stop:** Este é o estado final. Se apenas o primeiro bit foi enviado, a máquina retorna ao estado de start. Se a transmissão não foi concluída, o sinal de finalização é definido como 1, e a máquina retorna ao estado de espera.
+
+
+
+### 3.3 Módulo FPGA
+--------------
+
+
+
+
+## 6. Síntese
 
 
 ### 9. Referências
 
 [R&S®Essentials - Compreenda à Uart](https://www.rohde-schwarz.com/br/produtos/teste-e-medicao/essentials-test-equipment/digital-oscilloscopes/compreender-uart_254524.html "Uart")
+
+[Johannes 4GNU_Linux - UART em C](https://www.youtube.com/watch?v=n2s8Y8slL28&t=676s "Access the UART (Serial Port) on GNU/Linux with a simple C program")

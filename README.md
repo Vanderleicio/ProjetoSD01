@@ -122,7 +122,7 @@ O receptor UART possui duas saídas de informação cruciais para esta estrutura
 
 ## Módulo DHT11
 
-#### Salientando que o código do DHT11 utilizado foi implementado pelo grupo de: José Gabriel, Thiago, Pedro e Luís Henrique
+- **Salientando que o código do DHT11 utilizado foi implementado pelo grupo de: José Gabriel, Thiago, Pedro e Luís Henrique**
 
 <center>
   
@@ -167,7 +167,23 @@ Ao chegar ao estado final, a máquina verifica se a solicitação é do tipo con
 
 ## Sistema de teste 
 
-## Tabela de Comando
+## Tabela de Comandos
+
+A transmissão de dados pela UART segue uma padronização que compreende duas possibilidades: o padrão de requisição e o padrão de resposta.
+
+O padrão de requisição consiste em dois bytes (ou 16 bits) organizados do bit menos significativo (localizado à esquerda) para o mais significativo (localizado à direita). A [Tabela 1](#tabela-requisição) apresenta a codificação utilizada para os comandos de requisição em formato binário. O primeiro byte é formado por 5 bits que representam o endereço, complementado por 3 bits 0. O segundo byte é composto por 4 bits que representam o código da requisição, seguidos por outros 4 bits definidos como 0. Assim são formados os dois bytes da requisição.
+
+![#tabela-requisição](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/requisicaoTabela.png)
+- **Tabela 1:** *Tabela de comandos de requisição*
+
+
+A [Tabela 2](#tabela-resposta) exibe a codificação utilizada para os comandos de resposta segue o seguinte padrão: o primeiro byte é composto por 5 bits que representam o endereço, seguidos por 3 bits que fazem parte do código de resposta. O segundo byte é composto por 1 bit, que constitui o restante do código de resposta (sendo este o bit menos significativo do segundo byte), além de 7 bits destinados aos dados. Dessa forma, são formados os dois bytes de resposta.
+
+![#tabela-resposta](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/respostasTabela.png)
+- **Tabela 2:** *Tabela de comandos de respostas*
+
+
+
 
 ## Teste
 

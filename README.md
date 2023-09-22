@@ -171,13 +171,13 @@ A transmissão de dados pela UART segue uma padronização que compreende duas p
 
 O padrão de requisição consiste em dois bytes (ou 16 bits) organizados do bit menos significativo (localizado à esquerda) para o mais significativo (localizado à direita). A [Tabela 1](#tabela-requisição) apresenta a codificação utilizada para os comandos de requisição em formato binário. O primeiro byte é formado por 5 bits que representam o endereço, complementado por 3 bits 0. O segundo byte é composto por 4 bits que representam o código da requisição, seguidos por outros 4 bits definidos como 0. Assim são formados os dois bytes da requisição.
 
-![#tabela-requisição](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/requisicaoTabela.png)
+![#tabela-requisição](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/requisicaoTabela.png "#tabela-requisição")
 - **Tabela 1:** *Tabela de comandos de requisição*
 
 
 A [Tabela 2](#tabela-resposta) exibe a codificação utilizada para os comandos de resposta segue o seguinte padrão: o primeiro byte é composto por 5 bits que representam o endereço, seguidos por 3 bits que fazem parte do código de resposta. O segundo byte é composto por 1 bit, que constitui o restante do código de resposta (sendo este o bit menos significativo do segundo byte), além de 7 bits destinados aos dados. Dessa forma, são formados os dois bytes de resposta.
 
-![#tabela-resposta](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/respostasTabela.png)
+![#tabela-resposta](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/respostasTabela.png "#tabela-resposta")
 - **Tabela 2:** *Tabela de comandos de respostas*
 
 
@@ -189,9 +189,9 @@ A [Tabela 2](#tabela-resposta) exibe a codificação utilizada para os comandos 
 
 
 
-## Resultados de Síntese (Falar dos pinos)
+## Resultados de Síntese
 
-Ao observar a Figura ... (sintese), nota-se que a implementação da solução proposta utiliza aproximadamente 8% dos elementos lógicos da placa e 10% dos seus LABs. Esses valores são consideráveis em comparação com as opções adotadas no projeto, como a utilização de muitas máquinas de estados.
+Ao observar a Figura ... (sintese), nota-se que a implementação da solução proposta utiliza aproximadamente 8% dos elementos lógicos da placa e 10% dos seus LABs. Esses valores são consideráveis em comparação com as opções adotadas no projeto, como a utilização de muitas máquinas de estados. Outro ponto notório é a quantidade de pinos utilizado, apenas 11 pinos, utilizando cerca de 3% dos pinos totais da FPGA.
 
 <center>
   

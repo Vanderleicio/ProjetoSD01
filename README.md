@@ -123,11 +123,27 @@ O receptor UART possui duas saídas de informação cruciais para esta estrutura
 
 ## Módulo DHT11
 
-O módulo DHT11 é responsável por implementar a lógica de funcionamento do sensor. 
+#### Salientando que o código do DHT11 utilizado foi implementado pelo grupo de: José Gabriel, Thiago, Pedro e Luís Henrique
+
 
 [[DHT11]](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/dht11.png)
 
 Funcionamento do sensor [Components101](https://components101.com/sensors/dht11-temperature-sensor)
+
+O módulo DHT11 é responsável por implementar a lógica de funcionamento do sensor. Essa estrutura visa executar de maneira similar a imagem acima. Para isso o DHT11 conta com 10 estados, sendo eles:
++ **Idle:** O estado inicial do sensor é o estado de espera, no qual a máquina permanece até que o bit inicial seja recebido. Para iniciar a comunicação e ir para o próximo estado, o DHT11 aguarda a recepção de um bit em nível lógico baixo, pois seu estado de espera é sempre em nível lógico alto.
++ **Start:** Ao receber um sinal de início, o DHT11 aguarda por 19 ms em nível lógico baixo. Durante esse período, um contador é continuamente incrementado. Quando esse contador atinge o valor correspondente a 19.000 ciclos de clock, o sistema avança para o próximo estado.
++ **Detected_signal:** Estado de alternância, quando chega nesse estado, irá esperar 20µs, para que seja possível alternar a direção do sinal do pino inout utilizado no tri state, uma vez que agora quem irá assumir a comunicação é o sensor.
++ **Wait_dht11:** Estado de espera, ao chegar nesse estado irá aguardar mais 21µs, para poder enviar o sinal de resposta que identifica que o sensor está pronto para transmitir os dados.
++ **dht11_response:** No estado de envio de sinal de resposta, o sensor deve emitir um sinal em nível lógico baixo com uma duração de 80µs. Se o sinal continuar baixo após os 80µs, é considerado um erro. Caso contrário, o sistema avança para o próximo estado.
++ **dht11_high_response:** No estado de envio de sinal de resposta alto, o sensor agora deve emitir um sinal em nível lógico alto com uma duração de 80µs, se atingir o tempo e o nível lógico ainda estiver alto, ocorreu um erro, caso o contrario, inicia-se a transmissão.
++ **transmit:** No estado de transmissão, após a emissão do sinal de resposta, se tudo transcorrer conforme o esperado, o sensor inicia a transmissão dos dados. Neste estágio, o sensor aguarda 50µs em nível lógico baixo. Se o tempo passar e o sensor ainda estiver em nível lógico baixo, ocorrerá um erro. Caso contrário, vai para o próximo estado verificar a duração do próximo sinal para determinar se o bit de dados é 1 ou 0. Este estado possui um buffer projetado para armazenar 40 bits de dados, sendo atualizado até que o valor de um contador alcance 40.
++ **detect_bit:** No estado de detecção de bits, verifica-se se o valor do contador é superior a 50µs para determinar se o bit é 1; caso contrário, o bit é considerado 0. Em seguida, o índice do buffer é incrementado em um bit. Este estado persiste em retornar para a fase de transmissão até que o índice alcance 40 bits, indicando que todos os dados foram transmitidos.
++ **wait_signal:** Estado de segurança, aguarda 100µs para garantir que o DHT11 esteja livre para uso novamente.
++ **stop:** Se chegou em stop, ou deu erro ou a transmissão foi um sucesso, e com isso retornar para o estado de espera.
+
+
+
 #### Controlador
 
 O módulo controlador possibilita a solicitação de diversas informações do sensor DHT11, como temperatura, umidade, ou a contínua atualização de uma dessas variáveis. Ele age como o coordenador dos dados, processando e enviando de volta ao PC apenas o que foi requisitado.
@@ -143,6 +159,9 @@ Essa estrutura é composta por uma máquina de estados que possui quatro estados
 + **Enviada:**
 
 
+#### Entregador
+
+## Sistema de teste (Módulo C)
 
 
 

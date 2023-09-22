@@ -6,7 +6,7 @@ Após os 8 bits de dados, joga o end-bit que é o nível lógico em 1 tx
 espera n ciclos de clock e envia o segundo byte
 */
 
-module UART_tx(clk_9k6hz, tx, data, en, finish_send);
+module UART_tx(clk_9k6hz, tx, data, en, done);
 
 	input clk_9k6hz; // clock
 	input en;// Sinal que, em 1, irá habilitar o processo de transmissão.
@@ -14,7 +14,7 @@ module UART_tx(clk_9k6hz, tx, data, en, finish_send);
 	input [15:0]data;  // dados a serem transmitidos, está invertido para mandar primeiro o 15 (menos significativo)
 	reg [15:0] buffer;
 	output reg tx;  // pino de saída por onde trafegarão os bit em serial
-	output reg finish_send;
+	output reg done;
 	
 	// Para lógica de estados
 	reg [1:0] state;
@@ -28,7 +28,7 @@ module UART_tx(clk_9k6hz, tx, data, en, finish_send);
 	
 	// Só para iniciar em espera
 	initial begin
-		finish_send = 1'b0;
+		done = 1'b0;
 		tx = 1'b1;
 		state <= IDLE;
 	end
@@ -42,6 +42,7 @@ module UART_tx(clk_9k6hz, tx, data, en, finish_send);
 			// PARADO
 			IDLE:
 				begin
+					done = 1'b0;
 					pos = 0;// Reinicia o indicador da posição p/ transmitir
 					tx = 1'b1;
 					if (en) begin
@@ -55,8 +56,13 @@ module UART_tx(clk_9k6hz, tx, data, en, finish_send);
 			// COMEÇA A TRANSMISSÃO
 			START:
 				begin
-					tx = 1'b0; //Informo o start-bit
-					state = DATA;
+					if (en) begin
+						tx = 1'b0; //Informo o start-bit
+						state = DATA;
+					end
+					else begin
+						state = IDLE;
+					end
 				end
 			// TRANSMITINDO OS DADOS
 			DATA:
@@ -64,7 +70,7 @@ module UART_tx(clk_9k6hz, tx, data, en, finish_send);
 					tx = buffer[pos]; //
 					pos = pos + 1;
 					// Se encerrou a transmissão do primeiro byte
-					if (pos == 7) begin
+					if (pos == 8) begin
 						state = STOP;
 					end
 					// Se encerrou a transmissão do segundo byte
@@ -81,12 +87,12 @@ module UART_tx(clk_9k6hz, tx, data, en, finish_send);
 				begin
 					tx = 1'b1;// Informe o stop-bit
 					// Se ainda não terminei o segundo byte
-					if (pos == 7) begin
+					if (pos == 8) begin
 						state = START;// Sem espera
 					end
 					// Se já encerrei todo o processo (2 bytes)
 					else begin
-						finish_send = 1'b1;
+						done = 1'b1;
 						state = IDLE;
 					end
 				end

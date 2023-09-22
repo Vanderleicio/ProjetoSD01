@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PBLSD
-Thu Sep 07 22:37:47 2023
+Wed Sep 20 22:57:21 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,13 +13,17 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: Top-level Entity: |ESCALONADOR_V3
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
- 14. Analysis & Synthesis Suppressed Messages
+  8. State Machine - |testa_Escalonador|UART_tx:transmissor|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: UART_tx:transmissor
+ 14. Parameter Settings for User Entity Instance: ESCALONADOR_V3:escalona
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -46,16 +50,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Sep 07 22:37:47 2023       ;
+; Analysis & Synthesis Status        ; Successful - Wed Sep 20 22:57:21 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PBLSD                                       ;
-; Top-level Entity Name              ; ESCALONADOR_V3                              ;
+; Top-level Entity Name              ; testa_Escalonador                           ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 107                                         ;
-;     Total combinational functions  ; 107                                         ;
-;     Dedicated logic registers      ; 12                                          ;
-; Total registers                    ; 12                                          ;
-; Total pins                         ; 167                                         ;
+; Total logic elements               ; 213                                         ;
+;     Total combinational functions  ; 213                                         ;
+;     Dedicated logic registers      ; 66                                          ;
+; Total registers                    ; 66                                          ;
+; Total pins                         ; 152                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -69,7 +73,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE30F23C7       ;                    ;
-; Top-level entity name                                            ; ESCALONADOR_V3     ; PBLSD              ;
+; Top-level entity name                                            ; testa_Escalonador  ; PBLSD              ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -166,72 +170,100 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                  ; Library ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
-; mux_8_to_1.v                     ; yes             ; User Verilog HDL File  ; C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/mux_8_to_1.v     ;         ;
-; ESCALONADOR_V3.v                 ; yes             ; User Verilog HDL File  ; C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/ESCALONADOR_V3.v ;         ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
+; UART_tx.v                        ; yes             ; User Verilog HDL File  ; C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/UART_tx.v           ;         ;
+; mux_8_to_1.v                     ; yes             ; User Verilog HDL File  ; C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/mux_8_to_1.v        ;         ;
+; ESCALONADOR_V3.v                 ; yes             ; User Verilog HDL File  ; C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/ESCALONADOR_V3.v    ;         ;
+; testa_Escalonador.v              ; yes             ; User Verilog HDL File  ; C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/testa_Escalonador.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                      ;
-+---------------------------------------------+--------------------+
-; Resource                                    ; Usage              ;
-+---------------------------------------------+--------------------+
-; Estimated Total logic elements              ; 107                ;
-;                                             ;                    ;
-; Total combinational functions               ; 107                ;
-; Logic element usage by number of LUT inputs ;                    ;
-;     -- 4 input functions                    ; 95                 ;
-;     -- 3 input functions                    ; 10                 ;
-;     -- <=2 input functions                  ; 2                  ;
-;                                             ;                    ;
-; Logic elements by mode                      ;                    ;
-;     -- normal mode                          ; 107                ;
-;     -- arithmetic mode                      ; 0                  ;
-;                                             ;                    ;
-; Total registers                             ; 12                 ;
-;     -- Dedicated logic registers            ; 12                 ;
-;     -- I/O registers                        ; 0                  ;
-;                                             ;                    ;
-; I/O pins                                    ; 167                ;
-;                                             ;                    ;
-; Embedded Multiplier 9-bit elements          ; 0                  ;
-;                                             ;                    ;
-; Maximum fan-out node                        ; sensor_num[2]~reg0 ;
-; Maximum fan-out                             ; 61                 ;
-; Total fan-out                               ; 634                ;
-; Average fan-out                             ; 1.40               ;
-+---------------------------------------------+--------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 213       ;
+;                                             ;           ;
+; Total combinational functions               ; 213       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 145       ;
+;     -- 3 input functions                    ; 29        ;
+;     -- <=2 input functions                  ; 39        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 182       ;
+;     -- arithmetic mode                      ; 31        ;
+;                                             ;           ;
+; Total registers                             ; 66        ;
+;     -- Dedicated logic registers            ; 66        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 152       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 66        ;
+; Total fan-out                               ; 1075      ;
+; Average fan-out                             ; 1.84      ;
++---------------------------------------------+-----------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+----------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name            ; Entity Name    ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+----------------+--------------+
-; |ESCALONADOR_V3            ; 107 (43)            ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 167  ; 0            ; |ESCALONADOR_V3                ; ESCALONADOR_V3 ; work         ;
-;    |mux_8_to_1:m01|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m01 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m02|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m02 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m03|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m03 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m04|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m04 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m05|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m05 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m06|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m06 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m07|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m07 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m08|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m08 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m09|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m09 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m10|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m10 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m11|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m11 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m12|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m12 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m13|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m13 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m14|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m14 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m15|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m15 ; mux_8_to_1     ; work         ;
-;    |mux_8_to_1:m16|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ESCALONADOR_V3|mux_8_to_1:m16 ; mux_8_to_1     ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+----------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                    ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Entity Name       ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+-------------------+--------------+
+; |testa_Escalonador           ; 213 (0)             ; 66 (0)                    ; 0           ; 0            ; 0       ; 0         ; 152  ; 0            ; |testa_Escalonador                                        ; testa_Escalonador ; work         ;
+;    |ESCALONADOR_V3:escalona| ; 107 (27)            ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona                ; ESCALONADOR_V3    ; work         ;
+;       |mux_8_to_1:m01|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m01 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m02|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m02 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m03|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m03 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m04|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m04 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m05|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m05 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m06|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m06 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m07|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m07 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m08|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m08 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m09|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m09 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m10|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m10 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m11|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m11 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m12|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m12 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m13|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m13 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m14|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m14 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m15|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m15 ; mux_8_to_1        ; work         ;
+;       |mux_8_to_1:m16|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m16 ; mux_8_to_1        ; work         ;
+;    |UART_tx:transmissor|     ; 106 (106)           ; 54 (54)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |testa_Escalonador|UART_tx:transmissor                    ; UART_tx           ; work         ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------+
+; State Machine - |testa_Escalonador|UART_tx:transmissor|state     ;
++-------------+------------+------------+-------------+------------+
+; Name        ; state.STOP ; state.DATA ; state.START ; state.IDLE ;
++-------------+------------+------------+-------------+------------+
+; state.IDLE  ; 0          ; 0          ; 0           ; 0          ;
+; state.START ; 0          ; 0          ; 1           ; 1          ;
+; state.DATA  ; 0          ; 1          ; 0           ; 1          ;
+; state.STOP  ; 1          ; 0          ; 0           ; 1          ;
++-------------+------------+------------+-------------+------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; UART_tx:transmissor|state~2           ; Lost fanout        ;
+; UART_tx:transmissor|state~3           ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -239,33 +271,56 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 12    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 66    ;
+; Number of registers using Synchronous Clear  ; 16    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |ESCALONADOR_V3|mux_8_to_1:m15|y ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; UART_tx:transmissor|tx                 ; 2       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |ESCALONADOR_V3 ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; A              ; 0     ; Unsigned Binary                                       ;
-; T              ; 1     ; Unsigned Binary                                       ;
-+----------------+-------+-------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |testa_Escalonador|ESCALONADOR_V3:escalona|mux_8_to_1:m09|y ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_tx:transmissor ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; IDLE           ; 00    ; Unsigned Binary                         ;
+; START          ; 01    ; Unsigned Binary                         ;
+; DATA           ; 10    ; Unsigned Binary                         ;
+; STOP           ; 11    ; Unsigned Binary                         ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ESCALONADOR_V3:escalona ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; A              ; 0     ; Unsigned Binary                             ;
+; T              ; 1     ; Unsigned Binary                             ;
++----------------+-------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -274,17 +329,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 167                         ;
-; cycloneiii_ff         ; 12                          ;
-;     plain             ; 12                          ;
-; cycloneiii_lcell_comb ; 107                         ;
-;     normal            ; 107                         ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 10                          ;
-;         4 data inputs ; 95                          ;
+; boundary_port         ; 152                         ;
+; cycloneiii_ff         ; 66                          ;
+;     ENA SCLR          ; 16                          ;
+;     plain             ; 50                          ;
+; cycloneiii_lcell_comb ; 214                         ;
+;     arith             ; 31                          ;
+;         2 data inputs ; 31                          ;
+;     normal            ; 183                         ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 29                          ;
+;         4 data inputs ; 145                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.74                        ;
+; Max LUT depth         ; 8.90                        ;
+; Average LUT depth     ; 3.96                        ;
 +-----------------------+-----------------------------+
 
 
@@ -303,7 +362,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Sep 07 22:37:40 2023
+    Info: Processing started: Wed Sep 20 22:57:14 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PBLSD -c PBLSD
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -337,25 +396,28 @@ Info (12021): Found 1 design units, including 1 entities, in source file escalon
     Info (12023): Found entity 1: ESCALONADOR File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/ESCALONADOR.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file mux_8_to_1.v
     Info (12023): Found entity 1: mux_8_to_1 File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/mux_8_to_1.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file escalonador_v2.v
-    Info (12023): Found entity 1: ESCALONADOR_V2 File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/ESCALONADOR_V2.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file escalonador_v3.v
-    Info (12023): Found entity 1: ESCALONADOR_V3 File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/ESCALONADOR_V3.v Line: 16
-Info (12127): Elaborating entity "ESCALONADOR_V3" for the top level hierarchy
-Info (12128): Elaborating entity "mux_8_to_1" for hierarchy "mux_8_to_1:m01" File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/ESCALONADOR_V3.v Line: 92
+    Info (12023): Found entity 1: ESCALONADOR_V3 File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/ESCALONADOR_V3.v Line: 14
+Info (12021): Found 1 design units, including 1 entities, in source file testa_escalonador.v
+    Info (12023): Found entity 1: testa_Escalonador File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/testa_Escalonador.v Line: 1
+Info (12127): Elaborating entity "testa_Escalonador" for the top level hierarchy
+Info (12128): Elaborating entity "UART_tx" for hierarchy "UART_tx:transmissor" File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/testa_Escalonador.v Line: 7
+Info (12128): Elaborating entity "ESCALONADOR_V3" for hierarchy "ESCALONADOR_V3:escalona" File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/testa_Escalonador.v Line: 8
+Info (12128): Elaborating entity "mux_8_to_1" for hierarchy "ESCALONADOR_V3:escalona|mux_8_to_1:m01" File: C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/ESCALONADOR_V3.v Line: 90
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/output_files/PBLSD.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 274 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 138 input pins
-    Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 107 logic cells
+Info (21057): Implemented 365 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 137 input pins
+    Info (21059): Implemented 15 output pins
+    Info (21061): Implemented 213 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4765 megabytes
-    Info: Processing ended: Thu Sep 07 22:37:47 2023
+    Info: Peak virtual memory: 4767 megabytes
+    Info: Processing ended: Wed Sep 20 22:57:21 2023
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Total CPU time (on all processors): 00:00:07
 
 
 +------------------------------------------+

@@ -8,8 +8,6 @@ Se sensor_ready[0] está 1, os dados transmitidos serão do sensor_bus[15:0]
 Se sensor_ready[1] está 1, os dados transmitidos serão do sensor_bus[31:16]
 ...
 
-
-
 */
 
 
@@ -63,12 +61,12 @@ module ESCALONADOR_V3(clk, uart_tx_done, sensor_bus, sensor_ready, data_to_send,
 					data_used[sensor_num] <= 0;
 					//aux = sensor_ready[sensor_num];
 					if (sensor_ready[sensor_num]) begin
-						state = T;
+						state <= T;
 						//data_used[sensor_num] <= 1;// Falo pro sensor que já usei ele
 					end
 					else begin
 						sensor_num <= sensor_num + 1'b1;
-						state = A;
+						state <= A;
 					end
 				end
 			
@@ -76,10 +74,10 @@ module ESCALONADOR_V3(clk, uart_tx_done, sensor_bus, sensor_ready, data_to_send,
 				begin
 					if (uart_tx_done) begin
 						data_used[sensor_num] <= 1;// Falo pro sensor que já usei ele e que pode já reescrever o buffer
-						state = A;
+						state <= A;
 					end
 					else begin
-						state = T;
+						state <= T;
 					end
 					
 				end

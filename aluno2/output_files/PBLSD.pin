@@ -71,13 +71,13 @@ Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage 
 -------------------------------------------------------------------------------------------------------------
 GND                          : A1        : gnd    :                   :         :           :                
 VCCIO8                       : A2        : power  :                   : 2.5V    : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A3        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A4        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A5        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A6        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A7        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A8        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A9        :        :                   :         : 8         :                
+sensor_bus[15]               : A3        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[111]              : A4        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[31]               : A5        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[59]               : A6        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[27]               : A7        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[29]               : A8        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[61]               : A9        : input  : 2.5 V             :         : 8         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : A10       :        :                   :         : 8         :                
 GND+                         : A11       :        :                   :         : 8         :                
 GND+                         : A12       :        :                   :         : 7         :                
@@ -86,65 +86,65 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : A14       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : A15       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A16       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A17       :        :                   :         : 7         :                
-sensor_bus[118]              : A18       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[7]                : A19       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[77]               : A20       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : A18       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : A19       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : A20       :        :                   :         : 7         :                
 VCCIO7                       : A21       : power  :                   : 2.5V    : 7         :                
 GND                          : A22       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AA1       :        :                   :         : 2         :                
+sensor_bus[54]               : AA1       : input  : 2.5 V             :         : 2         : N              
 GND                          : AA2       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AA3       :        :                   :         : 3         :                
-sensor_bus[52]               : AA4       : input  : 2.5 V             :         : 3         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : AA5       :        :                   :         : 3         :                
+sensor_bus[33]               : AA3       : input  : 2.5 V             :         : 3         : N              
+sensor_bus[25]               : AA4       : input  : 2.5 V             :         : 3         : N              
+data_used[4]                 : AA5       : output : 2.5 V             :         : 3         : N              
 VCCIO3                       : AA6       : power  :                   : 2.5V    : 3         :                
-data_to_send[15]             : AA7       : output : 2.5 V             :         : 3         : N              
-sensor_bus[126]              : AA8       : input  : 2.5 V             :         : 3         : N              
-state                        : AA9       : output : 2.5 V             :         : 3         : N              
-sensor_num[2]                : AA10      : output : 2.5 V             :         : 3         : N              
-sensor_bus[127]              : AA11      : input  : 2.5 V             :         : 3         : N              
+sensor_bus[104]              : AA7       : input  : 2.5 V             :         : 3         : N              
+sensor_bus[121]              : AA8       : input  : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA9       :        :                   :         : 3         :                
+data_used[2]                 : AA10      : output : 2.5 V             :         : 3         : N              
+sensor_bus[124]              : AA11      : input  : 2.5 V             :         : 3         : N              
 sensor_bus[37]               : AA12      : input  : 2.5 V             :         : 4         : N              
-uart_tx_en                   : AA13      : output : 2.5 V             :         : 4         : N              
-sensor_bus[68]               : AA14      : input  : 2.5 V             :         : 4         : N              
-data_used[3]                 : AA15      : output : 2.5 V             :         : 4         : N              
-sensor_bus[36]               : AA16      : input  : 2.5 V             :         : 4         : N              
-sensor_bus[101]              : AA17      : input  : 2.5 V             :         : 4         : N              
-data_used[0]                 : AA18      : output : 2.5 V             :         : 4         : N              
-sensor_bus[38]               : AA19      : input  : 2.5 V             :         : 4         : N              
-sensor_bus[22]               : AA20      : input  : 2.5 V             :         : 4         : N              
-data_to_send[2]              : AA21      : output : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA13      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA14      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA15      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA16      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA17      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA18      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA19      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA20      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA21      :        :                   :         : 5         :                
 GND                          : AA22      : gnd    :                   :         :           :                
 GND                          : AB1       : gnd    :                   :         :           :                
 VCCIO3                       : AB2       : power  :                   : 2.5V    : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AB3       :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AB4       :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AB5       :        :                   :         : 3         :                
+sensor_ready[0]              : AB3       : input  : 2.5 V             :         : 3         : N              
+sensor_bus[120]              : AB4       : input  : 2.5 V             :         : 3         : N              
+data_used[3]                 : AB5       : output : 2.5 V             :         : 3         : N              
 GND                          : AB6       : gnd    :                   :         :           :                
-sensor_bus[79]               : AB7       : input  : 2.5 V             :         : 3         : N              
-sensor_bus[78]               : AB8       : input  : 2.5 V             :         : 3         : N              
-sensor_num[1]                : AB9       : output : 2.5 V             :         : 3         : N              
-sensor_bus[116]              : AB10      : input  : 2.5 V             :         : 3         : N              
-sensor_bus[47]               : AB11      : input  : 2.5 V             :         : 3         : N              
+sensor_bus[53]               : AB7       : input  : 2.5 V             :         : 3         : N              
+sensor_bus[21]               : AB8       : input  : 2.5 V             :         : 3         : N              
+sensor_bus[72]               : AB9       : input  : 2.5 V             :         : 3         : N              
+sensor_bus[5]                : AB10      : input  : 2.5 V             :         : 3         : N              
+sensor_bus[44]               : AB11      : input  : 2.5 V             :         : 3         : N              
 sensor_bus[69]               : AB12      : input  : 2.5 V             :         : 4         : N              
-sensor_bus[3]                : AB13      : input  : 2.5 V             :         : 4         : N              
-data_to_send[4]              : AB14      : output : 2.5 V             :         : 4         : N              
-sensor_bus[99]               : AB15      : input  : 2.5 V             :         : 4         : N              
-sensor_bus[4]                : AB16      : input  : 2.5 V             :         : 4         : N              
-sensor_bus[54]               : AB17      : input  : 2.5 V             :         : 4         : N              
-data_used[2]                 : AB18      : output : 2.5 V             :         : 4         : N              
-sensor_bus[85]               : AB19      : input  : 2.5 V             :         : 4         : N              
-sensor_bus[23]               : AB20      : input  : 2.5 V             :         : 4         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AB13      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AB14      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AB15      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AB16      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AB17      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AB18      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AB19      :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AB20      :        :                   :         : 4         :                
 VCCIO4                       : AB21      : power  :                   : 2.5V    : 4         :                
 GND                          : AB22      : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B1        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B2        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B3        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B4        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B5        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B6        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B7        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B8        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B9        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B10       :        :                   :         : 8         :                
+sensor_bus[127]              : B1        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[64]               : B2        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[30]               : B3        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[28]               : B4        : input  : 2.5 V             :         : 8         : N              
+sensor_ready[1]              : B5        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[125]              : B6        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[43]               : B7        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[45]               : B8        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[13]               : B9        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[93]               : B10       : input  : 2.5 V             :         : 8         : N              
 GND+                         : B11       :        :                   :         : 8         :                
 GND+                         : B12       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B13       :        :                   :         : 7         :                
@@ -152,151 +152,151 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : B14       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : B15       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B16       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B17       :        :                   :         : 7         :                
-data_used[5]                 : B18       : output : 2.5 V             :         : 7         : N              
-sensor_ready[5]              : B19       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[61]               : B20       : input  : 2.5 V             :         : 7         : N              
-data_to_send[10]             : B21       : output : 2.5 V             :         : 6         : N              
-sensor_bus[121]              : B22       : input  : 2.5 V             :         : 6         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : C1        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C2        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C3        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C4        :        :                   :         : 8         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : B18       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : B19       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : B20       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : B21       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : B22       :        :                   :         : 6         :                
+sensor_bus[23]               : C1        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[112]              : C2        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[12]               : C3        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[79]               : C4        : input  : 2.5 V             :         : 8         : N              
 GND                          : C5        : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C6        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C7        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C8        :        :                   :         : 8         :                
+done                         : C6        : output : 2.5 V             :         : 8         : N              
+tx                           : C7        : output : 2.5 V             :         : 8         : N              
+sensor_bus[109]              : C8        : input  : 2.5 V             :         : 8         : N              
 GND                          : C9        : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C10       :        :                   :         : 8         :                
+sensor_bus[77]               : C10       : input  : 2.5 V             :         : 8         : N              
 GND                          : C11       : gnd    :                   :         :           :                
 GND                          : C12       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C13       :        :                   :         : 7         :                
 GND                          : C14       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C15       :        :                   :         : 7         :                
 GND                          : C16       : gnd    :                   :         :           :                
-sensor_bus[108]              : C17       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : C17       :        :                   :         : 7         :                
 GND                          : C18       : gnd    :                   :         :           :                
-sensor_bus[11]               : C19       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[56]               : C20       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[89]               : C21       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[72]               : C22       : input  : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : C19       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : C20       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : C21       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : C22       :        :                   :         : 6         :                
 ~ALTERA_ASDO_DATA1~ / RESERVED_INPUT_WITH_WEAK_PULLUP : D1        : input  : 2.5 V             :         : 1         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : D2        :        :                   :         : 1         :                
+sensor_bus[16]               : D2        : input  : 2.5 V             :         : 1         : N              
 GND                          : D3        : gnd    :                   :         :           :                
 VCCIO1                       : D4        : power  :                   : 2.5V    : 1         :                
 VCCIO8                       : D5        : power  :                   : 2.5V    : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D6        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D7        :        :                   :         : 8         :                
+sensor_bus[14]               : D6        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[94]               : D7        : input  : 2.5 V             :         : 8         : N              
 GND                          : D8        : gnd    :                   :         :           :                
 VCCIO8                       : D9        : power  :                   : 2.5V    : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D10       :        :                   :         : 8         :                
+sensor_bus[63]               : D10       : input  : 2.5 V             :         : 8         : N              
 VCCIO8                       : D11       : power  :                   : 2.5V    : 8         :                
 VCCIO7                       : D12       : power  :                   : 2.5V    : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D13       :        :                   :         : 7         :                
 VCCIO7                       : D14       : power  :                   : 2.5V    : 7         :                
-sensor_ready[0]              : D15       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : D15       :        :                   :         : 7         :                
 VCCIO7                       : D16       : power  :                   : 2.5V    : 7         :                
-sensor_bus[44]               : D17       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : D17       :        :                   :         : 7         :                
 VCCIO7                       : D18       : power  :                   : 2.5V    : 7         :                
-sensor_bus[43]               : D19       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[88]               : D20       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[26]               : D21       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[104]              : D22       : input  : 2.5 V             :         : 6         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : E1        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : D19       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : D20       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : D21       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : D22       :        :                   :         : 6         :                
+sensor_bus[110]              : E1        : input  : 2.5 V             :         : 1         : N              
 ~ALTERA_FLASH_nCE_nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : E2        : input  : 2.5 V             :         : 1         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : E3        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : E4        :        :                   :         : 1         :                
+sensor_bus[80]               : E3        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[39]               : E4        : input  : 2.5 V             :         : 1         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : E5        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : E6        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : E7        :        :                   :         : 8         :                
+sensor_bus[20]               : E6        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[62]               : E7        : input  : 2.5 V             :         : 8         : N              
 VCCIO8                       : E8        : power  :                   : 2.5V    : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : E9        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : E10       :        :                   :         : 8         :                
+sensor_bus[107]              : E9        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[123]              : E10       : input  : 2.5 V             :         : 8         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : E11       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E12       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E13       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E14       :        :                   :         : 7         :                
-sensor_ready[6]              : E15       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E15       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E16       :        :                   :         : 7         :                
 VCCD_PLL2                    : E17       : power  :                   : 1.2V    :           :                
 GNDA2                        : E18       : gnd    :                   :         :           :                
 VCCIO6                       : E19       : power  :                   : 2.5V    : 6         :                
 GND                          : E20       : gnd    :                   :         :           :                
-sensor_bus[90]               : E21       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[74]               : E22       : input  : 2.5 V             :         : 6         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : F1        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : F2        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : E21       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : E22       :        :                   :         : 6         :                
+sensor_bus[32]               : F1        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[48]               : F2        : input  : 2.5 V             :         : 1         : N              
 GND                          : F3        : gnd    :                   :         :           :                
 VCCIO1                       : F4        : power  :                   : 2.5V    : 1         :                
 GNDA3                        : F5        : gnd    :                   :         :           :                
 VCCD_PLL3                    : F6        : power  :                   : 1.2V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : F7        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : F8        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : F9        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : F10       :        :                   :         : 8         :                
+sensor_bus[47]               : F7        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[60]               : F8        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[116]              : F9        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[95]               : F10       : input  : 2.5 V             :         : 8         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : F11       :        :                   :         : 7         :                
 GND                          : F12       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F13       :        :                   :         : 7         :                
-data_to_send[12]             : F14       : output : 2.5 V             :         : 7         : N              
-sensor_bus[93]               : F15       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[75]               : F16       : input  : 2.5 V             :         : 7         : N              
-data_to_send[9]              : F17       : output : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F14       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F15       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F16       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F17       :        :                   :         : 6         :                
 VCCA2                        : F18       : power  :                   : 2.5V    :           :                
-data_to_send[13]             : F19       : output : 2.5 V             :         : 6         : N              
-data_to_send[11]             : F20       : output : 2.5 V             :         : 6         : N              
-sensor_bus[120]              : F21       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[8]                : F22       : input  : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F19       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F20       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F21       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F22       :        :                   :         : 6         :                
 GND+                         : G1        :        :                   :         : 1         :                
 GND                          : G2        : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : G3        :        :                   :         : 1         :                
+sensor_bus[106]              : G3        : input  : 2.5 V             :         : 1         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : G4        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : G5        :        :                   :         : 1         :                
+sensor_bus[46]               : G5        : input  : 2.5 V             :         : 1         : N              
 VCCA3                        : G6        : power  :                   : 2.5V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : G7        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : G8        :        :                   :         : 8         :                
+sensor_bus[108]              : G7        : input  : 2.5 V             :         : 8         : N              
+sensor_bus[126]              : G8        : input  : 2.5 V             :         : 8         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : G9        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : G10       :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : G11       :        :                   :         : 8         :                
+sensor_bus[75]               : G10       : input  : 2.5 V             :         : 8         : N              
+sensor_bus[91]               : G11       : input  : 2.5 V             :         : 8         : N              
 VCCINT                       : G12       : power  :                   : 1.2V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : G13       :        :                   :         : 7         :                
-sensor_ready[7]              : G14       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[29]               : G15       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[107]              : G16       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[10]               : G17       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[57]               : G18       : input  : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G14       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G15       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G16       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G17       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G18       :        :                   :         : 6         :                
 VCCIO6                       : G19       : power  :                   : 2.5V    : 6         :                
 GND                          : G20       : gnd    :                   :         :           :                
 GND+                         : G21       :        :                   :         : 6         :                
 GND+                         : G22       :        :                   :         : 6         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H1        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H2        :        :                   :         : 1         :                
+sensor_bus[10]               : H1        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[92]               : H2        : input  : 2.5 V             :         : 1         : N              
 GND                          : H3        : gnd    :                   :         :           :                
 VCCIO1                       : H4        : power  :                   : 2.5V    : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H5        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H6        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H7        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H8        :        :                   :         : 1         :                
+sensor_bus[52]               : H5        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[42]               : H6        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[55]               : H7        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[74]               : H8        : input  : 2.5 V             :         : 1         : N              
 VCCINT                       : H9        : power  :                   : 1.2V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H10       :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H11       :        :                   :         : 8         :                
+sensor_bus[89]               : H10       : input  : 2.5 V             :         : 8         : N              
+sensor_bus[11]               : H11       : input  : 2.5 V             :         : 8         : N              
 GND                          : H12       : gnd    :                   :         :           :                
 GND                          : H13       : gnd    :                   :         :           :                
-sensor_bus[45]               : H14       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[91]               : H15       : input  : 2.5 V             :         : 7         : N              
-sensor_bus[106]              : H16       : input  : 2.5 V             :         : 6         : N              
-data_to_send[8]              : H17       : output : 2.5 V             :         : 6         : N              
-sensor_bus[24]               : H18       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[105]              : H19       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[42]               : H20       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[59]               : H21       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[58]               : H22       : input  : 2.5 V             :         : 6         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : J1        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : J2        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : J3        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : J4        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : J5        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : J6        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : J7        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : J8        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H14       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H15       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H16       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H17       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H18       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H19       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H20       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H21       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H22       :        :                   :         : 6         :                
+sensor_num[2]                : J1        : output : 2.5 V             :         : 1         : N              
+sensor_bus[114]              : J2        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[103]              : J3        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[87]               : J4        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[7]                : J5        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[76]               : J6        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[0]                : J7        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[96]               : J8        : input  : 2.5 V             :         : 1         : N              
 GND                          : J9        : gnd    :                   :         :           :                
 VCCINT                       : J10       : power  :                   : 1.2V    :           :                
 VCCINT                       : J11       : power  :                   : 1.2V    :           :                
@@ -305,20 +305,20 @@ VCCINT                       : J13       : power  :                   : 1.2V    
 VCCINT                       : J14       : power  :                   : 1.2V    :           :                
 GND                          : J15       : gnd    :                   :         :           :                
 VCCINT                       : J16       : power  :                   : 1.2V    :           :                
-sensor_bus[41]               : J17       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[25]               : J18       : input  : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : J17       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : J18       :        :                   :         : 6         :                
 GND                          : J19       : gnd    :                   :         :           :                
 VCCIO6                       : J20       : power  :                   : 2.5V    : 6         :                
-sensor_bus[122]              : J21       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[109]              : J22       : input  : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : J21       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : J22       :        :                   :         : 6         :                
 ~ALTERA_DATA0~ / RESERVED_INPUT_WITH_WEAK_PULLUP : K1        : input  : 2.5 V             :         : 1         : N              
 ~ALTERA_DCLK~                : K2        : output : 2.5 V             :         : 1         : N              
 GND                          : K3        : gnd    :                   :         :           :                
 VCCIO1                       : K4        : power  :                   : 2.5V    : 1         :                
 nCONFIG                      : K5        :        :                   :         : 1         :                
 nSTATUS                      : K6        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : K7        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : K8        :        :                   :         : 1         :                
+sensor_bus[71]               : K7        : input  : 2.5 V             :         : 1         : N              
+sensor_bus[84]               : K8        : input  : 2.5 V             :         : 1         : N              
 VCCINT                       : K9        : power  :                   : 1.2V    :           :                
 GND                          : K10       : gnd    :                   :         :           :                
 GND                          : K11       : gnd    :                   :         :           :                
@@ -327,20 +327,20 @@ GND                          : K13       : gnd    :                   :         
 VCCINT                       : K14       : power  :                   : 1.2V    :           :                
 VCCINT                       : K15       : power  :                   : 1.2V    :           :                
 GND                          : K16       : gnd    :                   :         :           :                
-sensor_bus[40]               : K17       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[73]               : K18       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[76]               : K19       : input  : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : K17       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : K18       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : K19       :        :                   :         : 6         :                
 MSEL3                        : K20       :        :                   :         : 6         :                
-sensor_bus[123]              : K21       : input  : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : K21       :        :                   :         : 6         :                
 ~ALTERA_nCEO~ / RESERVED_OUTPUT_OPEN_DRAIN : K22       : output : 2.5 V             :         : 6         : N              
 TMS                          : L1        : input  :                   :         : 1         :                
 TCK                          : L2        : input  :                   :         : 1         :                
 nCE                          : L3        :        :                   :         : 1         :                
 TDO                          : L4        : output :                   :         : 1         :                
 TDI                          : L5        : input  :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : L6        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : L7        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : L8        :        :                   :         : 1         :                
+sensor_bus[50]               : L6        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[98]               : L7        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[119]              : L8        : input  : 2.5 V             :         : 1         : N              
 VCCINT                       : L9        : power  :                   : 1.2V    :           :                
 GND                          : L10       : gnd    :                   :         :           :                
 GND                          : L11       : gnd    :                   :         :           :                
@@ -353,16 +353,16 @@ MSEL2                        : L17       :        :                   :         
 MSEL1                        : L18       :        :                   :         : 6         :                
 VCCIO6                       : L19       : power  :                   : 2.5V    : 6         :                
 GND                          : L20       : gnd    :                   :         :           :                
-sensor_bus[13]               : L21       : input  : 2.5 V             :         : 6         : N              
-sensor_bus[125]              : L22       : input  : 2.5 V             :         : 6         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : M1        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : M2        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : M3        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : M4        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : M5        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : M6        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : M7        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : M8        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : L21       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : L22       :        :                   :         : 6         :                
+sensor_bus[36]               : M1        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[67]               : M2        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[18]               : M3        : input  : 2.5 V             :         : 2         : N              
+sensor_ready[2]              : M4        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[58]               : M5        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[19]               : M6        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[83]               : M7        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[122]              : M8        : input  : 2.5 V             :         : 2         : N              
 VCCINT                       : M9        : power  :                   : 1.2V    :           :                
 GND                          : M10       : gnd    :                   :         :           :                
 GND                          : M11       : gnd    :                   :         :           :                
@@ -370,21 +370,21 @@ GND                          : M12       : gnd    :                   :         
 GND                          : M13       : gnd    :                   :         :           :                
 VCCINT                       : M14       : power  :                   : 1.2V    :           :                
 VCCINT                       : M15       : power  :                   : 1.2V    :           :                
-sensor_bus[9]                : M16       : input  : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : M16       :        :                   :         : 5         :                
 MSEL0                        : M17       :        :                   :         : 6         :                
 CONF_DONE                    : M18       :        :                   :         : 6         :                
-sensor_bus[124]              : M19       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[12]               : M20       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[60]               : M21       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[27]               : M22       : input  : 2.5 V             :         : 5         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : N1        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : N2        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : M19       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : M20       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : M21       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : M22       :        :                   :         : 5         :                
+sensor_bus[51]               : N1        : input  : 2.5 V             :         : 2         : N              
+sensor_ready[7]              : N2        : input  : 2.5 V             :         : 2         : N              
 GND                          : N3        : gnd    :                   :         :           :                
 VCCIO2                       : N4        : power  :                   : 2.5V    : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : N5        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : N6        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : N7        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : N8        :        :                   :         : 2         :                
+sensor_bus[26]               : N5        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[4]                : N6        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[105]              : N7        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[68]               : N8        : input  : 2.5 V             :         : 2         : N              
 VCCINT                       : N9        : power  :                   : 1.2V    :           :                
 GND                          : N10       : gnd    :                   :         :           :                
 GND                          : N11       : gnd    :                   :         :           :                
@@ -392,20 +392,20 @@ GND                          : N12       : gnd    :                   :         
 GND                          : N13       : gnd    :                   :         :           :                
 VCCINT                       : N14       : power  :                   : 1.2V    :           :                
 GND                          : N15       : gnd    :                   :         :           :                
-sensor_bus[49]               : N16       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[2]                : N17       : input  : 2.5 V             :         : 5         : N              
-data_to_send[1]              : N18       : output : 2.5 V             :         : 5         : N              
-sensor_bus[1]                : N19       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[97]               : N20       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[28]               : N21       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[92]               : N22       : input  : 2.5 V             :         : 5         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : P1        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : P2        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : P3        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : P4        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : P5        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : P6        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : P7        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : N16       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : N17       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : N18       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : N19       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : N20       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : N21       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : N22       :        :                   :         : 5         :                
+sensor_bus[99]               : P1        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[35]               : P2        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[82]               : P3        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[66]               : P4        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[34]               : P5        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[73]               : P6        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[97]               : P7        : input  : 2.5 V             :         : 2         : N              
 GND                          : P8        : gnd    :                   :         :           :                
 VCCINT                       : P9        : power  :                   : 1.2V    :           :                
 VCCINT                       : P10       : power  :                   : 1.2V    :           :                
@@ -413,143 +413,143 @@ VCCINT                       : P11       : power  :                   : 1.2V    
 VCCINT                       : P12       : power  :                   : 1.2V    :           :                
 VCCINT                       : P13       : power  :                   : 1.2V    :           :                
 VCCINT                       : P14       : power  :                   : 1.2V    :           :                
-sensor_bus[50]               : P15       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[34]               : P16       : input  : 2.5 V             :         : 5         : N              
-data_used[1]                 : P17       : output : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : P15       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : P16       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : P17       :        :                   :         : 5         :                
 VCCIO5                       : P18       : power  :                   : 2.5V    : 5         :                
 GND                          : P19       : gnd    :                   :         :           :                
-sensor_bus[33]               : P20       : input  : 2.5 V             :         : 5         : N              
-data_to_send[0]              : P21       : output : 2.5 V             :         : 5         : N              
-sensor_bus[81]               : P22       : input  : 2.5 V             :         : 5         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : R1        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : R2        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : P20       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : P21       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : P22       :        :                   :         : 5         :                
+sensor_bus[115]              : R1        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[3]                : R2        : input  : 2.5 V             :         : 2         : N              
 GND                          : R3        : gnd    :                   :         :           :                
 VCCIO2                       : R4        : power  :                   : 2.5V    : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : R5        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : R6        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : R7        :        :                   :         : 2         :                
+sensor_bus[6]                : R5        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[41]               : R6        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[65]               : R7        : input  : 2.5 V             :         : 2         : N              
 VCCINT                       : R8        : power  :                   : 1.2V    :           :                
 GND                          : R9        : gnd    :                   :         :           :                
 VCCINT                       : R10       : power  :                   : 1.2V    :           :                
 GND                          : R11       : gnd    :                   :         :           :                
 VCCINT                       : R12       : power  :                   : 1.2V    :           :                
 GND                          : R13       : gnd    :                   :         :           :                
-sensor_bus[39]               : R14       : input  : 2.5 V             :         : 4         : N              
-sensor_bus[5]                : R15       : input  : 2.5 V             :         : 4         : N              
-sensor_bus[103]              : R16       : input  : 2.5 V             :         : 4         : N              
-data_used[6]                 : R17       : output : 2.5 V             :         : 5         : N              
-sensor_bus[17]               : R18       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[114]              : R19       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[66]               : R20       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[98]               : R21       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[64]               : R22       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[80]               : T1        : input  : 2.5 V             :         : 2         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : R14       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R15       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R16       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R17       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R18       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R19       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R20       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R21       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R22       :        :                   :         : 5         :                
+sensor_ready[5]              : T1        : input  : 2.5 V             :         : 2         : N              
 clk                          : T2        : input  : 2.5 V             :         : 2         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : T3        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : T4        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : T5        :        :                   :         : 2         :                
+uart_tx_en                   : T3        : output : 2.5 V             :         : 2         : N              
+sensor_bus[49]               : T4        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[81]               : T5        : input  : 2.5 V             :         : 2         : N              
 VCCA1                        : T6        : power  :                   : 2.5V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : T7        :        :                   :         : 2         :                
-sensor_bus[111]              : T8        : input  : 2.5 V             :         : 3         : N              
-sensor_bus[31]               : T9        : input  : 2.5 V             :         : 3         : N              
-sensor_bus[20]               : T10       : input  : 2.5 V             :         : 3         : N              
-sensor_bus[94]               : T11       : input  : 2.5 V             :         : 3         : N              
-sensor_bus[19]               : T12       : input  : 2.5 V             :         : 4         : N              
-sensor_bus[51]               : T13       : input  : 2.5 V             :         : 4         : N              
-data_used[4]                 : T14       : output : 2.5 V             :         : 4         : N              
-data_to_send[7]              : T15       : output : 2.5 V             :         : 4         : N              
-sensor_bus[71]               : T16       : input  : 2.5 V             :         : 4         : N              
-sensor_bus[119]              : T17       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[82]               : T18       : input  : 2.5 V             :         : 5         : N              
+sensor_bus[118]              : T7        : input  : 2.5 V             :         : 2         : N              
+data_used[0]                 : T8        : output : 2.5 V             :         : 3         : N              
+data_used[7]                 : T9        : output : 2.5 V             :         : 3         : N              
+sensor_bus[85]               : T10       : input  : 2.5 V             :         : 3         : N              
+sensor_bus[117]              : T11       : input  : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T12       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T13       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T14       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T15       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T16       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T17       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T18       :        :                   :         : 5         :                
 VCCIO5                       : T19       : power  :                   : 2.5V    : 5         :                
 GND                          : T20       : gnd    :                   :         :           :                
 GND+                         : T21       :        :                   :         : 5         :                
 GND+                         : T22       :        :                   :         : 5         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : U1        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : U2        :        :                   :         : 2         :                
+sensor_bus[90]               : U1        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[100]              : U2        : input  : 2.5 V             :         : 2         : N              
 GND                          : U3        : gnd    :                   :         :           :                
 VCCIO2                       : U4        : power  :                   : 2.5V    : 2         :                
 GNDA1                        : U5        : gnd    :                   :         :           :                
 VCCD_PLL1                    : U6        : power  :                   : 1.2V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : U7        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : U8        :        :                   :         : 3         :                
-sensor_bus[30]               : U9        : input  : 2.5 V             :         : 3         : N              
-sensor_bus[62]               : U10       : input  : 2.5 V             :         : 3         : N              
-sensor_num[0]                : U11       : output : 2.5 V             :         : 3         : N              
-data_to_send[3]              : U12       : output : 2.5 V             :         : 4         : N              
-sensor_bus[55]               : U13       : input  : 2.5 V             :         : 4         : N              
-data_used[7]                 : U14       : output : 2.5 V             :         : 4         : N              
-sensor_bus[70]               : U15       : input  : 2.5 V             :         : 4         : N              
-sensor_ready[4]              : U16       : input  : 2.5 V             :         : 4         : N              
-sensor_bus[6]                : U17       : input  : 2.5 V             :         : 4         : N              
+sensor_bus[70]               : U7        : input  : 2.5 V             :         : 3         : N              
+sensor_bus[86]               : U8        : input  : 2.5 V             :         : 3         : N              
+sensor_bus[8]                : U9        : input  : 2.5 V             :         : 3         : N              
+sensor_num[0]                : U10       : output : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : U11       :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U12       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U13       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U14       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U15       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U16       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U17       :        :                   :         : 4         :                
 VCCA4                        : U18       : power  :                   : 2.5V    :           :                
-sensor_bus[32]               : U19       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[96]               : U20       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[112]              : U21       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[65]               : U22       : input  : 2.5 V             :         : 5         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : V1        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : V2        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : V3        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : V4        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : V5        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : V6        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : V7        :        :                   :         : 3         :                
-sensor_bus[15]               : V8        : input  : 2.5 V             :         : 3         : N              
-sensor_bus[46]               : V9        : input  : 2.5 V             :         : 3         : N              
-sensor_bus[14]               : V10       : input  : 2.5 V             :         : 3         : N              
-sensor_bus[117]              : V11       : input  : 2.5 V             :         : 3         : N              
-sensor_bus[100]              : V12       : input  : 2.5 V             :         : 4         : N              
-sensor_bus[115]              : V13       : input  : 2.5 V             :         : 4         : N              
-sensor_bus[21]               : V14       : input  : 2.5 V             :         : 4         : N              
-data_to_send[6]              : V15       : output : 2.5 V             :         : 4         : N              
-sensor_bus[53]               : V16       : input  : 2.5 V             :         : 4         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : U19       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U20       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U21       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U22       :        :                   :         : 5         :                
+sensor_ready[3]              : V1        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[2]                : V2        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[17]               : V3        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[9]                : V4        : input  : 2.5 V             :         : 2         : N              
+sensor_bus[102]              : V5        : input  : 2.5 V             :         : 3         : N              
+sensor_bus[113]              : V6        : input  : 2.5 V             :         : 3         : N              
+sensor_bus[78]               : V7        : input  : 2.5 V             :         : 3         : N              
+sensor_bus[101]              : V8        : input  : 2.5 V             :         : 3         : N              
+sensor_bus[57]               : V9        : input  : 2.5 V             :         : 3         : N              
+sensor_bus[56]               : V10       : input  : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : V11       :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : V12       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : V13       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : V14       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : V15       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : V16       :        :                   :         : 4         :                
 VCCD_PLL4                    : V17       : power  :                   : 1.2V    :           :                
 GNDA4                        : V18       : gnd    :                   :         :           :                
 VCCIO5                       : V19       : power  :                   : 2.5V    : 5         :                
 GND                          : V20       : gnd    :                   :         :           :                
-sensor_ready[1]              : V21       : input  : 2.5 V             :         : 5         : N              
-sensor_ready[2]              : V22       : input  : 2.5 V             :         : 5         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : W1        :        :                   :         : 2         :                
-uart_tx_done                 : W2        : input  : 2.5 V             :         : 2         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : V21       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : V22       :        :                   :         : 5         :                
+sensor_ready[6]              : W1        : input  : 2.5 V             :         : 2         : N              
+sensor_num[1]                : W2        : output : 2.5 V             :         : 2         : N              
 GND                          : W3        : gnd    :                   :         :           :                
 VCCIO2                       : W4        : power  :                   : 2.5V    : 2         :                
 VCCIO3                       : W5        : power  :                   : 2.5V    : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : W6        :        :                   :         : 3         :                
-sensor_bus[110]              : W7        : input  : 2.5 V             :         : 3         : N              
-data_to_send[14]             : W8        : output : 2.5 V             :         : 3         : N              
+sensor_ready[4]              : W6        : input  : 2.5 V             :         : 3         : N              
+data_used[5]                 : W7        : output : 2.5 V             :         : 3         : N              
+sensor_bus[24]               : W8        : input  : 2.5 V             :         : 3         : N              
 VCCIO3                       : W9        : power  :                   : 2.5V    : 3         :                
-sensor_bus[84]               : W10       : input  : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : W10       :        :                   :         : 3         :                
 VCCIO3                       : W11       : power  :                   : 2.5V    : 3         :                
 VCCIO4                       : W12       : power  :                   : 2.5V    : 4         :                
-sensor_bus[35]               : W13       : input  : 2.5 V             :         : 4         : N              
-sensor_bus[67]               : W14       : input  : 2.5 V             :         : 4         : N              
-sensor_bus[87]               : W15       : input  : 2.5 V             :         : 4         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : W13       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W14       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W15       :        :                   :         : 4         :                
 VCCIO4                       : W16       : power  :                   : 2.5V    : 4         :                
-sensor_bus[86]               : W17       : input  : 2.5 V             :         : 4         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : W17       :        :                   :         : 4         :                
 VCCIO4                       : W18       : power  :                   : 2.5V    : 4         :                
-sensor_bus[48]               : W19       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[102]              : W20       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[16]               : W21       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[18]               : W22       : input  : 2.5 V             :         : 5         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y1        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y2        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y3        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y4        :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W19       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W20       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W21       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W22       :        :                   :         : 5         :                
+data_used[1]                 : Y1        : output : 2.5 V             :         : 2         : N              
+state                        : Y2        : output : 2.5 V             :         : 2         : N              
+sensor_bus[22]               : Y3        : input  : 2.5 V             :         : 3         : N              
+sensor_bus[1]                : Y4        : input  : 2.5 V             :         : 3         : N              
 GND                          : Y5        : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y6        :        :                   :         : 3         :                
-sensor_bus[95]               : Y7        : input  : 2.5 V             :         : 3         : N              
-sensor_bus[63]               : Y8        : input  : 2.5 V             :         : 3         : N              
+sensor_bus[38]               : Y6        : input  : 2.5 V             :         : 3         : N              
+data_used[6]                 : Y7        : output : 2.5 V             :         : 3         : N              
+sensor_bus[40]               : Y8        : input  : 2.5 V             :         : 3         : N              
 GND                          : Y9        : gnd    :                   :         :           :                
-data_to_send[5]              : Y10       : output : 2.5 V             :         : 3         : N              
+sensor_bus[88]               : Y10       : input  : 2.5 V             :         : 3         : N              
 GND                          : Y11       : gnd    :                   :         :           :                
 GND                          : Y12       : gnd    :                   :         :           :                
-sensor_bus[83]               : Y13       : input  : 2.5 V             :         : 4         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y13       :        :                   :         : 4         :                
 VCCIO4                       : Y14       : power  :                   : 2.5V    : 4         :                
 GND                          : Y15       : gnd    :                   :         :           :                
 GND                          : Y16       : gnd    :                   :         :           :                
-sensor_ready[3]              : Y17       : input  : 2.5 V             :         : 4         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y17       :        :                   :         : 4         :                
 GND                          : Y18       : gnd    :                   :         :           :                
 VCCIO5                       : Y19       : power  :                   : 2.5V    : 5         :                
 GND                          : Y20       : gnd    :                   :         :           :                
-sensor_bus[0]                : Y21       : input  : 2.5 V             :         : 5         : N              
-sensor_bus[113]              : Y22       : input  : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y21       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y22       :        :                   :         : 5         :                

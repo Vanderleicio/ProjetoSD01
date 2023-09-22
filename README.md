@@ -3,38 +3,38 @@
 ### Desenvolvedores
 ------------
 
-[Vanderleicio Junior](https://github.com/Vanderleicio)
-[Washington Oliveira Júnior](https://github.com/wlfoj#-washington-oliveira-junior-)
-[Wagner Alexandre](https://github.com/WagnerAlexandre)
-[Lucas Gabriel](https://github.com/lucasxgb)
+[Vanderleicio Junior](https://github.com/Vanderleicio).
+[Washington Oliveira Júnior](https://github.com/wlfoj#-washington-oliveira-junior-).
+[Wagner Alexandre](https://github.com/WagnerAlexandre).
+[Lucas Gabriel](https://github.com/lucasxgb).
 
 ### Tutor 
 ------------
 
-[Thiago Cerqueira de Jesus](https://github.com/thiagocj)
+[Thiago Cerqueira de Jesus](https://github.com/thiagocj).
 
 ### Sumário 
 ------------
-[1. Como Executar](#como-executar)
-[2. Introdução](#introdução)
-[3. Características da solução](#características)
-&nbsp;&nbsp;&nbsp;[3.1. Materiais utilizados](#comunicação)
-&nbsp;&nbsp;&nbsp;[3.2. Módulo de Comunicação](#comunicação)
-&nbsp;&nbsp;&nbsp;[3.3. Módulo FPGA](#módulo-FPGA)
-&nbsp;&nbsp;&nbsp;[3.4. Módulo DHT11](#módulo-DHT11)
-&nbsp;&nbsp;&nbsp;[3.5. Sistema de teste](#módulo-C)
-[4. Tabela de Comandos](#tabela-de-domandos)
-[5. Testes](#testes)
-[6. Síntese (LEs, LABs e Pinos)](#síntese)
-[7. Como Executar](#resultados) 
-[8. Conclusões](#conclusões) 
-[9. Referências](#referências) 
++ [Como Executar](#como-executar).
++ [Introdução](#introdução).
++ [Características da solução](#características).
++ &nbsp;&nbsp;&nbsp;[Materiais utilizados](#materiais).
++ &nbsp;&nbsp;&nbsp;[Módulo de Comunicação](#comunicação).
++ &nbsp;&nbsp;&nbsp;[Módulo FPGA](#módulo-FPGA).
++ &nbsp;&nbsp;&nbsp;[Módulo DHT11](#módulo-DHT11).
++ &nbsp;&nbsp;&nbsp;[Sistema de teste](#módulo-C).
++ [Tabela de Comandos](#tabela-de-domandos).
++ [Testes](#testes).
++ [Síntese (LEs, LABs e Pinos)](#síntese).
++ [Como Executar](#resultados).
++ [Conclusões](#conclusões).
++ [Referências](#referências). 
 
 
 
-## 1. Como Executar
+## Como Executar
 
-## 2. Introdução
+## Introdução
 
 
 Nos dias atuais a tecnologia passou a ser uma ferramenta indispensável na vida dos seres humanos, uma vez que o desenvolvimento tecnológico progressivamente trás consigo ferramentas facilitadoras, que contribuem não só no cunho pessoal, mas em diversas áreas da sociedade. Um grande exemplo disso é a Internet das Coisas (IOT), uma tecnologia que vem ganhando grande notoriedade nos últimos anos. tendo como princípio a conexão entre o mundo físico (veiculos, dispositivos, sensores) e o digital (internet). A partir da comunicação entre dispositvos é possível a transmissão e obtenção de dados.
@@ -42,12 +42,12 @@ Nos dias atuais a tecnologia passou a ser uma ferramenta indispensável na vida 
 Partindo desse pressuposto, foi solicitado aos autores desse documento o desenvolvimento gradual de um sistema digital para gestão de ambientes, salienta-se que tal projeto está dividido em etapas. O objetivo da primeira etapa é implementar um sensor que exerce aferições de temperatura e umidade, a confecção dos sensores deve ser realizada em uma FPGA (arranjo de portas programavéis) que receberá a conexão do sensor DHT11, o programa deve ser modular, e escalável, permitindo a adição de mais sensores a FPGA, além disso deve-se implementar o protocolo de comunicação serial UART, responsável pela comunicação entre o sistema de testes desenvolvido em C e a FPGA, o sistema de testes enviará comandos para a FPGA, que deve obter os dados de um sensor especifico e retornar a respectiva resposta. As demais seções descrevem como foi o desenvolvimento da solução proposta.
 
 
-## 3. Características da Solução
+## Características da Solução
 
 
 Para compreensão do desenvolvimento da solução, dividiremos a explicação em cinco subseções, a primeira seção descreve quais foram os materias utilizados no desenvolvimento do sistema, a seção de comunicaçãotrata sobre implementação da comunicação UART, o módulo FPGA reponsável pelo controle tanto da comunicação em C, quanto a comunicação com o DHT11, o módulo DHT11, implementado também no FPGA, e por fim a implementação do sistema de testes em C. De inicio começaremos falando sobre a comunicação UART.
 
-### 3.1 Materiais utilizados
+### Materiais utilizados
 --------------
 
 
@@ -56,13 +56,13 @@ Para compreensão do desenvolvimento da solução, dividiremos a explicação em
 - Linguagem de Programação C.
 - Linguagem de desenvolvimento de hardware verilog.
 
-### 3.2 Comunicação
+### Comunicação
 --------------
 
 
 O UART, Universal Asynchronous Receiver/Transmitter, é um protocolo de comunicação serial que define um conjunto de regras para a troca de dados entre dois dispositivos (R&S Essentials). Contendo um transmissor e um receptor, conectados por fios,  a comunicação uart pode ser *simplex:* apenas uma direção realiza o envio de dados, *half-duplex:* as duas direções enviam os dados, porém cada um por vez, e por fim, os dados podem ser *full-duplex:* ambas as direções enviam dados simultaneamente.
 
-Na implementação desta solução, optou-se pelo uso de comunicação full-duplex, pois o sistema requer monitoramento contínuo dos dados, sem, no entanto, impedir a realização de novas solicitações a outros sensores. A seção referente ao [Módulo FPGA](#modulo-FPGA) fornece detalhes sobre como ocorre a alternância entre os sensores. Para assegurar a uniformidade dos dados compartilhados em ambas as extremidades da comunicação, é essencial que ambas operem com a mesma taxa de baud. Neste caso, foi selecionado o valor de 9.600.
+Na implementação desta solução, optou-se pelo uso de comunicação full-duplex, pois o sistema requer monitoramento contínuo dos dados, sem, no entanto, impedir a realização de novas solicitações a outros sensores. A seção referente ao [Módulo FPGA](#modulo-FPGA) fornece detalhes sobre como ocorre a alternância entre os sensores. Para assegurar a uniformidade dos dados compartilhados em ambas as extremidades da comunicação, é essencial que ambas operem com a mesma taxa de baud. Neste caso, foi selecionado o valor de 9.600 Hz.
 
 
 A comunicação UART é estabelecida entre o código C e a FPGA. No que diz respeito ao código C, a explicação é bastante simples. São utilizadas três bibliotecas (*stdio.h*, *unistd.h* e *fcntl.h*), além da definição de tags de controle, entrada, saída e local. Estas flags são responsáveis por habilitar o código C a realizar a comunicação UART.
@@ -77,7 +77,7 @@ O módulo Uart Receptor desempenha a função de receber dados na FPGA através 
 - `data`: Enviará os dados recebidos para o decodificador.
 - `concluded`: Este sinal informa aos outros módulos que os dois bytes de dados foram recebidos.
 
-Dentro do módulo Uart Receptor, há uma máquina de estados finitos composta por três estados, encarregados do processo de recebimento dos dados provenientes do computador. Esses dados são utilizados para solicitar ao sensor a informação correspondente. Sobre os estados: 
+Dentro do módulo Uart Receptor, há uma máquina de estados finitos composta por três estados, encarregados do processo de recebimento dos dados (Comando + Endereço Sensor) provenientes do computador. Esses dados são utilizados para solicitar ao sensor a informação correspondente. Sobre os estados: 
 
 + **Start:** Estado inicial, este é o estado inicial da máquina. Aqui, a máquina aguarda a recepção do bit de início, bit 0. Assim que recebido, ela transita para o estado de "Data" para iniciar o compartilhamento de dados. Se continuar recebendo bit 1, permanece neste estado.
 
@@ -97,7 +97,7 @@ O módulo Uart Transmissor desempenha a função de transmitir os dados da FPGA 
 - `done`: Este sinal informa aos outros módulos que a transmissão foi concluída.
 
 
-Dentro do módulo Uart Transmissor, uma máquina de estados finitos composta por quatro estados é empregada para gerenciar o processo de recebimento da resposta de dados do sensor e encaminhamento desses dados para o módulo solicitador. O funcionamento dos estados é o seguinte:
+Dentro do módulo Uart Transmissor, uma máquina de estados finitos composta por quatro estados é empregada para gerenciar o processo de recebimento da resposta de dados do sensor e encaminhamento desses dados (Comando + Endereço Sensor) para o módulo solicitador. O funcionamento dos estados é o seguinte:
 
 + **Idle:** Estado de espera.
 
@@ -109,24 +109,55 @@ Dentro do módulo Uart Transmissor, uma máquina de estados finitos composta por
 
 
 
-### 3.3 Módulo FPGA
+### Módulo FPGA
 --------------
 
 
+O módulo FPGA desempenha o papel de controlador neste protótipo. Nele, ocorre tanto a recepção quanto o encaminhamento de dados, seja proveniente do sensor DHT11 [Módulo DHT11](#módulo-DHT11), ou sejam solicitações oriundas do PC. Todas essas operações passam pela FPGA. O módulo de comunicação, explicado na seção anterior, representa apenas uma parte menor do conjunto principal da FPGA.
 
 
-## 6. Resultados de Síntese (Falar dos pinos)
+#### Entregador
 
-A partir da Figura (2)[#sintese], percebe-se que a implementação da solução proposta, utiliza cerca de 8% dos elementos lógicos da placa, 10% dos seus LABs, sendo valores consideráveis em relação as escolhas utilizadas nos projeto, como o uso de máquinas de estado em diversos blocos.
+O receptor UART possui duas saídas de informação cruciais para esta estrutura: um sinal indicando a conclusão da recepção e os dados recebidos. Isso viabiliza que o entregador, fazendo um barramento dos dados (Comando + Endereço Sensor) provenientes da UART, identifique o endereço do sensor. Este endereço pode então ser vinculado a um pino que sinaliza se houve alguma requisição para o sensor DHT11..
+
+
+## Módulo DHT11
+
+O módulo DHT11 é responsável por implementar a lógica de funcionamento do sensor. 
+#### Controlador
+
+O módulo controlador possibilita a solicitação de diversas informações do sensor DHT11, como temperatura, umidade, ou a contínua atualização de uma dessas variáveis. Ele age como o coordenador dos dados, processando e enviando de volta ao PC apenas o que foi requisitado.
+
+Essa estrutura é composta por uma máquina de estados que possui quatro estados distintos: 
+
++ **Espera Comando:** Estado inicial, verifica se houve alguma solicitação, se chegou algum comando real
+
++ **Coletando:**
+
++ **Transmitir:**
+
++ **Enviada:**
+
+
+
+
+
+
+
+
+
+## Resultados de Síntese (Falar dos pinos)
+
+Ao observar a Figura ... (sintese), nota-se que a implementação da solução proposta utiliza aproximadamente 8% dos elementos lógicos da placa e 10% dos seus LABs. Esses valores são consideráveis em comparação com as opções adotadas no projeto, como a utilização de muitas máquinas de estados.
 
 [![Síntese (LEs, LABs, Pinos)](#sintese "Síntese (LEs, LABs, Pinos)")](http://https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/resultadoDeSintese.png "Síntese (LEs, LABs, Pinos)")
 
-## 7. Como Executar
+## Como Executar
 
-## 8. Conclusões
+## Conclusões
 
 
-## 9. Referências
+## Referências
 
 [R&S®Essentials - Compreenda à Uart](https://www.rohde-schwarz.com/br/produtos/teste-e-medicao/essentials-test-equipment/digital-oscilloscopes/compreender-uart_254524.html "Uart")
 

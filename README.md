@@ -129,23 +129,21 @@ O receptor UART possui duas saídas de informação cruciais para esta estrutura
 <center>
   
 ![DHT11](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/dht11.png)
-- **Figura ...:** *Funcionamento do sensor. [Components101](https://components101.com/sensors/dht11-temperature-sensor)*
+- **Figura 1:** *Funcionamento do sensor. [Components101](https://components101.com/sensors/dht11-temperature-sensor)*
 
 </center>
 
 O módulo DHT11 é responsável por implementar a lógica de funcionamento do sensor. Essa estrutura visa executar de maneira similar a imagem acima. Para isso o DHT11 conta com 10 estados, sendo eles:
 + **Idle:** O estado inicial do sensor é o estado de espera, no qual a máquina permanece até que o bit inicial seja recebido. Para iniciar a comunicação e ir para o próximo estado, o DHT11 aguarda a recepção de um bit em nível lógico baixo, pois seu estado de espera é sempre em nível lógico alto.
-+ **Start:** Ao receber um sinal de início, o DHT11 aguarda por 19 ms em nível lógico baixo. Durante esse período, um contador é continuamente incrementado. Quando esse contador atinge o valor correspondente a 19.000 ciclos de clock, o sistema avança para o próximo estado.
++ **Start:** Ao receber um sinal de início, o DHT11 aguarda por 19 ms em nível lógico baixo. Durante esse período, um contador é continuamente incrementado. Quando esse contador atinge o valor correspondente a 19.000 ciclos do clock de micro segundos, o sistema avança para o próximo estado.
 + **Detected_signal:** Estado de alternância, quando chega nesse estado, irá esperar 20µs, para que seja possível alternar a direção do sinal do pino inout utilizado no tri state, uma vez que agora quem irá assumir a comunicação é o sensor.
-+ **Wait_dht11:** Estado de espera, ao chegar nesse estado irá aguardar mais 21µs, para poder enviar o sinal de resposta que identifica que o sensor está pronto para transmitir os dados.
++ **Wait_dht11:** Estado de espera, ao chegar nesse estado irá aguardar mais 21µs, para poder receber do sensor o sinal de resposta que identifica que o sensor está pronto para transmitir os dados.
 + **dht11_response:** No estado de envio de sinal de resposta, o sensor deve emitir um sinal em nível lógico baixo com uma duração de 80µs. Se o sinal continuar baixo após os 80µs, é considerado um erro. Caso contrário, o sistema avança para o próximo estado.
 + **dht11_high_response:** No estado de envio de sinal de resposta alto, o sensor agora deve emitir um sinal em nível lógico alto com uma duração de 80µs, se atingir o tempo e o nível lógico ainda estiver alto, ocorreu um erro, caso o contrario, inicia-se a transmissão.
 + **transmit:** No estado de transmissão, após a emissão do sinal de resposta, se tudo transcorrer conforme o esperado, o sensor inicia a transmissão dos dados. Neste estágio, o sensor aguarda 50µs em nível lógico baixo. Se o tempo passar e o sensor ainda estiver em nível lógico baixo, ocorrerá um erro. Caso contrário, vai para o próximo estado verificar a duração do próximo sinal para determinar se o bit de dados é 1 ou 0. Este estado possui um buffer projetado para armazenar 40 bits de dados, sendo atualizado até que o valor de um contador alcance 40.
 + **detect_bit:** No estado de detecção de bits, verifica-se se o valor do contador é superior a 50µs para determinar se o bit é 1; caso contrário, o bit é considerado 0. Em seguida, o índice do buffer é incrementado em um bit. Este estado persiste em retornar para a fase de transmissão até que o índice alcance 40 bits, indicando que todos os dados foram transmitidos.
 + **wait_signal:** Estado de segurança, aguarda 100µs para garantir que o DHT11 esteja livre para uso novamente.
 + **stop:** Se chegou em stop, ou deu erro ou a transmissão foi um sucesso, e com isso retornar para o estado de espera.
-
-
 
 #### Controlador
 
@@ -170,6 +168,24 @@ Ao chegar ao estado final, a máquina verifica se a solicitação é do tipo con
 + **T:** Estado que transmite a informação correspendente e sinaliza para o controlador quando toda sua informação já tiver sido transmitida.
   
 ## Sistema de teste 
+
+O sistema de teste feito em C foi dividido em duas partes: Observador e Garçom:
+
+O Observador é responsável por ler as informações recebidas pela porta serial do computador, tratá-las e exibi-la em um terminal.
+
+O Garçom é responsável por ler as entradas do usuário e enviá-las por UART para a placa FPGA.
+
+Os códigos em C responsáveis por se comunicarem com a porta serial utilizam as seguintes bibliotecas:
+
+<stdio.h> (Standard Input and Output): Esta biblioteca é essencial para operações de entrada e saída padrão. No código, ela é usada principalmente para exibir mensagens no terminal e para ler as entradas do usuário. As funções printf e scanf são usadas para exibir informações no terminal e coletar dados do usuário.
+
+<string.h> (String Handling): A biblioteca <string.h> fornece funções e utilitários para manipulação de strings. No código, é utilizada para a função memset, que é responsável por preencher uma região da memória com um valor específico (usado para zerar o buffer “envio”).
+
+<unistd.h> (Unix Standard): Essa biblioteca contém funções relacionadas a operações de sistema e entrada/saída não bloqueantes. No código, ela é usada principalmente para operações não bloqueantes de E/S, como a função sleep para introduzir um atraso durante a execução do observador para permitir a visualização dos dados.
+
+<fcntl.h> (File Control): Essa biblioteca fornece constantes e funções para controlar a abertura e configuração de descritores de arquivo. No código, é usada para abrir a porta serial /dev/ttyS0 com as configurações desejadas, como escrita não bloqueante.
+
+<termios.h> (Terminal I/O): A biblioteca <termios.h> é usada para configurar os parâmetros da porta serial, como velocidade de transmissão, bits de dados, paridade e outras opções de controle. No código, as estruturas e funções desta biblioteca são usadas para configurar a porta serial (fd) de acordo com as especificações desejadas.
 
 ## Tabela de Comandos
 
@@ -205,12 +221,12 @@ Algumas simulações e os resultados encontrados:
 
 ## Resultados de Síntese
 
-Ao observar a Figura ... (sintese), nota-se que a implementação da solução proposta utiliza aproximadamente 8% dos elementos lógicos da placa e 10% dos seus LABs. Esses valores são consideráveis em comparação com as opções adotadas no projeto, como a utilização de muitas máquinas de estados. Outro ponto notório é a quantidade de pinos utilizado, apenas 11 pinos, utilizando cerca de 3% dos pinos totais da FPGA.
+Ao observar a Figura 2 (sintese), nota-se que a implementação da solução proposta utiliza aproximadamente 8% dos elementos lógicos da placa e 10% dos seus LABs. Esses valores são consideráveis em comparação com as opções adotadas no projeto, como a utilização de muitas máquinas de estados. Outro ponto notório é a quantidade de pinos utilizado, apenas 11 pinos, utilizando cerca de 3% dos pinos totais da FPGA.
 
 <center>
   
-![Síntese (LEs, LABs, Pinos)](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/resultadoDeSintese.png)
-- **Figura ...:** *Resultados de sintése.*
+![Síntese (LEs, LABs, Pinos)](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/SINteseFig.png)
+- **Figura 2:** *Resultados de sintése.*
 </center>
 
 ## Conclusões

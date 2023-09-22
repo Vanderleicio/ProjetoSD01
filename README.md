@@ -55,7 +55,7 @@ Para compreensão do desenvolvimento da solução, dividiremos a explicação em
 - Linguagem de Programação C.
 - Linguagem de desenvolvimento de hardware verilog.
 
-### Comunicação
+### Módulo de Comunicação
 --------------
 
 

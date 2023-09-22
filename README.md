@@ -3,10 +3,10 @@
 ### Desenvolvedores
 ------------
 
-[Vanderleicio Junior](https://github.com/Vanderleicio).
-[Washington Oliveira Júnior](https://github.com/wlfoj#-washington-oliveira-junior-).
-[Wagner Alexandre](https://github.com/WagnerAlexandre).
-[Lucas Gabriel](https://github.com/lucasxgb).
+- [Vanderleicio Junior](https://github.com/Vanderleicio).
+- [Washington Oliveira Júnior](https://github.com/wlfoj#-washington-oliveira-junior-).
+- [Wagner Alexandre](https://github.com/WagnerAlexandre).
+- [Lucas Gabriel](https://github.com/lucasxgb).
 
 ### Tutor 
 ------------

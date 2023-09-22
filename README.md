@@ -175,7 +175,9 @@ Essa estrutura é composta por uma máquina de estados que possui quatro estados
 Ao observar a Figura ... (sintese), nota-se que a implementação da solução proposta utiliza aproximadamente 8% dos elementos lógicos da placa e 10% dos seus LABs. Esses valores são consideráveis em comparação com as opções adotadas no projeto, como a utilização de muitas máquinas de estados.
 
 <center>
+  
 ![Síntese (LEs, LABs, Pinos)](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/resultadoDeSintese.png)
+- **Figura ...:** *Resultados de sintése.*
 </center>
 
 ## Conclusões

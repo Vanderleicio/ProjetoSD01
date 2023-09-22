@@ -1,6 +1,0 @@
-module teste_ben(output out);
-	reg [2:0] data = 3'b101;
-	integer i=1;
-	assign out = data[1];
-
-endmodule

@@ -1,7 +1,0 @@
-
-State Machine - |testa_Escalonador|UART_tx:transmissor|state
-Name state.STOP state.DATA state.START state.IDLE 
-state.IDLE 0 0 0 0 
-state.START 0 0 1 1 
-state.DATA 0 1 0 1 
-state.STOP 1 0 0 1 

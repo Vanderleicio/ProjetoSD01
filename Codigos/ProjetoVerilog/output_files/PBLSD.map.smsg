@@ -1,0 +1,6 @@
+Warning (10268): Verilog HDL information at controlDHT11.v(43): always construct contains both blocking and non-blocking assignments File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/controlDHT11.v Line: 43
+Warning (10268): Verilog HDL information at dhtAlt.v(46): always construct contains both blocking and non-blocking assignments File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 46
+Info (10281): Verilog HDL Declaration information at receptor.v(9): object "data" differs only in case from object "DATA" in the same scope File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/receptor.v Line: 9
+Warning (10268): Verilog HDL information at UART_tx.v(39): always construct contains both blocking and non-blocking assignments File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/UART_tx.v Line: 39
+Info (10281): Verilog HDL Declaration information at UART_tx.v(14): object "data" differs only in case from object "DATA" in the same scope File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/UART_tx.v Line: 14
+Warning (10268): Verilog HDL information at ESCALONADOR_V3.v(58): always construct contains both blocking and non-blocking assignments File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/ESCALONADOR_V3.v Line: 58

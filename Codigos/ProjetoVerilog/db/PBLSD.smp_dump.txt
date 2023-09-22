@@ -1,0 +1,173 @@
+
+State Machine - |main|UART_tx:transmissor_UART|state
+Name state.STOP state.DATA state.START state.IDLE 
+state.IDLE 0 0 0 0 
+state.START 0 0 1 1 
+state.DATA 0 1 0 1 
+state.STOP 1 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT7|estado
+Name estado.RESETAR estado.TRANSMITIR estado.COLETANDO estado.ESPCOMANDO 
+estado.ESPCOMANDO 0 0 0 0 
+estado.COLETANDO 0 0 1 1 
+estado.TRANSMITIR 0 1 0 1 
+estado.RESETAR 1 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT7|dhtAlt:DHT|state
+Name state.STOP state.WAIT_SIGNAL state.DETECT_BIT state.TRANSMIT state.DHT11_HIGH_RESPONSE state.DHT11_RESPONSE state.WAIT_DHT11 state.DETECT_SIGNAL state.START state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 0 0 0 1 1 
+state.DETECT_SIGNAL 0 0 0 0 0 0 0 1 0 1 
+state.WAIT_DHT11 0 0 0 0 0 0 1 0 0 1 
+state.DHT11_RESPONSE 0 0 0 0 0 1 0 0 0 1 
+state.DHT11_HIGH_RESPONSE 0 0 0 0 1 0 0 0 0 1 
+state.TRANSMIT 0 0 0 1 0 0 0 0 0 1 
+state.DETECT_BIT 0 0 1 0 0 0 0 0 0 1 
+state.WAIT_SIGNAL 0 1 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT6|estado
+Name estado.RESETAR estado.TRANSMITIR estado.COLETANDO estado.ESPCOMANDO 
+estado.ESPCOMANDO 0 0 0 0 
+estado.COLETANDO 0 0 1 1 
+estado.TRANSMITIR 0 1 0 1 
+estado.RESETAR 1 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT6|dhtAlt:DHT|state
+Name state.STOP state.WAIT_SIGNAL state.DETECT_BIT state.TRANSMIT state.DHT11_HIGH_RESPONSE state.DHT11_RESPONSE state.WAIT_DHT11 state.DETECT_SIGNAL state.START state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 0 0 0 1 1 
+state.DETECT_SIGNAL 0 0 0 0 0 0 0 1 0 1 
+state.WAIT_DHT11 0 0 0 0 0 0 1 0 0 1 
+state.DHT11_RESPONSE 0 0 0 0 0 1 0 0 0 1 
+state.DHT11_HIGH_RESPONSE 0 0 0 0 1 0 0 0 0 1 
+state.TRANSMIT 0 0 0 1 0 0 0 0 0 1 
+state.DETECT_BIT 0 0 1 0 0 0 0 0 0 1 
+state.WAIT_SIGNAL 0 1 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT5|estado
+Name estado.RESETAR estado.TRANSMITIR estado.COLETANDO estado.ESPCOMANDO 
+estado.ESPCOMANDO 0 0 0 0 
+estado.COLETANDO 0 0 1 1 
+estado.TRANSMITIR 0 1 0 1 
+estado.RESETAR 1 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT5|dhtAlt:DHT|state
+Name state.STOP state.WAIT_SIGNAL state.DETECT_BIT state.TRANSMIT state.DHT11_HIGH_RESPONSE state.DHT11_RESPONSE state.WAIT_DHT11 state.DETECT_SIGNAL state.START state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 0 0 0 1 1 
+state.DETECT_SIGNAL 0 0 0 0 0 0 0 1 0 1 
+state.WAIT_DHT11 0 0 0 0 0 0 1 0 0 1 
+state.DHT11_RESPONSE 0 0 0 0 0 1 0 0 0 1 
+state.DHT11_HIGH_RESPONSE 0 0 0 0 1 0 0 0 0 1 
+state.TRANSMIT 0 0 0 1 0 0 0 0 0 1 
+state.DETECT_BIT 0 0 1 0 0 0 0 0 0 1 
+state.WAIT_SIGNAL 0 1 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT4|estado
+Name estado.RESETAR estado.TRANSMITIR estado.COLETANDO estado.ESPCOMANDO 
+estado.ESPCOMANDO 0 0 0 0 
+estado.COLETANDO 0 0 1 1 
+estado.TRANSMITIR 0 1 0 1 
+estado.RESETAR 1 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT4|dhtAlt:DHT|state
+Name state.STOP state.WAIT_SIGNAL state.DETECT_BIT state.TRANSMIT state.DHT11_HIGH_RESPONSE state.DHT11_RESPONSE state.WAIT_DHT11 state.DETECT_SIGNAL state.START state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 0 0 0 1 1 
+state.DETECT_SIGNAL 0 0 0 0 0 0 0 1 0 1 
+state.WAIT_DHT11 0 0 0 0 0 0 1 0 0 1 
+state.DHT11_RESPONSE 0 0 0 0 0 1 0 0 0 1 
+state.DHT11_HIGH_RESPONSE 0 0 0 0 1 0 0 0 0 1 
+state.TRANSMIT 0 0 0 1 0 0 0 0 0 1 
+state.DETECT_BIT 0 0 1 0 0 0 0 0 0 1 
+state.WAIT_SIGNAL 0 1 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT3|estado
+Name estado.RESETAR estado.TRANSMITIR estado.COLETANDO estado.ESPCOMANDO 
+estado.ESPCOMANDO 0 0 0 0 
+estado.COLETANDO 0 0 1 1 
+estado.TRANSMITIR 0 1 0 1 
+estado.RESETAR 1 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT3|dhtAlt:DHT|state
+Name state.STOP state.WAIT_SIGNAL state.DETECT_BIT state.TRANSMIT state.DHT11_HIGH_RESPONSE state.DHT11_RESPONSE state.WAIT_DHT11 state.DETECT_SIGNAL state.START state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 0 0 0 1 1 
+state.DETECT_SIGNAL 0 0 0 0 0 0 0 1 0 1 
+state.WAIT_DHT11 0 0 0 0 0 0 1 0 0 1 
+state.DHT11_RESPONSE 0 0 0 0 0 1 0 0 0 1 
+state.DHT11_HIGH_RESPONSE 0 0 0 0 1 0 0 0 0 1 
+state.TRANSMIT 0 0 0 1 0 0 0 0 0 1 
+state.DETECT_BIT 0 0 1 0 0 0 0 0 0 1 
+state.WAIT_SIGNAL 0 1 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT2|estado
+Name estado.RESETAR estado.TRANSMITIR estado.COLETANDO estado.ESPCOMANDO 
+estado.ESPCOMANDO 0 0 0 0 
+estado.COLETANDO 0 0 1 1 
+estado.TRANSMITIR 0 1 0 1 
+estado.RESETAR 1 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT2|dhtAlt:DHT|state
+Name state.STOP state.WAIT_SIGNAL state.DETECT_BIT state.TRANSMIT state.DHT11_HIGH_RESPONSE state.DHT11_RESPONSE state.WAIT_DHT11 state.DETECT_SIGNAL state.START state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 0 0 0 1 1 
+state.DETECT_SIGNAL 0 0 0 0 0 0 0 1 0 1 
+state.WAIT_DHT11 0 0 0 0 0 0 1 0 0 1 
+state.DHT11_RESPONSE 0 0 0 0 0 1 0 0 0 1 
+state.DHT11_HIGH_RESPONSE 0 0 0 0 1 0 0 0 0 1 
+state.TRANSMIT 0 0 0 1 0 0 0 0 0 1 
+state.DETECT_BIT 0 0 1 0 0 0 0 0 0 1 
+state.WAIT_SIGNAL 0 1 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT1|estado
+Name estado.RESETAR estado.TRANSMITIR estado.COLETANDO estado.ESPCOMANDO 
+estado.ESPCOMANDO 0 0 0 0 
+estado.COLETANDO 0 0 1 1 
+estado.TRANSMITIR 0 1 0 1 
+estado.RESETAR 1 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT1|dhtAlt:DHT|state
+Name state.STOP state.WAIT_SIGNAL state.DETECT_BIT state.TRANSMIT state.DHT11_HIGH_RESPONSE state.DHT11_RESPONSE state.WAIT_DHT11 state.DETECT_SIGNAL state.START state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 0 0 0 1 1 
+state.DETECT_SIGNAL 0 0 0 0 0 0 0 1 0 1 
+state.WAIT_DHT11 0 0 0 0 0 0 1 0 0 1 
+state.DHT11_RESPONSE 0 0 0 0 0 1 0 0 0 1 
+state.DHT11_HIGH_RESPONSE 0 0 0 0 1 0 0 0 0 1 
+state.TRANSMIT 0 0 0 1 0 0 0 0 0 1 
+state.DETECT_BIT 0 0 1 0 0 0 0 0 0 1 
+state.WAIT_SIGNAL 0 1 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT0|estado
+Name estado.RESETAR estado.TRANSMITIR estado.COLETANDO estado.ESPCOMANDO 
+estado.ESPCOMANDO 0 0 0 0 
+estado.COLETANDO 0 0 1 1 
+estado.TRANSMITIR 0 1 0 1 
+estado.RESETAR 1 0 0 1 
+
+State Machine - |main|controlDHT11:cntDHT0|dhtAlt:DHT|state
+Name state.STOP state.WAIT_SIGNAL state.DETECT_BIT state.TRANSMIT state.DHT11_HIGH_RESPONSE state.DHT11_RESPONSE state.WAIT_DHT11 state.DETECT_SIGNAL state.START state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 0 0 0 1 1 
+state.DETECT_SIGNAL 0 0 0 0 0 0 0 1 0 1 
+state.WAIT_DHT11 0 0 0 0 0 0 1 0 0 1 
+state.DHT11_RESPONSE 0 0 0 0 0 1 0 0 0 1 
+state.DHT11_HIGH_RESPONSE 0 0 0 0 1 0 0 0 0 1 
+state.TRANSMIT 0 0 0 1 0 0 0 0 0 1 
+state.DETECT_BIT 0 0 1 0 0 0 0 0 0 1 
+state.WAIT_SIGNAL 0 1 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|receptor:receptor_UART|state
+Name state.STOP state.START state.DATA 
+state.START 0 0 0 
+state.DATA 0 1 1 
+state.STOP 1 1 0 

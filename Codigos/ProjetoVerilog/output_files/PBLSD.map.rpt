@@ -1,0 +1,1436 @@
+Analysis & Synthesis report for PBLSD
+Fri Sep 22 11:17:21 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |main|UART_tx:transmissor_UART|state
+  9. State Machine - |main|controlDHT11:cntDHT7|estado
+ 10. State Machine - |main|controlDHT11:cntDHT7|dhtAlt:DHT|state
+ 11. State Machine - |main|controlDHT11:cntDHT6|estado
+ 12. State Machine - |main|controlDHT11:cntDHT6|dhtAlt:DHT|state
+ 13. State Machine - |main|controlDHT11:cntDHT5|estado
+ 14. State Machine - |main|controlDHT11:cntDHT5|dhtAlt:DHT|state
+ 15. State Machine - |main|controlDHT11:cntDHT4|estado
+ 16. State Machine - |main|controlDHT11:cntDHT4|dhtAlt:DHT|state
+ 17. State Machine - |main|controlDHT11:cntDHT3|estado
+ 18. State Machine - |main|controlDHT11:cntDHT3|dhtAlt:DHT|state
+ 19. State Machine - |main|controlDHT11:cntDHT2|estado
+ 20. State Machine - |main|controlDHT11:cntDHT2|dhtAlt:DHT|state
+ 21. State Machine - |main|controlDHT11:cntDHT1|estado
+ 22. State Machine - |main|controlDHT11:cntDHT1|dhtAlt:DHT|state
+ 23. State Machine - |main|controlDHT11:cntDHT0|estado
+ 24. State Machine - |main|controlDHT11:cntDHT0|dhtAlt:DHT|state
+ 25. State Machine - |main|receptor:receptor_UART|state
+ 26. Registers Removed During Synthesis
+ 27. Removed Registers Triggering Further Register Optimizations
+ 28. General Register Statistics
+ 29. Inverted Register Statistics
+ 30. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 31. Parameter Settings for User Entity Instance: receptor:receptor_UART
+ 32. Parameter Settings for User Entity Instance: controlDHT11:cntDHT0
+ 33. Parameter Settings for User Entity Instance: controlDHT11:cntDHT0|dhtAlt:DHT
+ 34. Parameter Settings for User Entity Instance: controlDHT11:cntDHT1
+ 35. Parameter Settings for User Entity Instance: controlDHT11:cntDHT1|dhtAlt:DHT
+ 36. Parameter Settings for User Entity Instance: controlDHT11:cntDHT2
+ 37. Parameter Settings for User Entity Instance: controlDHT11:cntDHT2|dhtAlt:DHT
+ 38. Parameter Settings for User Entity Instance: controlDHT11:cntDHT3
+ 39. Parameter Settings for User Entity Instance: controlDHT11:cntDHT3|dhtAlt:DHT
+ 40. Parameter Settings for User Entity Instance: controlDHT11:cntDHT4
+ 41. Parameter Settings for User Entity Instance: controlDHT11:cntDHT4|dhtAlt:DHT
+ 42. Parameter Settings for User Entity Instance: controlDHT11:cntDHT5
+ 43. Parameter Settings for User Entity Instance: controlDHT11:cntDHT5|dhtAlt:DHT
+ 44. Parameter Settings for User Entity Instance: controlDHT11:cntDHT6
+ 45. Parameter Settings for User Entity Instance: controlDHT11:cntDHT6|dhtAlt:DHT
+ 46. Parameter Settings for User Entity Instance: controlDHT11:cntDHT7
+ 47. Parameter Settings for User Entity Instance: controlDHT11:cntDHT7|dhtAlt:DHT
+ 48. Parameter Settings for User Entity Instance: ESCALONADOR_V3:escal
+ 49. Parameter Settings for User Entity Instance: UART_tx:transmissor_UART
+ 50. Port Connectivity Checks: "controlDHT11:cntDHT0|dhtAlt:DHT"
+ 51. Port Connectivity Checks: "ENTREGADOR:despachante"
+ 52. Port Connectivity Checks: "baudRateGenerator:gerador"
+ 53. Post-Synthesis Netlist Statistics for Top Partition
+ 54. Elapsed Time Per Partition
+ 55. Analysis & Synthesis Messages
+ 56. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Sep 22 11:17:21 2023       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; PBLSD                                       ;
+; Top-level Entity Name              ; main                                        ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 2,392                                       ;
+;     Total combinational functions  ; 2,392                                       ;
+;     Dedicated logic registers      ; 959                                         ;
+; Total registers                    ; 959                                         ;
+; Total pins                         ; 11                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE30F23C7       ;                    ;
+; Top-level entity name                                            ; main               ; PBLSD              ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.2%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------+---------+
+; controlDHT11.v                   ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/controlDHT11.v         ;         ;
+; dhtAlt.v                         ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v               ;         ;
+; geradorMicrossegundo.v           ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/geradorMicrossegundo.v ;         ;
+; main.v                           ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/main.v                 ;         ;
+; receptor.v                       ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/receptor.v             ;         ;
+; TRIS.v                           ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/TRIS.v                 ;         ;
+; baudRateGenerator.v              ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/baudRateGenerator.v    ;         ;
+; UART_tx.v                        ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/UART_tx.v              ;         ;
+; ENTREGADOR.v                     ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/ENTREGADOR.v           ;         ;
+; mux_8_to_1.v                     ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/mux_8_to_1.v           ;         ;
+; ESCALONADOR_V3.v                 ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/ESCALONADOR_V3.v       ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 2,392     ;
+;                                             ;           ;
+; Total combinational functions               ; 2392      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 1205      ;
+;     -- 3 input functions                    ; 334       ;
+;     -- <=2 input functions                  ; 853       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1953      ;
+;     -- arithmetic mode                      ; 439       ;
+;                                             ;           ;
+; Total registers                             ; 959       ;
+;     -- Dedicated logic registers            ; 959       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 11        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 462       ;
+; Total fan-out                               ; 10090     ;
+; Average fan-out                             ; 2.98      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name          ; Library Name ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------+--------------+
+; |main                                ; 2392 (1)            ; 959 (0)                   ; 0           ; 0            ; 0       ; 0         ; 11   ; 0            ; |main                                                   ; main                 ; work         ;
+;    |ENTREGADOR:despachante|          ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ENTREGADOR:despachante                            ; ENTREGADOR           ; work         ;
+;    |ESCALONADOR_V3:escal|            ; 90 (26)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal                              ; ESCALONADOR_V3       ; work         ;
+;       |mux_8_to_1:m01|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m01               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m02|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m02               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m03|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m03               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m04|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m04               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m05|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m05               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m06|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m06               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m07|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m07               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m08|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m08               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m09|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m09               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m10|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m10               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m11|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m11               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m14|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m14               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m15|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m15               ; mux_8_to_1           ; work         ;
+;       |mux_8_to_1:m16|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m16               ; mux_8_to_1           ; work         ;
+;    |UART_tx:transmissor_UART|        ; 108 (108)           ; 52 (52)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|UART_tx:transmissor_UART                          ; UART_tx              ; work         ;
+;    |baudRateGenerator:gerador|       ; 17 (17)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|baudRateGenerator:gerador                         ; baudRateGenerator    ; work         ;
+;    |controlDHT11:cntDHT0|            ; 263 (133)           ; 109 (52)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT0                              ; controlDHT11         ; work         ;
+;       |dhtAlt:DHT|                   ; 120 (119)           ; 50 (50)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT0|dhtAlt:DHT                   ; dhtAlt               ; work         ;
+;          |TRIS:tris|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT0|dhtAlt:DHT|TRIS:tris         ; TRIS                 ; work         ;
+;       |geradorMicrossegundo:gerador| ; 10 (10)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT0|geradorMicrossegundo:gerador ; geradorMicrossegundo ; work         ;
+;    |controlDHT11:cntDHT1|            ; 254 (134)           ; 104 (53)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT1                              ; controlDHT11         ; work         ;
+;       |dhtAlt:DHT|                   ; 119 (118)           ; 50 (50)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT1|dhtAlt:DHT                   ; dhtAlt               ; work         ;
+;          |TRIS:tris|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT1|dhtAlt:DHT|TRIS:tris         ; TRIS                 ; work         ;
+;       |geradorMicrossegundo:gerador| ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT1|geradorMicrossegundo:gerador ; geradorMicrossegundo ; work         ;
+;    |controlDHT11:cntDHT2|            ; 255 (134)           ; 104 (53)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT2                              ; controlDHT11         ; work         ;
+;       |dhtAlt:DHT|                   ; 120 (119)           ; 50 (50)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT2|dhtAlt:DHT                   ; dhtAlt               ; work         ;
+;          |TRIS:tris|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT2|dhtAlt:DHT|TRIS:tris         ; TRIS                 ; work         ;
+;       |geradorMicrossegundo:gerador| ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT2|geradorMicrossegundo:gerador ; geradorMicrossegundo ; work         ;
+;    |controlDHT11:cntDHT3|            ; 255 (133)           ; 104 (53)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT3                              ; controlDHT11         ; work         ;
+;       |dhtAlt:DHT|                   ; 121 (120)           ; 50 (50)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT3|dhtAlt:DHT                   ; dhtAlt               ; work         ;
+;          |TRIS:tris|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT3|dhtAlt:DHT|TRIS:tris         ; TRIS                 ; work         ;
+;       |geradorMicrossegundo:gerador| ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT3|geradorMicrossegundo:gerador ; geradorMicrossegundo ; work         ;
+;    |controlDHT11:cntDHT4|            ; 255 (134)           ; 104 (53)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT4                              ; controlDHT11         ; work         ;
+;       |dhtAlt:DHT|                   ; 120 (119)           ; 50 (50)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT4|dhtAlt:DHT                   ; dhtAlt               ; work         ;
+;          |TRIS:tris|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT4|dhtAlt:DHT|TRIS:tris         ; TRIS                 ; work         ;
+;       |geradorMicrossegundo:gerador| ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT4|geradorMicrossegundo:gerador ; geradorMicrossegundo ; work         ;
+;    |controlDHT11:cntDHT5|            ; 256 (135)           ; 104 (53)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT5                              ; controlDHT11         ; work         ;
+;       |dhtAlt:DHT|                   ; 120 (119)           ; 50 (50)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT5|dhtAlt:DHT                   ; dhtAlt               ; work         ;
+;          |TRIS:tris|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT5|dhtAlt:DHT|TRIS:tris         ; TRIS                 ; work         ;
+;       |geradorMicrossegundo:gerador| ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT5|geradorMicrossegundo:gerador ; geradorMicrossegundo ; work         ;
+;    |controlDHT11:cntDHT6|            ; 256 (134)           ; 104 (53)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT6                              ; controlDHT11         ; work         ;
+;       |dhtAlt:DHT|                   ; 121 (120)           ; 50 (50)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT6|dhtAlt:DHT                   ; dhtAlt               ; work         ;
+;          |TRIS:tris|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT6|dhtAlt:DHT|TRIS:tris         ; TRIS                 ; work         ;
+;       |geradorMicrossegundo:gerador| ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT6|geradorMicrossegundo:gerador ; geradorMicrossegundo ; work         ;
+;    |controlDHT11:cntDHT7|            ; 257 (133)           ; 104 (53)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT7                              ; controlDHT11         ; work         ;
+;       |dhtAlt:DHT|                   ; 121 (120)           ; 50 (50)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT7|dhtAlt:DHT                   ; dhtAlt               ; work         ;
+;          |TRIS:tris|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT7|dhtAlt:DHT|TRIS:tris         ; TRIS                 ; work         ;
+;       |geradorMicrossegundo:gerador| ; 3 (3)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|controlDHT11:cntDHT7|geradorMicrossegundo:gerador ; geradorMicrossegundo ; work         ;
+;    |receptor:receptor_UART|          ; 110 (110)           ; 45 (45)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|receptor:receptor_UART                            ; receptor             ; work         ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------+
+; State Machine - |main|UART_tx:transmissor_UART|state             ;
++-------------+------------+------------+-------------+------------+
+; Name        ; state.STOP ; state.DATA ; state.START ; state.IDLE ;
++-------------+------------+------------+-------------+------------+
+; state.IDLE  ; 0          ; 0          ; 0           ; 0          ;
+; state.START ; 0          ; 0          ; 1           ; 1          ;
+; state.DATA  ; 0          ; 1          ; 0           ; 1          ;
+; state.STOP  ; 1          ; 0          ; 0           ; 1          ;
++-------------+------------+------------+-------------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT7|estado                                             ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; Name              ; estado.RESETAR ; estado.TRANSMITIR ; estado.COLETANDO ; estado.ESPCOMANDO ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; estado.ESPCOMANDO ; 0              ; 0                 ; 0                ; 0                 ;
+; estado.COLETANDO  ; 0              ; 0                 ; 1                ; 1                 ;
+; estado.TRANSMITIR ; 0              ; 1                 ; 0                ; 1                 ;
+; estado.RESETAR    ; 1              ; 0                 ; 0                ; 1                 ;
++-------------------+----------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT7|dhtAlt:DHT|state                                                                                                                                                           ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; Name                      ; state.STOP ; state.WAIT_SIGNAL ; state.DETECT_BIT ; state.TRANSMIT ; state.DHT11_HIGH_RESPONSE ; state.DHT11_RESPONSE ; state.WAIT_DHT11 ; state.DETECT_SIGNAL ; state.START ; state.0000 ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; state.0000                ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 0          ;
+; state.START               ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 1           ; 1          ;
+; state.DETECT_SIGNAL       ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 1                   ; 0           ; 1          ;
+; state.WAIT_DHT11          ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 1                ; 0                   ; 0           ; 1          ;
+; state.DHT11_RESPONSE      ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 1                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DHT11_HIGH_RESPONSE ; 0          ; 0                 ; 0                ; 0              ; 1                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.TRANSMIT            ; 0          ; 0                 ; 0                ; 1              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DETECT_BIT          ; 0          ; 0                 ; 1                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.WAIT_SIGNAL         ; 0          ; 1                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.STOP                ; 1          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT6|estado                                             ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; Name              ; estado.RESETAR ; estado.TRANSMITIR ; estado.COLETANDO ; estado.ESPCOMANDO ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; estado.ESPCOMANDO ; 0              ; 0                 ; 0                ; 0                 ;
+; estado.COLETANDO  ; 0              ; 0                 ; 1                ; 1                 ;
+; estado.TRANSMITIR ; 0              ; 1                 ; 0                ; 1                 ;
+; estado.RESETAR    ; 1              ; 0                 ; 0                ; 1                 ;
++-------------------+----------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT6|dhtAlt:DHT|state                                                                                                                                                           ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; Name                      ; state.STOP ; state.WAIT_SIGNAL ; state.DETECT_BIT ; state.TRANSMIT ; state.DHT11_HIGH_RESPONSE ; state.DHT11_RESPONSE ; state.WAIT_DHT11 ; state.DETECT_SIGNAL ; state.START ; state.0000 ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; state.0000                ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 0          ;
+; state.START               ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 1           ; 1          ;
+; state.DETECT_SIGNAL       ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 1                   ; 0           ; 1          ;
+; state.WAIT_DHT11          ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 1                ; 0                   ; 0           ; 1          ;
+; state.DHT11_RESPONSE      ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 1                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DHT11_HIGH_RESPONSE ; 0          ; 0                 ; 0                ; 0              ; 1                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.TRANSMIT            ; 0          ; 0                 ; 0                ; 1              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DETECT_BIT          ; 0          ; 0                 ; 1                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.WAIT_SIGNAL         ; 0          ; 1                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.STOP                ; 1          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT5|estado                                             ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; Name              ; estado.RESETAR ; estado.TRANSMITIR ; estado.COLETANDO ; estado.ESPCOMANDO ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; estado.ESPCOMANDO ; 0              ; 0                 ; 0                ; 0                 ;
+; estado.COLETANDO  ; 0              ; 0                 ; 1                ; 1                 ;
+; estado.TRANSMITIR ; 0              ; 1                 ; 0                ; 1                 ;
+; estado.RESETAR    ; 1              ; 0                 ; 0                ; 1                 ;
++-------------------+----------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT5|dhtAlt:DHT|state                                                                                                                                                           ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; Name                      ; state.STOP ; state.WAIT_SIGNAL ; state.DETECT_BIT ; state.TRANSMIT ; state.DHT11_HIGH_RESPONSE ; state.DHT11_RESPONSE ; state.WAIT_DHT11 ; state.DETECT_SIGNAL ; state.START ; state.0000 ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; state.0000                ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 0          ;
+; state.START               ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 1           ; 1          ;
+; state.DETECT_SIGNAL       ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 1                   ; 0           ; 1          ;
+; state.WAIT_DHT11          ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 1                ; 0                   ; 0           ; 1          ;
+; state.DHT11_RESPONSE      ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 1                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DHT11_HIGH_RESPONSE ; 0          ; 0                 ; 0                ; 0              ; 1                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.TRANSMIT            ; 0          ; 0                 ; 0                ; 1              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DETECT_BIT          ; 0          ; 0                 ; 1                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.WAIT_SIGNAL         ; 0          ; 1                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.STOP                ; 1          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT4|estado                                             ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; Name              ; estado.RESETAR ; estado.TRANSMITIR ; estado.COLETANDO ; estado.ESPCOMANDO ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; estado.ESPCOMANDO ; 0              ; 0                 ; 0                ; 0                 ;
+; estado.COLETANDO  ; 0              ; 0                 ; 1                ; 1                 ;
+; estado.TRANSMITIR ; 0              ; 1                 ; 0                ; 1                 ;
+; estado.RESETAR    ; 1              ; 0                 ; 0                ; 1                 ;
++-------------------+----------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT4|dhtAlt:DHT|state                                                                                                                                                           ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; Name                      ; state.STOP ; state.WAIT_SIGNAL ; state.DETECT_BIT ; state.TRANSMIT ; state.DHT11_HIGH_RESPONSE ; state.DHT11_RESPONSE ; state.WAIT_DHT11 ; state.DETECT_SIGNAL ; state.START ; state.0000 ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; state.0000                ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 0          ;
+; state.START               ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 1           ; 1          ;
+; state.DETECT_SIGNAL       ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 1                   ; 0           ; 1          ;
+; state.WAIT_DHT11          ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 1                ; 0                   ; 0           ; 1          ;
+; state.DHT11_RESPONSE      ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 1                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DHT11_HIGH_RESPONSE ; 0          ; 0                 ; 0                ; 0              ; 1                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.TRANSMIT            ; 0          ; 0                 ; 0                ; 1              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DETECT_BIT          ; 0          ; 0                 ; 1                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.WAIT_SIGNAL         ; 0          ; 1                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.STOP                ; 1          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT3|estado                                             ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; Name              ; estado.RESETAR ; estado.TRANSMITIR ; estado.COLETANDO ; estado.ESPCOMANDO ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; estado.ESPCOMANDO ; 0              ; 0                 ; 0                ; 0                 ;
+; estado.COLETANDO  ; 0              ; 0                 ; 1                ; 1                 ;
+; estado.TRANSMITIR ; 0              ; 1                 ; 0                ; 1                 ;
+; estado.RESETAR    ; 1              ; 0                 ; 0                ; 1                 ;
++-------------------+----------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT3|dhtAlt:DHT|state                                                                                                                                                           ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; Name                      ; state.STOP ; state.WAIT_SIGNAL ; state.DETECT_BIT ; state.TRANSMIT ; state.DHT11_HIGH_RESPONSE ; state.DHT11_RESPONSE ; state.WAIT_DHT11 ; state.DETECT_SIGNAL ; state.START ; state.0000 ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; state.0000                ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 0          ;
+; state.START               ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 1           ; 1          ;
+; state.DETECT_SIGNAL       ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 1                   ; 0           ; 1          ;
+; state.WAIT_DHT11          ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 1                ; 0                   ; 0           ; 1          ;
+; state.DHT11_RESPONSE      ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 1                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DHT11_HIGH_RESPONSE ; 0          ; 0                 ; 0                ; 0              ; 1                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.TRANSMIT            ; 0          ; 0                 ; 0                ; 1              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DETECT_BIT          ; 0          ; 0                 ; 1                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.WAIT_SIGNAL         ; 0          ; 1                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.STOP                ; 1          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT2|estado                                             ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; Name              ; estado.RESETAR ; estado.TRANSMITIR ; estado.COLETANDO ; estado.ESPCOMANDO ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; estado.ESPCOMANDO ; 0              ; 0                 ; 0                ; 0                 ;
+; estado.COLETANDO  ; 0              ; 0                 ; 1                ; 1                 ;
+; estado.TRANSMITIR ; 0              ; 1                 ; 0                ; 1                 ;
+; estado.RESETAR    ; 1              ; 0                 ; 0                ; 1                 ;
++-------------------+----------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT2|dhtAlt:DHT|state                                                                                                                                                           ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; Name                      ; state.STOP ; state.WAIT_SIGNAL ; state.DETECT_BIT ; state.TRANSMIT ; state.DHT11_HIGH_RESPONSE ; state.DHT11_RESPONSE ; state.WAIT_DHT11 ; state.DETECT_SIGNAL ; state.START ; state.0000 ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; state.0000                ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 0          ;
+; state.START               ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 1           ; 1          ;
+; state.DETECT_SIGNAL       ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 1                   ; 0           ; 1          ;
+; state.WAIT_DHT11          ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 1                ; 0                   ; 0           ; 1          ;
+; state.DHT11_RESPONSE      ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 1                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DHT11_HIGH_RESPONSE ; 0          ; 0                 ; 0                ; 0              ; 1                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.TRANSMIT            ; 0          ; 0                 ; 0                ; 1              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DETECT_BIT          ; 0          ; 0                 ; 1                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.WAIT_SIGNAL         ; 0          ; 1                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.STOP                ; 1          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT1|estado                                             ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; Name              ; estado.RESETAR ; estado.TRANSMITIR ; estado.COLETANDO ; estado.ESPCOMANDO ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; estado.ESPCOMANDO ; 0              ; 0                 ; 0                ; 0                 ;
+; estado.COLETANDO  ; 0              ; 0                 ; 1                ; 1                 ;
+; estado.TRANSMITIR ; 0              ; 1                 ; 0                ; 1                 ;
+; estado.RESETAR    ; 1              ; 0                 ; 0                ; 1                 ;
++-------------------+----------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT1|dhtAlt:DHT|state                                                                                                                                                           ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; Name                      ; state.STOP ; state.WAIT_SIGNAL ; state.DETECT_BIT ; state.TRANSMIT ; state.DHT11_HIGH_RESPONSE ; state.DHT11_RESPONSE ; state.WAIT_DHT11 ; state.DETECT_SIGNAL ; state.START ; state.0000 ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; state.0000                ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 0          ;
+; state.START               ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 1           ; 1          ;
+; state.DETECT_SIGNAL       ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 1                   ; 0           ; 1          ;
+; state.WAIT_DHT11          ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 1                ; 0                   ; 0           ; 1          ;
+; state.DHT11_RESPONSE      ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 1                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DHT11_HIGH_RESPONSE ; 0          ; 0                 ; 0                ; 0              ; 1                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.TRANSMIT            ; 0          ; 0                 ; 0                ; 1              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DETECT_BIT          ; 0          ; 0                 ; 1                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.WAIT_SIGNAL         ; 0          ; 1                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.STOP                ; 1          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT0|estado                                             ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; Name              ; estado.RESETAR ; estado.TRANSMITIR ; estado.COLETANDO ; estado.ESPCOMANDO ;
++-------------------+----------------+-------------------+------------------+-------------------+
+; estado.ESPCOMANDO ; 0              ; 0                 ; 0                ; 0                 ;
+; estado.COLETANDO  ; 0              ; 0                 ; 1                ; 1                 ;
+; estado.TRANSMITIR ; 0              ; 1                 ; 0                ; 1                 ;
+; estado.RESETAR    ; 1              ; 0                 ; 0                ; 1                 ;
++-------------------+----------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|controlDHT11:cntDHT0|dhtAlt:DHT|state                                                                                                                                                           ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; Name                      ; state.STOP ; state.WAIT_SIGNAL ; state.DETECT_BIT ; state.TRANSMIT ; state.DHT11_HIGH_RESPONSE ; state.DHT11_RESPONSE ; state.WAIT_DHT11 ; state.DETECT_SIGNAL ; state.START ; state.0000 ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+; state.0000                ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 0          ;
+; state.START               ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 1           ; 1          ;
+; state.DETECT_SIGNAL       ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 1                   ; 0           ; 1          ;
+; state.WAIT_DHT11          ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 1                ; 0                   ; 0           ; 1          ;
+; state.DHT11_RESPONSE      ; 0          ; 0                 ; 0                ; 0              ; 0                         ; 1                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DHT11_HIGH_RESPONSE ; 0          ; 0                 ; 0                ; 0              ; 1                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.TRANSMIT            ; 0          ; 0                 ; 0                ; 1              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.DETECT_BIT          ; 0          ; 0                 ; 1                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.WAIT_SIGNAL         ; 0          ; 1                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
+; state.STOP                ; 1          ; 0                 ; 0                ; 0              ; 0                         ; 0                    ; 0                ; 0                   ; 0           ; 1          ;
++---------------------------+------------+-------------------+------------------+----------------+---------------------------+----------------------+------------------+---------------------+-------------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------+
+; State Machine - |main|receptor:receptor_UART|state  ;
++-------------+------------+-------------+------------+
+; Name        ; state.STOP ; state.START ; state.DATA ;
++-------------+------------+-------------+------------+
+; state.START ; 0          ; 0           ; 0          ;
+; state.DATA  ; 0          ; 1           ; 1          ;
+; state.STOP  ; 1          ; 1           ; 0          ;
++-------------+------------+-------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                            ;
++-----------------------------------------------------------------+-----------------------------------------------------------------------------+
+; Register name                                                   ; Reason for Removal                                                          ;
++-----------------------------------------------------------------+-----------------------------------------------------------------------------+
+; controlDHT11:cntDHT1|geradorMicrossegundo:gerador|counterClk[4] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[4] ;
+; controlDHT11:cntDHT2|geradorMicrossegundo:gerador|counterClk[4] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[4] ;
+; controlDHT11:cntDHT3|geradorMicrossegundo:gerador|counterClk[4] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[4] ;
+; controlDHT11:cntDHT4|geradorMicrossegundo:gerador|counterClk[4] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[4] ;
+; controlDHT11:cntDHT5|geradorMicrossegundo:gerador|counterClk[4] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[4] ;
+; controlDHT11:cntDHT6|geradorMicrossegundo:gerador|counterClk[4] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[4] ;
+; controlDHT11:cntDHT7|geradorMicrossegundo:gerador|counterClk[4] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[4] ;
+; controlDHT11:cntDHT1|geradorMicrossegundo:gerador|counterClk[3] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[3] ;
+; controlDHT11:cntDHT2|geradorMicrossegundo:gerador|counterClk[3] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[3] ;
+; controlDHT11:cntDHT3|geradorMicrossegundo:gerador|counterClk[3] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[3] ;
+; controlDHT11:cntDHT4|geradorMicrossegundo:gerador|counterClk[3] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[3] ;
+; controlDHT11:cntDHT5|geradorMicrossegundo:gerador|counterClk[3] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[3] ;
+; controlDHT11:cntDHT6|geradorMicrossegundo:gerador|counterClk[3] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[3] ;
+; controlDHT11:cntDHT7|geradorMicrossegundo:gerador|counterClk[3] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[3] ;
+; controlDHT11:cntDHT1|geradorMicrossegundo:gerador|counterClk[5] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[5] ;
+; controlDHT11:cntDHT2|geradorMicrossegundo:gerador|counterClk[5] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[5] ;
+; controlDHT11:cntDHT3|geradorMicrossegundo:gerador|counterClk[5] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[5] ;
+; controlDHT11:cntDHT4|geradorMicrossegundo:gerador|counterClk[5] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[5] ;
+; controlDHT11:cntDHT5|geradorMicrossegundo:gerador|counterClk[5] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[5] ;
+; controlDHT11:cntDHT6|geradorMicrossegundo:gerador|counterClk[5] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[5] ;
+; controlDHT11:cntDHT7|geradorMicrossegundo:gerador|counterClk[5] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[5] ;
+; controlDHT11:cntDHT1|geradorMicrossegundo:gerador|counterClk[2] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[2] ;
+; controlDHT11:cntDHT2|geradorMicrossegundo:gerador|counterClk[2] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[2] ;
+; controlDHT11:cntDHT3|geradorMicrossegundo:gerador|counterClk[2] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[2] ;
+; controlDHT11:cntDHT4|geradorMicrossegundo:gerador|counterClk[2] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[2] ;
+; controlDHT11:cntDHT5|geradorMicrossegundo:gerador|counterClk[2] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[2] ;
+; controlDHT11:cntDHT6|geradorMicrossegundo:gerador|counterClk[2] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[2] ;
+; controlDHT11:cntDHT7|geradorMicrossegundo:gerador|counterClk[2] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[2] ;
+; controlDHT11:cntDHT1|geradorMicrossegundo:gerador|counterClk[1] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[1] ;
+; controlDHT11:cntDHT2|geradorMicrossegundo:gerador|counterClk[1] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[1] ;
+; controlDHT11:cntDHT3|geradorMicrossegundo:gerador|counterClk[1] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[1] ;
+; controlDHT11:cntDHT4|geradorMicrossegundo:gerador|counterClk[1] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[1] ;
+; controlDHT11:cntDHT5|geradorMicrossegundo:gerador|counterClk[1] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[1] ;
+; controlDHT11:cntDHT6|geradorMicrossegundo:gerador|counterClk[1] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[1] ;
+; controlDHT11:cntDHT7|geradorMicrossegundo:gerador|counterClk[1] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[1] ;
+; controlDHT11:cntDHT1|geradorMicrossegundo:gerador|counterClk[0] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[0] ;
+; controlDHT11:cntDHT2|geradorMicrossegundo:gerador|counterClk[0] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[0] ;
+; controlDHT11:cntDHT3|geradorMicrossegundo:gerador|counterClk[0] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[0] ;
+; controlDHT11:cntDHT4|geradorMicrossegundo:gerador|counterClk[0] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[0] ;
+; controlDHT11:cntDHT5|geradorMicrossegundo:gerador|counterClk[0] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[0] ;
+; controlDHT11:cntDHT6|geradorMicrossegundo:gerador|counterClk[0] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[0] ;
+; controlDHT11:cntDHT7|geradorMicrossegundo:gerador|counterClk[0] ; Merged with controlDHT11:cntDHT0|geradorMicrossegundo:gerador|counterClk[0] ;
+; controlDHT11:cntDHT0|bufferComando[4]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT4|bufferComando[4]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT2|bufferComando[4]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT6|bufferComando[4]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT1|bufferComando[4]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT5|bufferComando[4]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT3|bufferComando[4]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT7|bufferComando[4]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT0|bufferComando[3]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT4|bufferComando[3]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT2|bufferComando[3]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT6|bufferComando[3]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT1|bufferComando[3]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT5|bufferComando[3]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT3|bufferComando[3]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT7|bufferComando[3]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT0|bufferComando[2]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT4|bufferComando[2]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT2|bufferComando[2]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT6|bufferComando[2]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT1|bufferComando[2]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT5|bufferComando[2]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT3|bufferComando[2]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT7|bufferComando[2]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT0|bufferComando[1]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT4|bufferComando[1]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT2|bufferComando[1]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT6|bufferComando[1]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT1|bufferComando[1]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT5|bufferComando[1]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT3|bufferComando[1]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT7|bufferComando[1]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT0|bufferComando[0]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT4|bufferComando[0]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT2|bufferComando[0]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT6|bufferComando[0]                           ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT1|bufferComando[0]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT5|bufferComando[0]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT3|bufferComando[0]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; controlDHT11:cntDHT7|bufferComando[0]                           ; Stuck at VCC due to stuck port data_in                                      ;
+; UART_tx:transmissor_UART|state~2                                ; Lost fanout                                                                 ;
+; UART_tx:transmissor_UART|state~3                                ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT7|estado~2                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT7|estado~3                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT7|estado~4                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT7|dhtAlt:DHT|state~12                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT7|dhtAlt:DHT|state~13                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT7|dhtAlt:DHT|state~14                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT7|dhtAlt:DHT|state~15                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT6|estado~2                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT6|estado~3                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT6|estado~4                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT6|dhtAlt:DHT|state~12                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT6|dhtAlt:DHT|state~13                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT6|dhtAlt:DHT|state~14                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT6|dhtAlt:DHT|state~15                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT5|estado~2                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT5|estado~3                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT5|estado~4                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT5|dhtAlt:DHT|state~12                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT5|dhtAlt:DHT|state~13                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT5|dhtAlt:DHT|state~14                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT5|dhtAlt:DHT|state~15                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT4|estado~2                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT4|estado~3                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT4|estado~4                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT4|dhtAlt:DHT|state~12                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT4|dhtAlt:DHT|state~13                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT4|dhtAlt:DHT|state~14                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT4|dhtAlt:DHT|state~15                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT3|estado~2                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT3|estado~3                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT3|estado~4                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT3|dhtAlt:DHT|state~12                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT3|dhtAlt:DHT|state~13                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT3|dhtAlt:DHT|state~14                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT3|dhtAlt:DHT|state~15                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT2|estado~2                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT2|estado~3                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT2|estado~4                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT2|dhtAlt:DHT|state~12                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT2|dhtAlt:DHT|state~13                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT2|dhtAlt:DHT|state~14                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT2|dhtAlt:DHT|state~15                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT1|estado~2                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT1|estado~3                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT1|estado~4                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT1|dhtAlt:DHT|state~12                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT1|dhtAlt:DHT|state~13                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT1|dhtAlt:DHT|state~14                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT1|dhtAlt:DHT|state~15                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT0|estado~2                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT0|estado~3                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT0|estado~4                                   ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT0|dhtAlt:DHT|state~12                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT0|dhtAlt:DHT|state~13                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT0|dhtAlt:DHT|state~14                        ; Lost fanout                                                                 ;
+; controlDHT11:cntDHT0|dhtAlt:DHT|state~15                        ; Lost fanout                                                                 ;
+; UART_tx:transmissor_UART|buffer[4]                              ; Merged with UART_tx:transmissor_UART|buffer[3]                              ;
+; controlDHT11:cntDHT0|info[1..4]                                 ; Merged with controlDHT11:cntDHT0|info[0]                                    ;
+; controlDHT11:cntDHT4|info[1,3,4]                                ; Merged with controlDHT11:cntDHT4|info[0]                                    ;
+; controlDHT11:cntDHT2|info[2..4]                                 ; Merged with controlDHT11:cntDHT2|info[0]                                    ;
+; controlDHT11:cntDHT6|info[3,4]                                  ; Merged with controlDHT11:cntDHT6|info[0]                                    ;
+; controlDHT11:cntDHT1|info[2..4]                                 ; Merged with controlDHT11:cntDHT1|info[1]                                    ;
+; controlDHT11:cntDHT5|info[3,4]                                  ; Merged with controlDHT11:cntDHT5|info[1]                                    ;
+; controlDHT11:cntDHT3|info[3,4]                                  ; Merged with controlDHT11:cntDHT3|info[2]                                    ;
+; controlDHT11:cntDHT7|info[4]                                    ; Merged with controlDHT11:cntDHT7|info[3]                                    ;
+; controlDHT11:cntDHT6|info[2]                                    ; Merged with controlDHT11:cntDHT6|info[1]                                    ;
+; controlDHT11:cntDHT5|info[2]                                    ; Merged with controlDHT11:cntDHT5|info[0]                                    ;
+; controlDHT11:cntDHT7|info[1,2]                                  ; Merged with controlDHT11:cntDHT7|info[0]                                    ;
+; controlDHT11:cntDHT3|info[1]                                    ; Merged with controlDHT11:cntDHT3|info[0]                                    ;
+; controlDHT11:cntDHT4|info[0]                                    ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT2|info[0]                                    ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT0|info[0]                                    ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT6|info[0]                                    ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT3|info[2]                                    ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT5|info[1]                                    ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT1|info[1]                                    ; Stuck at GND due to stuck port data_in                                      ;
+; controlDHT11:cntDHT7|info[3]                                    ; Stuck at GND due to stuck port data_in                                      ;
+; UART_tx:transmissor_UART|buffer[3]                              ; Stuck at GND due to stuck port data_in                                      ;
+; Total Number of Removed Registers = 175                         ;                                                                             ;
++-----------------------------------------------------------------+-----------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                          ;
++---------------------------------------+---------------------------+------------------------------------------------------------------+
+; Register name                         ; Reason for Removal        ; Registers Removed due to This Register                           ;
++---------------------------------------+---------------------------+------------------------------------------------------------------+
+; controlDHT11:cntDHT4|bufferComando[0] ; Stuck at GND              ; controlDHT11:cntDHT4|info[0], UART_tx:transmissor_UART|buffer[3] ;
+;                                       ; due to stuck port data_in ;                                                                  ;
+; controlDHT11:cntDHT7|bufferComando[3] ; Stuck at GND              ; controlDHT11:cntDHT7|info[3]                                     ;
+;                                       ; due to stuck port data_in ;                                                                  ;
+; controlDHT11:cntDHT3|bufferComando[2] ; Stuck at GND              ; controlDHT11:cntDHT3|info[2]                                     ;
+;                                       ; due to stuck port data_in ;                                                                  ;
+; controlDHT11:cntDHT1|bufferComando[1] ; Stuck at GND              ; controlDHT11:cntDHT1|info[1]                                     ;
+;                                       ; due to stuck port data_in ;                                                                  ;
+; controlDHT11:cntDHT5|bufferComando[1] ; Stuck at GND              ; controlDHT11:cntDHT5|info[1]                                     ;
+;                                       ; due to stuck port data_in ;                                                                  ;
+; controlDHT11:cntDHT0|bufferComando[0] ; Stuck at GND              ; controlDHT11:cntDHT0|info[0]                                     ;
+;                                       ; due to stuck port data_in ;                                                                  ;
+; controlDHT11:cntDHT2|bufferComando[0] ; Stuck at GND              ; controlDHT11:cntDHT2|info[0]                                     ;
+;                                       ; due to stuck port data_in ;                                                                  ;
+; controlDHT11:cntDHT6|bufferComando[0] ; Stuck at GND              ; controlDHT11:cntDHT6|info[0]                                     ;
+;                                       ; due to stuck port data_in ;                                                                  ;
++---------------------------------------+---------------------------+------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 959   ;
+; Number of registers using Synchronous Clear  ; 182   ;
+; Number of registers using Synchronous Load   ; 14    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 438   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; UART_tx:transmissor_UART|tx               ; 2       ;
+; controlDHT11:cntDHT0|dhtAlt:DHT|send      ; 2       ;
+; controlDHT11:cntDHT0|dhtAlt:DHT|direction ; 7       ;
+; controlDHT11:cntDHT1|dhtAlt:DHT|send      ; 2       ;
+; controlDHT11:cntDHT1|dhtAlt:DHT|direction ; 6       ;
+; controlDHT11:cntDHT2|dhtAlt:DHT|send      ; 2       ;
+; controlDHT11:cntDHT2|dhtAlt:DHT|direction ; 6       ;
+; controlDHT11:cntDHT3|dhtAlt:DHT|send      ; 2       ;
+; controlDHT11:cntDHT3|dhtAlt:DHT|direction ; 6       ;
+; controlDHT11:cntDHT4|dhtAlt:DHT|send      ; 2       ;
+; controlDHT11:cntDHT4|dhtAlt:DHT|direction ; 7       ;
+; controlDHT11:cntDHT5|dhtAlt:DHT|send      ; 2       ;
+; controlDHT11:cntDHT5|dhtAlt:DHT|direction ; 6       ;
+; controlDHT11:cntDHT6|dhtAlt:DHT|send      ; 2       ;
+; controlDHT11:cntDHT6|dhtAlt:DHT|direction ; 6       ;
+; controlDHT11:cntDHT7|dhtAlt:DHT|send      ; 2       ;
+; controlDHT11:cntDHT7|dhtAlt:DHT|direction ; 6       ;
+; controlDHT11:cntDHT0|enableDHT            ; 6       ;
+; controlDHT11:cntDHT1|enableDHT            ; 6       ;
+; controlDHT11:cntDHT2|enableDHT            ; 6       ;
+; controlDHT11:cntDHT3|enableDHT            ; 6       ;
+; controlDHT11:cntDHT4|enableDHT            ; 6       ;
+; controlDHT11:cntDHT5|enableDHT            ; 6       ;
+; controlDHT11:cntDHT6|enableDHT            ; 6       ;
+; controlDHT11:cntDHT7|enableDHT            ; 6       ;
+; controlDHT11:cntDHT1|contador[15]         ; 2       ;
+; controlDHT11:cntDHT1|contador[14]         ; 2       ;
+; controlDHT11:cntDHT1|contador[13]         ; 2       ;
+; controlDHT11:cntDHT1|contador[8]          ; 2       ;
+; controlDHT11:cntDHT1|contador[16]         ; 2       ;
+; controlDHT11:cntDHT1|contador[18]         ; 2       ;
+; controlDHT11:cntDHT1|contador[20]         ; 2       ;
+; controlDHT11:cntDHT1|contador[21]         ; 2       ;
+; controlDHT11:cntDHT1|contador[22]         ; 2       ;
+; controlDHT11:cntDHT1|contador[23]         ; 2       ;
+; controlDHT11:cntDHT1|contador[24]         ; 2       ;
+; controlDHT11:cntDHT1|contador[26]         ; 2       ;
+; controlDHT11:cntDHT2|contador[15]         ; 2       ;
+; controlDHT11:cntDHT2|contador[14]         ; 2       ;
+; controlDHT11:cntDHT2|contador[13]         ; 2       ;
+; controlDHT11:cntDHT2|contador[8]          ; 2       ;
+; controlDHT11:cntDHT2|contador[16]         ; 2       ;
+; controlDHT11:cntDHT2|contador[18]         ; 2       ;
+; controlDHT11:cntDHT2|contador[20]         ; 2       ;
+; controlDHT11:cntDHT2|contador[21]         ; 2       ;
+; controlDHT11:cntDHT2|contador[22]         ; 2       ;
+; controlDHT11:cntDHT2|contador[23]         ; 2       ;
+; controlDHT11:cntDHT2|contador[24]         ; 2       ;
+; controlDHT11:cntDHT2|contador[26]         ; 2       ;
+; controlDHT11:cntDHT0|contador[15]         ; 2       ;
+; controlDHT11:cntDHT0|contador[14]         ; 2       ;
+; controlDHT11:cntDHT0|contador[13]         ; 2       ;
+; controlDHT11:cntDHT0|contador[8]          ; 2       ;
+; controlDHT11:cntDHT0|contador[16]         ; 2       ;
+; controlDHT11:cntDHT0|contador[18]         ; 2       ;
+; controlDHT11:cntDHT0|contador[20]         ; 2       ;
+; controlDHT11:cntDHT0|contador[21]         ; 2       ;
+; controlDHT11:cntDHT0|contador[22]         ; 2       ;
+; controlDHT11:cntDHT0|contador[23]         ; 2       ;
+; controlDHT11:cntDHT0|contador[24]         ; 2       ;
+; controlDHT11:cntDHT0|contador[26]         ; 2       ;
+; controlDHT11:cntDHT3|contador[15]         ; 2       ;
+; controlDHT11:cntDHT3|contador[14]         ; 2       ;
+; controlDHT11:cntDHT3|contador[13]         ; 2       ;
+; controlDHT11:cntDHT3|contador[8]          ; 2       ;
+; controlDHT11:cntDHT3|contador[16]         ; 2       ;
+; controlDHT11:cntDHT3|contador[18]         ; 2       ;
+; controlDHT11:cntDHT3|contador[20]         ; 2       ;
+; controlDHT11:cntDHT3|contador[21]         ; 2       ;
+; controlDHT11:cntDHT3|contador[22]         ; 2       ;
+; controlDHT11:cntDHT3|contador[23]         ; 2       ;
+; controlDHT11:cntDHT3|contador[24]         ; 2       ;
+; controlDHT11:cntDHT3|contador[26]         ; 2       ;
+; controlDHT11:cntDHT5|contador[15]         ; 2       ;
+; controlDHT11:cntDHT5|contador[14]         ; 2       ;
+; controlDHT11:cntDHT5|contador[13]         ; 2       ;
+; controlDHT11:cntDHT5|contador[8]          ; 2       ;
+; controlDHT11:cntDHT5|contador[16]         ; 2       ;
+; controlDHT11:cntDHT5|contador[18]         ; 2       ;
+; controlDHT11:cntDHT5|contador[20]         ; 2       ;
+; controlDHT11:cntDHT5|contador[21]         ; 2       ;
+; controlDHT11:cntDHT5|contador[22]         ; 2       ;
+; controlDHT11:cntDHT5|contador[23]         ; 2       ;
+; controlDHT11:cntDHT5|contador[24]         ; 2       ;
+; controlDHT11:cntDHT5|contador[26]         ; 2       ;
+; controlDHT11:cntDHT6|contador[15]         ; 2       ;
+; controlDHT11:cntDHT6|contador[14]         ; 2       ;
+; controlDHT11:cntDHT6|contador[13]         ; 2       ;
+; controlDHT11:cntDHT6|contador[8]          ; 2       ;
+; controlDHT11:cntDHT6|contador[16]         ; 2       ;
+; controlDHT11:cntDHT6|contador[18]         ; 2       ;
+; controlDHT11:cntDHT6|contador[20]         ; 2       ;
+; controlDHT11:cntDHT6|contador[21]         ; 2       ;
+; controlDHT11:cntDHT6|contador[22]         ; 2       ;
+; controlDHT11:cntDHT6|contador[23]         ; 2       ;
+; controlDHT11:cntDHT6|contador[24]         ; 2       ;
+; controlDHT11:cntDHT6|contador[26]         ; 2       ;
+; controlDHT11:cntDHT4|contador[15]         ; 2       ;
+; controlDHT11:cntDHT4|contador[14]         ; 2       ;
+; controlDHT11:cntDHT4|contador[13]         ; 2       ;
+; Total number of inverted registers = 137* ;         ;
++-------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |main|receptor:receptor_UART|pos[22]              ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|controlDHT11:cntDHT7|dhtAlt:DHT|index[5]    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|controlDHT11:cntDHT6|dhtAlt:DHT|index[0]    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|controlDHT11:cntDHT5|dhtAlt:DHT|index[5]    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|controlDHT11:cntDHT4|dhtAlt:DHT|index[1]    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|controlDHT11:cntDHT3|dhtAlt:DHT|index[1]    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|controlDHT11:cntDHT2|dhtAlt:DHT|index[2]    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|controlDHT11:cntDHT1|dhtAlt:DHT|index[4]    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|controlDHT11:cntDHT0|dhtAlt:DHT|index[5]    ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |main|controlDHT11:cntDHT7|contador[0]            ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |main|controlDHT11:cntDHT6|contador[7]            ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |main|controlDHT11:cntDHT5|contador[10]           ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |main|controlDHT11:cntDHT4|contador[1]            ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |main|controlDHT11:cntDHT3|contador[9]            ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |main|controlDHT11:cntDHT2|contador[5]            ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |main|controlDHT11:cntDHT1|contador[11]           ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |main|controlDHT11:cntDHT0|contador[9]            ;
+; 20:1               ; 15 bits   ; 195 LEs       ; 15 LEs               ; 180 LEs                ; Yes        ; |main|controlDHT11:cntDHT7|dhtAlt:DHT|counter[5]  ;
+; 20:1               ; 15 bits   ; 195 LEs       ; 15 LEs               ; 180 LEs                ; Yes        ; |main|controlDHT11:cntDHT6|dhtAlt:DHT|counter[8]  ;
+; 20:1               ; 15 bits   ; 195 LEs       ; 15 LEs               ; 180 LEs                ; Yes        ; |main|controlDHT11:cntDHT5|dhtAlt:DHT|counter[2]  ;
+; 20:1               ; 15 bits   ; 195 LEs       ; 15 LEs               ; 180 LEs                ; Yes        ; |main|controlDHT11:cntDHT4|dhtAlt:DHT|counter[4]  ;
+; 20:1               ; 15 bits   ; 195 LEs       ; 15 LEs               ; 180 LEs                ; Yes        ; |main|controlDHT11:cntDHT3|dhtAlt:DHT|counter[14] ;
+; 20:1               ; 15 bits   ; 195 LEs       ; 15 LEs               ; 180 LEs                ; Yes        ; |main|controlDHT11:cntDHT2|dhtAlt:DHT|counter[1]  ;
+; 20:1               ; 15 bits   ; 195 LEs       ; 15 LEs               ; 180 LEs                ; Yes        ; |main|controlDHT11:cntDHT1|dhtAlt:DHT|counter[10] ;
+; 20:1               ; 15 bits   ; 195 LEs       ; 15 LEs               ; 180 LEs                ; Yes        ; |main|controlDHT11:cntDHT0|dhtAlt:DHT|counter[1]  ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |main|controlDHT11:cntDHT7|contador[26]           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |main|controlDHT11:cntDHT6|contador[23]           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |main|controlDHT11:cntDHT5|contador[8]            ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |main|controlDHT11:cntDHT4|contador[15]           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |main|controlDHT11:cntDHT3|contador[20]           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |main|controlDHT11:cntDHT2|contador[20]           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |main|controlDHT11:cntDHT1|contador[20]           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |main|controlDHT11:cntDHT0|contador[24]           ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |main|ESCALONADOR_V3:escal|mux_8_to_1:m04|y       ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 14 LEs               ; 70 LEs                 ; No         ; |main|controlDHT11:cntDHT7|info                   ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 14 LEs               ; 70 LEs                 ; No         ; |main|controlDHT11:cntDHT6|info                   ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 14 LEs               ; 70 LEs                 ; No         ; |main|controlDHT11:cntDHT5|info                   ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 14 LEs               ; 70 LEs                 ; No         ; |main|controlDHT11:cntDHT4|info                   ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 14 LEs               ; 70 LEs                 ; No         ; |main|controlDHT11:cntDHT3|info                   ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 14 LEs               ; 70 LEs                 ; No         ; |main|controlDHT11:cntDHT2|info                   ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 14 LEs               ; 70 LEs                 ; No         ; |main|controlDHT11:cntDHT1|info                   ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 14 LEs               ; 70 LEs                 ; No         ; |main|controlDHT11:cntDHT0|info                   ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 36 LEs               ; 42 LEs                 ; No         ; |main|controlDHT11:cntDHT7|dhtAlt:DHT|Selector68  ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 36 LEs               ; 42 LEs                 ; No         ; |main|controlDHT11:cntDHT6|dhtAlt:DHT|Selector69  ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 36 LEs               ; 42 LEs                 ; No         ; |main|controlDHT11:cntDHT5|dhtAlt:DHT|Selector74  ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 36 LEs               ; 42 LEs                 ; No         ; |main|controlDHT11:cntDHT4|dhtAlt:DHT|Selector69  ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 36 LEs               ; 42 LEs                 ; No         ; |main|controlDHT11:cntDHT3|dhtAlt:DHT|Selector65  ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 36 LEs               ; 42 LEs                 ; No         ; |main|controlDHT11:cntDHT2|dhtAlt:DHT|Selector66  ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 36 LEs               ; 42 LEs                 ; No         ; |main|controlDHT11:cntDHT1|dhtAlt:DHT|Selector66  ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 36 LEs               ; 42 LEs                 ; No         ; |main|controlDHT11:cntDHT0|dhtAlt:DHT|Selector69  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: receptor:receptor_UART ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; START          ; 01    ; Unsigned Binary                            ;
+; DATA           ; 10    ; Unsigned Binary                            ;
+; STOP           ; 11    ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT0 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; ESPCOMANDO     ; 0     ; Signed Integer                           ;
+; COLETANDO      ; 1     ; Signed Integer                           ;
+; TRANSMITIR     ; 2     ; Signed Integer                           ;
+; RESETAR        ; 3     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT0|dhtAlt:DHT ;
++---------------------+-------+------------------------------------------------+
+; Parameter Name      ; Value ; Type                                           ;
++---------------------+-------+------------------------------------------------+
+; IDLE                ; 0     ; Signed Integer                                 ;
+; START               ; 1     ; Signed Integer                                 ;
+; DETECT_SIGNAL       ; 2     ; Signed Integer                                 ;
+; WAIT_DHT11          ; 3     ; Signed Integer                                 ;
+; DHT11_RESPONSE      ; 4     ; Signed Integer                                 ;
+; DHT11_HIGH_RESPONSE ; 5     ; Signed Integer                                 ;
+; TRANSMIT            ; 6     ; Signed Integer                                 ;
+; DETECT_BIT          ; 7     ; Signed Integer                                 ;
+; WAIT_SIGNAL         ; 8     ; Signed Integer                                 ;
+; STOP                ; 9     ; Signed Integer                                 ;
++---------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT1 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; ESPCOMANDO     ; 0     ; Signed Integer                           ;
+; COLETANDO      ; 1     ; Signed Integer                           ;
+; TRANSMITIR     ; 2     ; Signed Integer                           ;
+; RESETAR        ; 3     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT1|dhtAlt:DHT ;
++---------------------+-------+------------------------------------------------+
+; Parameter Name      ; Value ; Type                                           ;
++---------------------+-------+------------------------------------------------+
+; IDLE                ; 0     ; Signed Integer                                 ;
+; START               ; 1     ; Signed Integer                                 ;
+; DETECT_SIGNAL       ; 2     ; Signed Integer                                 ;
+; WAIT_DHT11          ; 3     ; Signed Integer                                 ;
+; DHT11_RESPONSE      ; 4     ; Signed Integer                                 ;
+; DHT11_HIGH_RESPONSE ; 5     ; Signed Integer                                 ;
+; TRANSMIT            ; 6     ; Signed Integer                                 ;
+; DETECT_BIT          ; 7     ; Signed Integer                                 ;
+; WAIT_SIGNAL         ; 8     ; Signed Integer                                 ;
+; STOP                ; 9     ; Signed Integer                                 ;
++---------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT2 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; ESPCOMANDO     ; 0     ; Signed Integer                           ;
+; COLETANDO      ; 1     ; Signed Integer                           ;
+; TRANSMITIR     ; 2     ; Signed Integer                           ;
+; RESETAR        ; 3     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT2|dhtAlt:DHT ;
++---------------------+-------+------------------------------------------------+
+; Parameter Name      ; Value ; Type                                           ;
++---------------------+-------+------------------------------------------------+
+; IDLE                ; 0     ; Signed Integer                                 ;
+; START               ; 1     ; Signed Integer                                 ;
+; DETECT_SIGNAL       ; 2     ; Signed Integer                                 ;
+; WAIT_DHT11          ; 3     ; Signed Integer                                 ;
+; DHT11_RESPONSE      ; 4     ; Signed Integer                                 ;
+; DHT11_HIGH_RESPONSE ; 5     ; Signed Integer                                 ;
+; TRANSMIT            ; 6     ; Signed Integer                                 ;
+; DETECT_BIT          ; 7     ; Signed Integer                                 ;
+; WAIT_SIGNAL         ; 8     ; Signed Integer                                 ;
+; STOP                ; 9     ; Signed Integer                                 ;
++---------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT3 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; ESPCOMANDO     ; 0     ; Signed Integer                           ;
+; COLETANDO      ; 1     ; Signed Integer                           ;
+; TRANSMITIR     ; 2     ; Signed Integer                           ;
+; RESETAR        ; 3     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT3|dhtAlt:DHT ;
++---------------------+-------+------------------------------------------------+
+; Parameter Name      ; Value ; Type                                           ;
++---------------------+-------+------------------------------------------------+
+; IDLE                ; 0     ; Signed Integer                                 ;
+; START               ; 1     ; Signed Integer                                 ;
+; DETECT_SIGNAL       ; 2     ; Signed Integer                                 ;
+; WAIT_DHT11          ; 3     ; Signed Integer                                 ;
+; DHT11_RESPONSE      ; 4     ; Signed Integer                                 ;
+; DHT11_HIGH_RESPONSE ; 5     ; Signed Integer                                 ;
+; TRANSMIT            ; 6     ; Signed Integer                                 ;
+; DETECT_BIT          ; 7     ; Signed Integer                                 ;
+; WAIT_SIGNAL         ; 8     ; Signed Integer                                 ;
+; STOP                ; 9     ; Signed Integer                                 ;
++---------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT4 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; ESPCOMANDO     ; 0     ; Signed Integer                           ;
+; COLETANDO      ; 1     ; Signed Integer                           ;
+; TRANSMITIR     ; 2     ; Signed Integer                           ;
+; RESETAR        ; 3     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT4|dhtAlt:DHT ;
++---------------------+-------+------------------------------------------------+
+; Parameter Name      ; Value ; Type                                           ;
++---------------------+-------+------------------------------------------------+
+; IDLE                ; 0     ; Signed Integer                                 ;
+; START               ; 1     ; Signed Integer                                 ;
+; DETECT_SIGNAL       ; 2     ; Signed Integer                                 ;
+; WAIT_DHT11          ; 3     ; Signed Integer                                 ;
+; DHT11_RESPONSE      ; 4     ; Signed Integer                                 ;
+; DHT11_HIGH_RESPONSE ; 5     ; Signed Integer                                 ;
+; TRANSMIT            ; 6     ; Signed Integer                                 ;
+; DETECT_BIT          ; 7     ; Signed Integer                                 ;
+; WAIT_SIGNAL         ; 8     ; Signed Integer                                 ;
+; STOP                ; 9     ; Signed Integer                                 ;
++---------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT5 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; ESPCOMANDO     ; 0     ; Signed Integer                           ;
+; COLETANDO      ; 1     ; Signed Integer                           ;
+; TRANSMITIR     ; 2     ; Signed Integer                           ;
+; RESETAR        ; 3     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT5|dhtAlt:DHT ;
++---------------------+-------+------------------------------------------------+
+; Parameter Name      ; Value ; Type                                           ;
++---------------------+-------+------------------------------------------------+
+; IDLE                ; 0     ; Signed Integer                                 ;
+; START               ; 1     ; Signed Integer                                 ;
+; DETECT_SIGNAL       ; 2     ; Signed Integer                                 ;
+; WAIT_DHT11          ; 3     ; Signed Integer                                 ;
+; DHT11_RESPONSE      ; 4     ; Signed Integer                                 ;
+; DHT11_HIGH_RESPONSE ; 5     ; Signed Integer                                 ;
+; TRANSMIT            ; 6     ; Signed Integer                                 ;
+; DETECT_BIT          ; 7     ; Signed Integer                                 ;
+; WAIT_SIGNAL         ; 8     ; Signed Integer                                 ;
+; STOP                ; 9     ; Signed Integer                                 ;
++---------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT6 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; ESPCOMANDO     ; 0     ; Signed Integer                           ;
+; COLETANDO      ; 1     ; Signed Integer                           ;
+; TRANSMITIR     ; 2     ; Signed Integer                           ;
+; RESETAR        ; 3     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT6|dhtAlt:DHT ;
++---------------------+-------+------------------------------------------------+
+; Parameter Name      ; Value ; Type                                           ;
++---------------------+-------+------------------------------------------------+
+; IDLE                ; 0     ; Signed Integer                                 ;
+; START               ; 1     ; Signed Integer                                 ;
+; DETECT_SIGNAL       ; 2     ; Signed Integer                                 ;
+; WAIT_DHT11          ; 3     ; Signed Integer                                 ;
+; DHT11_RESPONSE      ; 4     ; Signed Integer                                 ;
+; DHT11_HIGH_RESPONSE ; 5     ; Signed Integer                                 ;
+; TRANSMIT            ; 6     ; Signed Integer                                 ;
+; DETECT_BIT          ; 7     ; Signed Integer                                 ;
+; WAIT_SIGNAL         ; 8     ; Signed Integer                                 ;
+; STOP                ; 9     ; Signed Integer                                 ;
++---------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT7 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; ESPCOMANDO     ; 0     ; Signed Integer                           ;
+; COLETANDO      ; 1     ; Signed Integer                           ;
+; TRANSMITIR     ; 2     ; Signed Integer                           ;
+; RESETAR        ; 3     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlDHT11:cntDHT7|dhtAlt:DHT ;
++---------------------+-------+------------------------------------------------+
+; Parameter Name      ; Value ; Type                                           ;
++---------------------+-------+------------------------------------------------+
+; IDLE                ; 0     ; Signed Integer                                 ;
+; START               ; 1     ; Signed Integer                                 ;
+; DETECT_SIGNAL       ; 2     ; Signed Integer                                 ;
+; WAIT_DHT11          ; 3     ; Signed Integer                                 ;
+; DHT11_RESPONSE      ; 4     ; Signed Integer                                 ;
+; DHT11_HIGH_RESPONSE ; 5     ; Signed Integer                                 ;
+; TRANSMIT            ; 6     ; Signed Integer                                 ;
+; DETECT_BIT          ; 7     ; Signed Integer                                 ;
+; WAIT_SIGNAL         ; 8     ; Signed Integer                                 ;
+; STOP                ; 9     ; Signed Integer                                 ;
++---------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ESCALONADOR_V3:escal ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; A              ; 0     ; Unsigned Binary                          ;
+; T              ; 1     ; Unsigned Binary                          ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_tx:transmissor_UART ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; IDLE           ; 00    ; Unsigned Binary                              ;
+; START          ; 01    ; Unsigned Binary                              ;
+; DATA           ; 10    ; Unsigned Binary                              ;
+; STOP           ; 11    ; Unsigned Binary                              ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controlDHT11:cntDHT0|dhtAlt:DHT"                                                           ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; hum_int[7]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; hum_float   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; temp_int[7] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; temp_float  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; check_sum   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ENTREGADOR:despachante"                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; pin_to_module[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "baudRateGenerator:gerador"                                                                                                                                                             ;
++-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reset     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; reset[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
++-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 11                          ;
+; cycloneiii_ff         ; 959                         ;
+;     ENA               ; 256                         ;
+;     ENA SCLR          ; 182                         ;
+;     SLD               ; 14                          ;
+;     plain             ; 507                         ;
+; cycloneiii_io_obuf    ; 8                           ;
+; cycloneiii_lcell_comb ; 2393                        ;
+;     arith             ; 439                         ;
+;         2 data inputs ; 439                         ;
+;     normal            ; 1954                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 38                          ;
+;         2 data inputs ; 376                         ;
+;         3 data inputs ; 334                         ;
+;         4 data inputs ; 1205                        ;
+;                       ;                             ;
+; Max LUT depth         ; 8.30                        ;
+; Average LUT depth     ; 4.21                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Sep 22 11:17:11 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PBLSD -c PBLSD
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file controlDHT11.v
+    Info (12023): Found entity 1: controlDHT11 File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/controlDHT11.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file dhtAlt.v
+    Info (12023): Found entity 1: dhtAlt File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file geradorMicrossegundo.v
+    Info (12023): Found entity 1: geradorMicrossegundo File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/geradorMicrossegundo.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file main.v
+    Info (12023): Found entity 1: main File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/main.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file receptor.v
+    Info (12023): Found entity 1: receptor File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/receptor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file TRIS.v
+    Info (12023): Found entity 1: TRIS File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/TRIS.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file baudRateGenerator.v
+    Info (12023): Found entity 1: baudRateGenerator File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/baudRateGenerator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file UART_tx.v
+    Info (12023): Found entity 1: UART_tx File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/UART_tx.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file ENTREGADOR.v
+    Info (12023): Found entity 1: ENTREGADOR File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/ENTREGADOR.v Line: 8
+Warning (12019): Can't analyze file -- file ESCALONADOR.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file mux_8_to_1.v
+    Info (12023): Found entity 1: mux_8_to_1 File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/mux_8_to_1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ESCALONADOR_V3.v
+    Info (12023): Found entity 1: ESCALONADOR_V3 File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/ESCALONADOR_V3.v Line: 16
+Warning (10236): Verilog HDL Implicit Net warning at controlDHT11.v(30): created implicit net for "microClock" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/controlDHT11.v Line: 30
+Info (12127): Elaborating entity "main" for the top level hierarchy
+Info (12128): Elaborating entity "baudRateGenerator" for hierarchy "baudRateGenerator:gerador" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/main.v Line: 25
+Info (12128): Elaborating entity "receptor" for hierarchy "receptor:receptor_UART" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/main.v Line: 27
+Info (12128): Elaborating entity "ENTREGADOR" for hierarchy "ENTREGADOR:despachante" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/main.v Line: 29
+Warning (10034): Output port "pin_to_module[31..9]" at ENTREGADOR.v(10) has no driver File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/ENTREGADOR.v Line: 10
+Info (12128): Elaborating entity "controlDHT11" for hierarchy "controlDHT11:cntDHT0" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/main.v Line: 31
+Warning (10036): Verilog HDL or VHDL warning at controlDHT11.v(13): object "resetDHT" assigned a value but never read File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/controlDHT11.v Line: 13
+Warning (10036): Verilog HDL or VHDL warning at controlDHT11.v(21): object "bufferDHT" assigned a value but never read File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/controlDHT11.v Line: 21
+Info (12128): Elaborating entity "geradorMicrossegundo" for hierarchy "controlDHT11:cntDHT0|geradorMicrossegundo:gerador" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/controlDHT11.v Line: 30
+Warning (10230): Verilog HDL assignment warning at geradorMicrossegundo.v(13): truncated value with size 32 to match size of target (6) File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/geradorMicrossegundo.v Line: 13
+Info (12128): Elaborating entity "dhtAlt" for hierarchy "controlDHT11:cntDHT0|dhtAlt:DHT" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/controlDHT11.v Line: 31
+Warning (10230): Verilog HDL assignment warning at dhtAlt.v(62): truncated value with size 32 to match size of target (15) File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 62
+Warning (10230): Verilog HDL assignment warning at dhtAlt.v(71): truncated value with size 32 to match size of target (15) File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 71
+Warning (10230): Verilog HDL assignment warning at dhtAlt.v(80): truncated value with size 32 to match size of target (15) File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 80
+Warning (10230): Verilog HDL assignment warning at dhtAlt.v(89): truncated value with size 32 to match size of target (15) File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 89
+Warning (10230): Verilog HDL assignment warning at dhtAlt.v(102): truncated value with size 32 to match size of target (15) File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 102
+Warning (10230): Verilog HDL assignment warning at dhtAlt.v(117): truncated value with size 32 to match size of target (15) File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 117
+Warning (10230): Verilog HDL assignment warning at dhtAlt.v(134): truncated value with size 32 to match size of target (15) File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 134
+Warning (10230): Verilog HDL assignment warning at dhtAlt.v(142): truncated value with size 32 to match size of target (6) File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 142
+Warning (10230): Verilog HDL assignment warning at dhtAlt.v(147): truncated value with size 32 to match size of target (15) File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 147
+Info (12128): Elaborating entity "TRIS" for hierarchy "controlDHT11:cntDHT0|dhtAlt:DHT|TRIS:tris" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/dhtAlt.v Line: 25
+Info (12128): Elaborating entity "ESCALONADOR_V3" for hierarchy "ESCALONADOR_V3:escal" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/main.v Line: 40
+Info (12128): Elaborating entity "mux_8_to_1" for hierarchy "ESCALONADOR_V3:escal|mux_8_to_1:m01" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/ESCALONADOR_V3.v Line: 92
+Info (12128): Elaborating entity "UART_tx" for hierarchy "UART_tx:transmissor_UART" File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/main.v Line: 42
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "controlDHT11:cntDHT0|dhtAlt:DHT|TRIS:tris|READ" to the node "controlDHT11:cntDHT0|dhtAlt:DHT|always0" into an OR gate File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/TRIS.v Line: 1
+    Warning (13047): Converted the fan-out from the tri-state buffer "controlDHT11:cntDHT1|dhtAlt:DHT|TRIS:tris|READ" to the node "controlDHT11:cntDHT1|dhtAlt:DHT|always0" into an OR gate File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/TRIS.v Line: 1
+    Warning (13047): Converted the fan-out from the tri-state buffer "controlDHT11:cntDHT2|dhtAlt:DHT|TRIS:tris|READ" to the node "controlDHT11:cntDHT2|dhtAlt:DHT|always0" into an OR gate File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/TRIS.v Line: 1
+    Warning (13047): Converted the fan-out from the tri-state buffer "controlDHT11:cntDHT3|dhtAlt:DHT|TRIS:tris|READ" to the node "controlDHT11:cntDHT3|dhtAlt:DHT|always0" into an OR gate File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/TRIS.v Line: 1
+    Warning (13047): Converted the fan-out from the tri-state buffer "controlDHT11:cntDHT4|dhtAlt:DHT|TRIS:tris|READ" to the node "controlDHT11:cntDHT4|dhtAlt:DHT|always0" into an OR gate File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/TRIS.v Line: 1
+    Warning (13047): Converted the fan-out from the tri-state buffer "controlDHT11:cntDHT5|dhtAlt:DHT|TRIS:tris|READ" to the node "controlDHT11:cntDHT5|dhtAlt:DHT|always0" into an OR gate File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/TRIS.v Line: 1
+    Warning (13047): Converted the fan-out from the tri-state buffer "controlDHT11:cntDHT6|dhtAlt:DHT|TRIS:tris|READ" to the node "controlDHT11:cntDHT6|dhtAlt:DHT|always0" into an OR gate File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/TRIS.v Line: 1
+    Warning (13047): Converted the fan-out from the tri-state buffer "controlDHT11:cntDHT7|dhtAlt:DHT|TRIS:tris|READ" to the node "controlDHT11:cntDHT7|dhtAlt:DHT|always0" into an OR gate File: /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/TRIS.v Line: 1
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 58 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/output_files/PBLSD.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2404 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21060): Implemented 8 bidirectional pins
+    Info (21061): Implemented 2393 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 450 megabytes
+    Info: Processing ended: Fri Sep 22 11:17:21 2023
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:16
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/aluno/Documentos/SDProblema01/ProjetoSD01-main/aluno2/output_files/PBLSD.map.smsg.
+
+

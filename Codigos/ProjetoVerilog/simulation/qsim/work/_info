@@ -1,0 +1,412 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/vande/Documents/SD/ProjetoSD01/aluno2/simulation/qsim
+vDESPACHANTE
+Z0 !s110 1693757481
+!i10b 1
+!s100 SBkLWQdCXQ@E]Vb[HPH[e2
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I4nGhbBkab[fJU1ak<PGZL2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/washi/OneDrive/Documentos/Github/ProjetoSD01/aluno2/simulation/qsim
+w1693757480
+Z4 8PBLSD.vo
+Z5 FPBLSD.vo
+!i122 96
+L0 32 862
+Z6 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1693757480.000000
+Z7 !s107 PBLSD.vo|
+Z8 !s90 -work|work|PBLSD.vo|
+!i113 1
+Z9 o-work work
+Z10 tCvgOpt 0
+n@d@e@s@p@a@c@h@a@n@t@e
+vDESPACHANTE_vlg_vec_tst
+R0
+!i10b 1
+!s100 4T]VE[HKeL8h[o;9IJc=H0
+R1
+IKU5>N>e>_aZD?jIbJYgB61
+R2
+R3
+w1693757479
+8Waveform7.vwf.vt
+FWaveform7.vwf.vt
+!i122 97
+L0 30 58
+R6
+r1
+!s85 0
+31
+!s108 1693757481.000000
+!s107 Waveform7.vwf.vt|
+!s90 -work|work|Waveform7.vwf.vt|
+!i113 1
+R9
+R10
+n@d@e@s@p@a@c@h@a@n@t@e_vlg_vec_tst
+vESCALONADOR
+Z11 !s110 1694103508
+!i10b 1
+!s100 A]c?VC8MmHHM4jRnN138a3
+R1
+IHP29T;L>^l9S<m1NX@l[M3
+R2
+R3
+w1694103507
+R4
+R5
+!i122 108
+L0 32 3831
+R6
+r1
+!s85 0
+31
+Z12 !s108 1694103508.000000
+R7
+R8
+!i113 1
+R9
+R10
+n@e@s@c@a@l@o@n@a@d@o@r
+vESCALONADOR_V2
+Z13 !s110 1694122564
+!i10b 1
+!s100 fL4nBbzQ64d6UR2oCCdIK2
+R1
+ISg:4?W_W=7BV05_GOVG>z2
+R2
+R3
+Z14 w1694122563
+R4
+R5
+!i122 122
+L0 32 3844
+R6
+r1
+!s85 0
+31
+Z15 !s108 1694122564.000000
+R7
+R8
+!i113 1
+R9
+R10
+n@e@s@c@a@l@o@n@a@d@o@r_@v2
+vESCALONADOR_V2_vlg_vec_tst
+R13
+!i10b 1
+!s100 >=<US`cWN>9e_7JnC0R[N3
+R1
+I@UL`iB1^PI@6Q0QLVbdPJ3
+R2
+R3
+R14
+8Waveform12.vwf.vt
+FWaveform12.vwf.vt
+!i122 123
+Z16 L0 30 736
+R6
+r1
+!s85 0
+31
+R15
+!s107 Waveform12.vwf.vt|
+!s90 -work|work|Waveform12.vwf.vt|
+!i113 1
+R9
+R10
+n@e@s@c@a@l@o@n@a@d@o@r_@v2_vlg_vec_tst
+vESCALONADOR_V3
+!s110 1694136752
+!i10b 1
+!s100 F;ClAW=:bT5Q7jYoIF_;U2
+R1
+Imz<8:m:HNC_dRKcbjek<T0
+R2
+R3
+w1694136752
+R4
+R5
+!i122 230
+L0 32 4371
+R6
+r1
+!s85 0
+31
+!s108 1694136752.000000
+R7
+R8
+!i113 1
+R9
+R10
+n@e@s@c@a@l@o@n@a@d@o@r_@v3
+vESCALONADOR_V3_vlg_vec_tst
+!s110 1694136753
+!i10b 1
+!s100 OO@WInUQL]hYUaEAl_LGk3
+R1
+I^Qm;_bkH@2M`m:`Gk5[6;0
+R2
+R3
+w1694136751
+Z17 8Waveform9.vwf.vt
+Z18 FWaveform9.vwf.vt
+!i122 231
+L0 30 820
+R6
+r1
+!s85 0
+31
+!s108 1694136753.000000
+Z19 !s107 Waveform9.vwf.vt|
+Z20 !s90 -work|work|Waveform9.vwf.vt|
+!i113 1
+R9
+R10
+n@e@s@c@a@l@o@n@a@d@o@r_@v3_vlg_vec_tst
+vESCALONADOR_vlg_vec_tst
+R11
+!i10b 1
+!s100 :Z6f`SAGlHl>VWDQaJB0e0
+R1
+IHQeb9]=OWcLYDPimWI0OC0
+R2
+R3
+w1694103506
+R17
+R18
+!i122 109
+R16
+R6
+r1
+!s85 0
+31
+R12
+R19
+R20
+!i113 1
+R9
+R10
+n@e@s@c@a@l@o@n@a@d@o@r_vlg_vec_tst
+vhard_block
+Z21 !s110 1695264188
+!i10b 1
+!s100 dR_G?A;d>^5^;_S5hW4U^1
+R1
+IAKCjVX==^jBZGBg:YGX0K3
+R2
+Z22 dC:/Users/vande/OneDrive/Documentos/Documentos/PBLAtualizado/dia2009/ProjetoSD01-main/aluno2/simulation/qsim
+Z23 w1695264187
+R4
+R5
+!i122 252
+L0 12230 34
+R6
+r1
+!s85 0
+31
+Z24 !s108 1695264188.000000
+R7
+R8
+!i113 1
+R9
+R10
+vmain
+Z25 !s110 1693613786
+!i10b 1
+!s100 g82D6==fHNoa7K3^SeF?]2
+R1
+IDTN8<EaP9@P9=08<P:TL42
+R2
+Z26 dC:/Users/washi/Downloads/Sistemas Digitais/aluno2/simulation/qsim
+w1693613786
+R4
+R5
+!i122 94
+L0 32 6386
+R6
+r1
+!s85 0
+31
+Z27 !s108 1693613786.000000
+R7
+R8
+!i113 1
+R9
+R10
+vmain_vlg_vec_tst
+R25
+!i10b 1
+!s100 G=H7DT0WM?T:Xl_0?KnUH3
+R1
+IlQ66=c@Xd@>;P7cd[9nO82
+R2
+R26
+w1693613785
+8Waveform6.vwf.vt
+FWaveform6.vwf.vt
+!i122 95
+L0 30 64
+R6
+r1
+!s85 0
+31
+R27
+!s107 Waveform6.vwf.vt|
+!s90 -work|work|Waveform6.vwf.vt|
+!i113 1
+R9
+R10
+vtestaTudo
+R21
+!i10b 1
+!s100 4zK^U]d_oTUJInW85=iG=1
+R1
+I6Gzm]KM9;5ghLlm?bbAn@3
+R2
+R22
+R23
+R4
+R5
+!i122 252
+L0 32 12197
+R6
+r1
+!s85 0
+31
+R24
+R7
+R8
+!i113 1
+R9
+R10
+ntesta@tudo
+vtestaTudo_vlg_vec_tst
+R21
+!i10b 1
+!s100 4S=McK6LloOgJQMbPA9iY1
+R1
+I>A41mY@ViKo=[IAG7ze3d2
+R2
+R22
+w1695264186
+8Waveform10.vwf.vt
+FWaveform10.vwf.vt
+!i122 253
+L0 30 328
+R6
+r1
+!s85 0
+31
+R24
+!s107 Waveform10.vwf.vt|
+!s90 -work|work|Waveform10.vwf.vt|
+!i113 1
+R9
+R10
+ntesta@tudo_vlg_vec_tst
+vteste
+Z28 !s110 1694124708
+!i10b 1
+!s100 Pj[zCJie>>2G4Fa:bc6E[2
+R1
+IgMDM:0M_OZZ`8_73TP3f>3
+R2
+R3
+Z29 w1694124707
+R4
+R5
+!i122 150
+L0 32 391
+R6
+r1
+!s85 0
+31
+Z30 !s108 1694124708.000000
+R7
+R8
+!i113 1
+R9
+R10
+vteste_ben
+Z31 !s110 1693529182
+!i10b 1
+!s100 3VgmeD`RV_Z88onPm^1R;3
+R1
+I547]O2@<j1HW@BI>_z^n01
+R2
+Z32 dC:/Users/washi/Downloads/ProjetoSD01-comunicacao-2bytes/aluno2/simulation/qsim
+w1693529181
+R4
+R5
+!i122 46
+L0 32 1406
+R6
+r1
+!s85 0
+31
+Z33 !s108 1693529182.000000
+R7
+R8
+!i113 1
+R9
+R10
+vteste_ben_vlg_vec_tst
+R31
+!i10b 1
+!s100 ?=NkW8`>mFSe0?Nh4FcRN0
+R1
+IB_7c4zYfc9OziF8gUQCh[1
+R2
+R32
+w1693529180
+8Waveform3.vwf.vt
+FWaveform3.vwf.vt
+!i122 47
+L0 30 26
+R6
+r1
+!s85 0
+31
+R33
+!s107 Waveform3.vwf.vt|
+!s90 -work|work|Waveform3.vwf.vt|
+!i113 1
+R9
+R10
+vteste_vlg_vec_tst
+R28
+!i10b 1
+!s100 I442G5?]<LIG]>if]md_53
+R1
+IKZ5e59^91ooSnWSPIJ=eI3
+R2
+R3
+R29
+8Waveform14.vwf.vt
+FWaveform14.vwf.vt
+!i122 151
+L0 30 74
+R6
+r1
+!s85 0
+31
+R30
+!s107 Waveform14.vwf.vt|
+!s90 -work|work|Waveform14.vwf.vt|
+!i113 1
+R9
+R10

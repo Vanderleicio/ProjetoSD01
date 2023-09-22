@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <termios.h>
+#include <string.h>
 
 /* Struct que representa um sensor
 *	Atributos: 
@@ -135,10 +136,10 @@ int main (){
 										// significativos
 			
 			// chame as funcoes que irao atualizar as informacoes dos sensores
-			limpaTela();
+			
 			printAllSensors(arrayE);
 			sleep(1); // deve chamar funcao de sleep para tornar possivel leitura das informacoes
-			
+			limpaTela();
 			if (pRT[0]!= 0 || pRT[1] != 0){ // se alguma informacao foi recebida:
 				// atualiza situacao ou chama mensagem de erro
 				refreshSensors(arrayE,address,info,comand);

@@ -38,7 +38,7 @@ int main() {
 
 	/** ######### TRECHO PARA ENVIAR ######### */
 	///**
-	strcpy(text, "BA");
+	strcpy(text, "0Z");
 	len = strlen(text);
 	// ESCREVE NA PORTA
 	len = write(fd, text, len);
@@ -61,8 +61,9 @@ int main() {
 	
 	/** ######### TRECHO PARA RECEBER ######### */
 	///**
+	//*
 	printf("Tem 5s para mandar os dados, corre!\n");
-	sleep(5);
+	sleep(1);
 
 	// Read from serial port 
 	memset(text, 0, numBytes);
@@ -78,7 +79,7 @@ int main() {
         	printBinary(pST[i]);
         	printf("\n");
     	}
-    	//*/
+    	
 	/** ######### FIM TRECHO PARA RECEBER ######### */
 	close(fd);// fecha a porta
 	return 0;

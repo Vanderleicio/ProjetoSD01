@@ -40,8 +40,8 @@ int main() {
 
 	/** ######### TRECHO PARA ENVIAR ######### */
     unsigned char envio[2]; /* string a ser enviada (conjunto de dois char)*/
-	unsigned char comando; /* Comando a enviar */
-	int srsAddress;		   /* Endereco do sensor */
+	unsigned char comando; 	/* Comando a enviar */
+	int srsAddress;		   	/* Endereco do sensor */
 
 	printf("Digite o endereco de um sensor ou -1 para sair\nAguardando: ");
 	scanf("%i", &srsAddress);

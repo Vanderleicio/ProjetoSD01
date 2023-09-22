@@ -95,8 +95,9 @@ int main (){
 	unsigned char *pST = (unsigned char *)&text;
 
 	// Informando a porta, que é somente leitura, sem delay
-	//	O_RDONLY e flag de somente leitura ; O_NDLEAY = sem delay; O_N0CTTY = porta
-	fd = open("/dev/ttyS0", O_RDONLY | O_NDELAY | O_NOCTTY);
+	//	O_RDONLY e flag de somente leitura ; O_NDELAY = sem delay; 
+	// 	O_NOCTTY =  evita que a porta serial se torne o terminal de controle do processo
+	fd = open("/dev/ttyS0", O_RDONLY | O_NDELAY | O_NOCTTY);	
 	if (fd < 0) {
 		perror("Error opening serial port");
 		return -1;

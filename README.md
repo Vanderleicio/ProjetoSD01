@@ -115,10 +115,14 @@ Dentro do módulo Uart Transmissor, uma máquina de estados finitos composta por
 
 
 
-## 6. Síntese
+## 6. Resultados de Síntese
+
+## 7. Como Executar
+
+## 8. Conclusões
 
 
-### 9. Referências
+## 9. Referências
 
 [R&S®Essentials - Compreenda à Uart](https://www.rohde-schwarz.com/br/produtos/teste-e-medicao/essentials-test-equipment/digital-oscilloscopes/compreender-uart_254524.html "Uart")
 

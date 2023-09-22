@@ -33,6 +33,8 @@
 
 ## Como Executar
 
+Para executar o projeto é necessário primeiramente baixá-lo e descomprimí-lo. Em seguida compile os arquivos "garcom.c" e "observer.c" em dois terminais diferentes usando o comando "gcc <NomeDoArquivo>.c -o <NomeDoObjeto> e executando o objeto gerado com o comando "./<NomeDoObjeto>". Para o projeto em Veriolog, é necessário abrí-lo usando o software de projetos Quartus II, usando o modelo de FPGA `Cyclone IV EP4CE30F23C7`, além disso é necessário realizar a pinagem da placa e em seguida programá-la.
+
 ## Introdução
 
 
@@ -44,7 +46,7 @@ Partindo desse pressuposto, foi solicitado aos autores desse documento o desenvo
 ## Características da Solução
 
 
-Para compreensão do desenvolvimento da solução, dividiremos a explicação em cinco subseções, a primeira seção descreve quais foram os materias utilizados no desenvolvimento do sistema, a seção de comunicaçãotrata sobre implementação da comunicação UART, o módulo FPGA reponsável pelo controle tanto da comunicação em C, quanto a comunicação com o DHT11, o módulo DHT11, implementado também no FPGA, e por fim a implementação do sistema de testes em C. De inicio começaremos falando sobre a comunicação UART.
+Para compreensão do desenvolvimento da solução, dividiremos a explicação em cinco subseções, a primeira seção descreve quais foram os materias utilizados no desenvolvimento do sistema, a seção de comunicação trata sobre implementação da comunicação UART, o módulo FPGA reponsável pelo controle tanto da comunicação em C, quanto a comunicação com o DHT11, o módulo DHT11, implementado também no FPGA, e por fim a implementação do sistema de testes em C. De inicio começaremos falando sobre a comunicação UART.
 
 ### Materiais utilizados
 --------------
@@ -53,7 +55,7 @@ Para compreensão do desenvolvimento da solução, dividiremos a explicação em
 - Kit de desenvolvimento `Mercúrio IV`.
 - FPGA `Cyclone IV EP4CE30F23C7`.
 - Linguagem de Programação C.
-- Linguagem de desenvolvimento de hardware verilog.
+- Linguagem de desenvolvimento de hardware Verilog.
 
 ### Módulo de Comunicação
 --------------
@@ -61,7 +63,7 @@ Para compreensão do desenvolvimento da solução, dividiremos a explicação em
 
 O UART, Universal Asynchronous Receiver/Transmitter, é um protocolo de comunicação serial que define um conjunto de regras para a troca de dados entre dois dispositivos (R&S Essentials). Contendo um transmissor e um receptor, conectados por fios,  a comunicação uart pode ser *simplex:* apenas uma direção realiza o envio de dados, *half-duplex:* as duas direções enviam os dados, porém cada um por vez, e por fim, os dados podem ser *full-duplex:* ambas as direções enviam dados simultaneamente.
 
-Na implementação desta solução, optou-se pelo uso de comunicação full-duplex, pois o sistema requer monitoramento contínuo dos dados, sem, no entanto, impedir a realização de novas solicitações a outros sensores. A seção referente ao [Módulo FPGA](#modulo-FPGA) fornece detalhes sobre como ocorre a alternância entre os sensores. Para assegurar a uniformidade dos dados compartilhados em ambas as extremidades da comunicação, é essencial que ambas operem com a mesma taxa de baud. Neste caso, foi selecionado o valor de 9.600 Hz.
+Na implementação desta solução, optou-se pelo uso de comunicação half-duplex, pois o sistema não permite que a FPGA e o computador enviem dados ao mesmo tempo. A seção referente ao [Módulo FPGA](#modulo-FPGA) fornece detalhes sobre como ocorre a alternância entre os sensores. Para assegurar a uniformidade dos dados compartilhados em ambas as extremidades da comunicação, é essencial que ambas operem com a mesma taxa de baud. Neste caso, foi selecionado o valor de 9.600 Hz.
 
 
 A comunicação UART é estabelecida entre o código C e a FPGA. No que diz respeito ao código C, a explicação é bastante simples. São utilizadas três bibliotecas (*stdio.h*, *unistd.h* e *fcntl.h*), além da definição de tags de controle, entrada, saída e local. Estas flags são responsáveis por habilitar o código C a realizar a comunicação UART.
@@ -122,7 +124,7 @@ O receptor UART possui duas saídas de informação cruciais para esta estrutura
 
 ## Módulo DHT11
 
-- **Salientando que o código do DHT11 utilizado foi implementado pelo grupo de: José Gabriel, Thiago, Pedro e Luís Henrique**
+- **Código do DHT11 adaptado do grupo: [José Gabriel, Thiago Pinto, Pedro Henrique e Luís Henrique](https://github.com/juserrrrr/DigitalSensorQuery/blob/main/fpgaProject/dht.v)**
 
 <center>
   
@@ -151,18 +153,22 @@ O módulo controlador possibilita a solicitação de diversas informações do s
 
 Essa estrutura é composta por uma máquina que possuí quatro estados distintos: 
 
-+ **Espera Comando:** O estado inicial permanece em espera até receber um comando (sinal de requisição). Se a solicitação recebida for para monitoramento contínuo, é essencial alternar o registrador que armazena as informações do comando solicitado para o sensor selecionado e, em seguida, avançar para o próximo estado. Tal como, se a solicitação for para um dado específico. Por outro lado, ocorre um erro se o valor for do contador for diferente de zero.
++ **Espera Comando:** O estado inicial permanece em espera até receber um comando (sinal de requisição). Se a solicitação recebida for para monitoramento contínuo, é essencial alternar o registrador que armazena as informações do comando solicitado para o sensor selecionado e, em seguida, avançar para o próximo estado. Tal como, se a solicitação for para um dado específico. Por outro lado, ocorre um erro se o valor do contador for diferente de zero, pois ele implemente um tempo de espera de 2 segundos entre as solicitações ao sensor DHT11.
 
 + **Coletando:** No estado de coleta e tratamento das informações do sensor, primeiro verifica-se se o sensor correspondente à solicitação já obteve todos os dados necessários, se não, se mantém no estado. Se  for confirmado, o registrador info, com 16 bits, recebe a informação do endereço do sensor (5 bits). Após essa atribuição e na ausência de erros detectados no sensor, inicia-se o processo para determinar qual comando foi enviado. Recebemos dados do sensor de temperatura e umidade, tanto em formato inteiro quanto decimal, e o dado de checksum, com 8 bits cada. Todas essas informações são armazenadas no barramento saidaDHT, que possui 40 bits. Com base no comando recebido do PC, seleciona-se um intervalo de 8 bits no saidaDHT correspondente ao que foi requisitado. Por exemplo, quando se solicita o valor da temperatura atual, info além de guardar o endereço do sensor, recebe o comando de resposta, e também armazena o dado de saidaDHT[22:16], que representa o valor inteiro da temperatura. A estrutura de info[15:0] é composta por 5 bits de endereço, 4 bits representando comando de resposta e os 7 bits restantes referentes a informação solicitada, ocupando todos os 16 bits definidos para essa funcionalidade.
 
-+ **Transmitir:** No estado de transmissão, a máquina aguarda até que o contador alcance zero e verifica se o módulo [escalonador](#escalonador) já retirou os dados do buffer. Caso isso ainda não tenha acontecido, ela permanece nesse estado.
++ **Transmitir:** No estado de transmissão, a máquina aguarda até que o módulo [escalonador](#escalonador) sinalize que já retirou os dados do buffer. Caso isso ainda não tenha acontecido, ela permanece nesse estado.
 
 + **Resetar:** 
-Ao chegar ao estado final, a máquina verifica se a solicitação é do tipo contínuo. Nesse caso, ela precisa repetir o processo até receber o comando para desativar esse monitoramento.
+Ao chegar ao estado final, a máquina verifica se a solicitação é do tipo contínuo. Nesse caso, ela precisa repetir o processo até receber o comando para desativar esse monitoramento, para isso alterna o registrador "solicitação" que garante que solicitações atuais e solicitações de monitoramento contínuo sejam atendidas de maneira revezada.
 
 
 #### Escalonador
 
+É o módulo responsável por garantir que os dados, fornecidos pelo controlador, de todos os sensores sejam enviados plenamente pelo transmissor. Ele tem apenas 2 estados, sendo eles:
++ **A:** Estado durante o qual o escalonador alterna entre os módulos controladores checando se algum deles está sinalizando que a informação que ele precisa enviar já está armazenada no seu buffer.
++ **T:** Estado que transmite a informação correspendente e sinaliza para o controlador quando toda sua informação já tiver sido transmitida.
+  
 ## Sistema de teste 
 
 ## Tabela de Comandos
@@ -185,7 +191,15 @@ A [Tabela 2](#tabela-resposta) exibe a codificação utilizada para os comandos 
 
 ## Teste
 
+Algumas simulações e os resultados encontrados:
 
+**Entrada:** Para endereço 0 e comando 0x01/ **Resposta:** Atualização do valor de temperatura do Sensor 0 para o valor medido;
+**Entrada:** Para endereço 0 e comando 0x02/ **Resposta:** Atualização do valor de umidade do Sensor 0 para o valor medido;
+**Entrada:** Para endereço 0 e comando 0x00/ **Resposta:** Mensagem informando que: sensor em pleno funcionamento (se houver sensor conectado), sensor não funciona (se não houver sensor conectado);
+**Entrada:** Para endereço 5 (que não tenha sensor conectado) e comando 0x02/ **Resposta:** Mensagem informando que o sensor não funciona;
+**Entrada:** Para endereço 0 e comando 0x03/ **Resposta:** Envio contínuo da temperatura do sensor 0;
+**Entrada:** Para endereço 0 e comando 0x05/ **Resposta:** Mensagem informando que o monitoramento de temperatura contínua foi desativado;
+**Entrada:** Para endereço 0, comando 1 0x03 e comando 2 0x02/ **Resposta:** Envio contínuo da temperatura com um envio da umidade;
 
 
 
@@ -201,6 +215,7 @@ Ao observar a Figura ... (sintese), nota-se que a implementação da solução p
 
 ## Conclusões
 
+A solução apresentada cumpre com os requisitos solicitados no problema tanto do ponto de vista técnico, quanto do ponto de vista teórica. Através do desenvolvimento do sistema foi possível entender e aprimorar conceitos básicos de sistemas digitais, bem como conceitos novos, como por exemplo, a comunicação serial UART e o gerenciamento do envio de dados em paralelo. Através desta solução é possível solicitar e verificar os índices de temperatura e umidade medidos pelo sensor, ativar e desativar o sensoriamento contínuo desses índices, bem como confirmar a situação atual de cada sensor. Como eventual melhora futura, é possível implementar padrões de confirmação de recebimento e envio dos dados tanto entre o computador e a placa FPGA, bem como entre o sensor e placa. 
 
 ## Referências
 

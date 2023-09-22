@@ -15,20 +15,20 @@
 
 ### Sumário 
 ------------
-+ [Como Executar](#como-executar).
-+ [Introdução](#introdução).
-+ [Características da solução](#características).
-+ &nbsp;&nbsp;&nbsp;[Materiais utilizados](#materiais).
-+ &nbsp;&nbsp;&nbsp;[Módulo de Comunicação](#comunicação).
-+ &nbsp;&nbsp;&nbsp;[Módulo FPGA](#módulo-FPGA).
-+ &nbsp;&nbsp;&nbsp;[Módulo DHT11](#módulo-DHT11).
-+ &nbsp;&nbsp;&nbsp;[Sistema de teste](#módulo-C).
-+ [Tabela de Comandos](#tabela-de-domandos).
-+ [Testes](#testes).
-+ [Síntese (LEs, LABs e Pinos)](#síntese).
-+ [Como Executar](#resultados).
-+ [Conclusões](#conclusões).
-+ [Referências](#referências). 
++ [Como Executar](#como-executar)
++ [Introdução](#introdução)
++ [Características da solução](#características)
++ &nbsp;&nbsp;&nbsp;[Materiais utilizados](#materiais)
++ &nbsp;&nbsp;&nbsp;[Módulo de Comunicação](#comunicação)
++ &nbsp;&nbsp;&nbsp;[Módulo FPGA](#módulo-FPGA)
++ &nbsp;&nbsp;&nbsp;[Módulo DHT11](#módulo-DHT11)
++ &nbsp;&nbsp;&nbsp;[Sistema de teste](#módulo-C)
++ [Tabela de Comandos](#tabela-de-domandos)
++ [Testes](#testes)
++ [Síntese (LEs, LABs e Pinos)](#síntese)
++ [Como Executar](#resultados)
++ [Conclusões](#conclusões)
++ [Referências](#referências)
 
 
 
@@ -125,7 +125,7 @@ O receptor UART possui duas saídas de informação cruciais para esta estrutura
 
 O módulo DHT11 é responsável por implementar a lógica de funcionamento do sensor. 
 
-[![DHT11]](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/dht11.png)
+[[DHT11]](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/dht11.png)
 
 Funcionamento do sensor [Components101](https://components101.com/sensors/dht11-temperature-sensor)
 #### Controlador
@@ -154,7 +154,7 @@ Essa estrutura é composta por uma máquina de estados que possui quatro estados
 
 Ao observar a Figura ... (sintese), nota-se que a implementação da solução proposta utiliza aproximadamente 8% dos elementos lógicos da placa e 10% dos seus LABs. Esses valores são consideráveis em comparação com as opções adotadas no projeto, como a utilização de muitas máquinas de estados.
 
-[![Síntese (LEs, LABs, Pinos)](#sintese "Síntese (LEs, LABs, Pinos)")](http://https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/resultadoDeSintese.png "Síntese (LEs, LABs, Pinos)")
+[Síntese (LEs, LABs, Pinos](https://github.com/Vanderleicio/ProjetoSD01/blob/main/imagens/resultadoDeSintese.png)
 
 ## Como Executar
 

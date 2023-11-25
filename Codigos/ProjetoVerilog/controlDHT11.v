@@ -109,14 +109,22 @@ module controlDHT11(clk, sinalRequest, comando, bufferUsado, dado, bufferPronto,
 									
 									4'b0001://Envia a temperatura medida atual.
 									begin
-										info[8:5] = 4'b1011; //Código 11 para sinalizar envio de temperatura.
-										info[15:9] = saidaDHT[22:16]; //Enviando os 7 últimos bits da temperatura;
+										if (erroDHT) begin
+											info[8:5] = 4'b1111; //Código 15 para sinalizar sensor com problema.
+											info[15:9] = 7'b0000000; //Não é para enviar dados do sensor;
+										end else begin
+											info[8:5] = 4'b1011; //Código 11 para sinalizar envio de temperatura.
+											info[15:9] = saidaDHT[22:16]; //Enviando os 7 últimos bits da temperatura;
 									end
 									
 									4'b0010://Envia a umidade medida atual.
 									begin
-										info[8:5] = 4'b1010; //Código 10 para sinalizar envio de umidade.
-										info[15:9] = saidaDHT[38:32]; //Enviando os 7 últimos bits da umidade;
+										if (erroDHT) begin
+											info[8:5] = 4'b1111; //Código 15 para sinalizar sensor com problema.
+											info[15:9] = 7'b0000000; //Não é para enviar dados do sensor;
+										end else begin
+											info[8:5] = 4'b1010; //Código 10 para sinalizar envio de umidade.
+											info[15:9] = saidaDHT[38:32]; //Enviando os 7 últimos bits da umidade;
 									end
 									
 									4'b0011: //Ativa o sensoriamento contínuo de temperatura.
